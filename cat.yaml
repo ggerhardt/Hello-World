@@ -137,7 +137,7 @@ components:
                   title: Recurso da API
                   description: Recurso implementado pela IF.
                   required:
-                    - idRecurso
+                    - caminhoRecurso
                   properties:
                     caminhoRecurso:
                       type: string
@@ -161,7 +161,7 @@ components:
                         - type: string
                           format: uri
                           title: URL Períodos Disponíveis
-                          description: URL opcional para buscar array de períodos disponíveis.
+                          description: Para recursos com períodos definidos na norma, indica URL que retorna array de períodos disponíveis.
                           example: '/KM1/Periodos'
                           maxLength: 100
                     periodicidade:
