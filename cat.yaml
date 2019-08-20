@@ -22,26 +22,31 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/catalogo'
-        x-code-samples:
-          - lang: 'C#'
-            source: |
-              PetStore.v1.Pet pet = new PetStore.v1.Pet();
-              pet.setApiKey("your api key");
-              pet.petType = PetStore.v1.Pet.TYPE_DOG;
-              pet.name = "Rex";
-              // set other fields
-              PetStoreResponse response = pet.create();
-              if (response.statusCode == HttpStatusCode.Created)
-              {
-                // Successfully created
-              }
-              else
-              {
-                // Something wrong -- check response for errors
-                Console.WriteLine(response.getRawResponse());
-              }
-          - lang: PHP
-            source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
+              examples:
+                exemplo1:
+                  $ref:  '#/components/examples/Banco%20XYZ'
+                exemplo2:
+                  $ref: '#/components/examples/Banco%20abc'
+      x-code-samples:
+        - lang: 'C#'
+          source: |
+            PetStore.v1.Pet pet = new PetStore.v1.Pet();
+            pet.setApiKey("your api key");
+            pet.petType = PetStore.v1.Pet.TYPE_DOG;
+            pet.name = "Rex";
+            // set other fields
+            PetStoreResponse response = pet.create();
+            if (response.statusCode == HttpStatusCode.Created)
+            {
+              // Successfully created
+            }
+            else
+            {
+              // Something wrong -- check response for errors
+              Console.WriteLine(response.getRawResponse());
+            }
+        - lang: PHP
+          source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
 
 components:
   schemas:
@@ -205,8 +210,11 @@ components:
                 title: E-mail de contato API
                 description: E-mail da área de contato para tratar problemas nos dados desta API. Se não preenchido o contato considerado é o definido no catálogo.
                 example: pillarIII@bancoxyz.com
-    examples:
-      Banco XYZ:
+  examples:
+    Banco XYZ:
+      summary: Banco XYZ
+      description: descrição do exemplo do banco xyz
+      value: 
         codigo: 99.99.999
         nome: Banco Xyz
         dataUltimaAtualizacao: '2019-06-11'
@@ -225,7 +233,10 @@ components:
             periodicidade: semestral
           contatoArea: Financeiro
           contatoEmail: pillarIII@bancoxyz.com      
-      Banco abc:
+    Banco abc:
+      description: descrição do exemplo do banco abc
+      summary: Banco abc
+      value: 
         codigo: A2232222
         nome: Banco Xyz
         dataUltimaAtualizacao: '2019-06-11'
@@ -244,4 +255,4 @@ components:
             periodicidade: semestral
           contatoArea: Financeiro
           contatoEmail: pillarIII@bancoxyz.com                
-              
+   
