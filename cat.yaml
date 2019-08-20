@@ -142,8 +142,8 @@ components:
                     caminhoRecurso:
                       type: string
                       format: uri
-                      title: URI template do recurso
-                      description: URI de template para acesso ao recurso, conforme API.
+                      title: Caminho do recurso
+                      description: Identificação do recurso implementado, conforme API.
                       example: '/KM1/{periodo}'
                       maxLength: 100
                     periodos:
