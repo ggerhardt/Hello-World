@@ -33,20 +33,25 @@ components:
       title: Catálogo de conjuntos de dados abertos
       description: Catálogo com informações dos conjuntos de dados abertos publicados pela instituição financeira.
       required:
-        - cnpj
+        - codigo
         - nome
         - dataUltimaAtualizacao
         - contatoArea
         - contatoEmail
         - conjuntos
       properties:
-        cnpj:
-          type: string
-          title: CNPJ
-          description: codigo CNPJ de 8 dígitos, formatado.
-          example: 01.010.101
-          maxLength: 10
-          pattern: ^[0-9]{2}.[0-9]{3}.[0-9]{3}$
+        codigo:
+          oneOf:
+            - type: string
+              title: CNPJ
+              description: 'codigo CNPJ de 8 dígitos, formatado.'
+              example: 01.010.101
+              pattern: '^[0-9]{2}.[0-9]{3}.[0-9]{3}$'
+            - type: string
+              title: Código do Conglomerado Prudencial ou da instituição
+              description: Identificação do Conglomerado Prudencial ou Instituição.
+              example: A0000000
+              pattern: '^[A-Z]{1}[0-9]{7}$'
         nome:
           type: string
           title: Nome da IF
