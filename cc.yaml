@@ -16,7 +16,7 @@ paths:
   /itens:
     get:
       tags: [API]
-      summary: Informações de taxas diárias cobradas para o dólar para o cartão de
+      summary: Taxas de câmbio aplicadas nos cartões de
         crédito
       responses:
         200:
@@ -28,7 +28,7 @@ paths:
   /itens/ultimo:
     get:
       tags: [API]
-      summary: Informações das taxas diárias cobradas para o dólar para o cartão de
+      summary: Taxas de câmbio aplicadas nos cartões de
         crédito no último dia disponível
       responses:
         200:
@@ -47,6 +47,10 @@ components:
         type: object
         title: Cartão e seus Históricos de Taxas
         description: Agrega os dados de um cartão de uma bandeira
+        required:
+          - cartaoNome
+          - cartaoBandeira
+          - historicoTaxas
         properties:
           cartaoNome:
             type: string
@@ -68,6 +72,11 @@ components:
             description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, composto dos seguintes campos:\n- taxaTipoGasto\n- taxaData\n- taxaConversao\n- taxaDivulgacaoDataHora"
             items:
               type: object
+              required:
+                - taxaTipoGasto
+                - taxaData
+                - taxaConversao
+                - taxaDivulgacaoDataHora
               properties:
                 taxaTipoGasto:
                   type: string
@@ -78,7 +87,6 @@ components:
                     - Débito à conta
                   example:   Crédito
                   maxLength: 50
-
                 taxaData:
                   type: string
                   format: date
