@@ -49,7 +49,7 @@ paths:
           source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
   /catalogo2:
     get:
-      operationId: buscarCatalogo
+      operationId: buscarCatalogo2
       description: "Retorna informações sobre a instituição e sobre os conjuntos de\
         \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
       responses:
@@ -86,7 +86,7 @@ paths:
           source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
   /catalogo3:
     get:
-      operationId: buscarCatalogo
+      operationId: buscarCatalogo3
       description: "Retorna informações sobre a instituição e sobre os conjuntos de\
         \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
       responses:
