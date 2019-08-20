@@ -1,0 +1,101 @@
+openapi: 3.0.1
+info:
+  title: Taxas de Câmbio nos Cartões de Crédito
+  version: 1.0.0
+  description: |
+    Esta especificação define a API de serviços que permite visualizar as taxas de câmbio diárias para o dólar utilizadas nos cartões de crédito:
+  contact:
+    email: "apiteam??@bcb.gov.br"
+  license:
+    name: "Open Database License (ODbL)"
+    url: "http://opendefinition.org/licenses/odc-odbl/"
+tags:
+- name: API
+  description: Informações sobre recursos disponíveis na API
+paths:
+  /itens:
+    get:
+      tags: [API]
+      summary: Informações de taxas diárias cobradas para o dólar para o cartão de
+        crédito
+      responses:
+        200:
+          description: Sucesso
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/historicoTaxasCartoes'
+  /itens/ultimo:
+    get:
+      tags: [API]
+      summary: Informações das taxas diárias cobradas para o dólar para o cartão de
+        crédito no último dia disponível
+      responses:
+        200:
+          description: Sucesso
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/historicoTaxasCartoes'
+components:
+  schemas:
+    historicoTaxasCartoes:
+      type: array
+      title: Lista de Cartões e seus Históricos de Taxas
+      description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, composto dos seguintes campos:\n- taxaTipoGasto\n- taxaData\n- taxaConversao\n- taxaDivulgacaoDataHora"
+      items:
+        type: object
+        title: Cartão e seus Históricos de Taxas
+        description: Agrega os dados de um cartão de uma bandeira
+        properties:
+          cartaoNome:
+            type: string
+            title: Nome do Cartão
+            description: "Nome do cartão de uso internacional"
+            example: XYZ Paladium
+            maxLength: 50
+            pattern: ^(.*)$
+          cartaoBandeira:
+            type: string
+            title: Bandeira do Cartão
+            description: "Nome do instituidor do arranjo de pagamento (bandeira do cartão)"
+            example: Visa / Mastercard / Elo / American Express / ...
+            maxLength: 50
+            pattern: ^(.*)$
+          historicoTaxas:
+            type: array
+            title: Histórico de Taxas
+            description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, composto dos seguintes campos:\n- taxaTipoGasto\n- taxaData\n- taxaConversao\n- taxaDivulgacaoDataHora"
+            items:
+              type: object
+              properties:
+                taxaTipoGasto:
+                  type: string
+                  title: Tipo do Gasto
+                  description: "Identificação do tipo de gasto efetuado: \n- Compras ou saques na função crédito\n- Compras ou saques na função débito à conta"
+                  enum:
+                    - Crédito
+                    - Débito à conta
+                  example:   Crédito
+                  maxLength: 50
+
+                taxaData:
+                  type: string
+                  format: date
+                  title: Data
+                  description: Data da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional
+                  example: '01/03/2020'
+                taxaConversao:
+                  title: Taxa de Conversão
+                  type: number
+                  format: double
+                  multipleOf: 0.0001
+                  example: 3.456789
+                  description: "Taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, representada com a precisão de até seis casas decimais"
+                taxaDivulgacaoDataHora:
+                  type: string
+                  format: date-time
+                  title: Data da Divulgação
+                  description: "Data e hora da divulgação da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional"
+                  example: '2017-07-21T17:32:28Z'
+                  maxLength: 25
