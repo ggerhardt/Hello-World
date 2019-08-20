@@ -42,7 +42,7 @@ components:
     historicoTaxasCartoes:
       type: array
       title: Lista de Cartões e seus Históricos de Taxas
-      description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, composto dos seguintes campos:\n- taxaTipoGasto\n- taxaData\n- taxaConversao\n- taxaDivulgacaoDataHora"
+      description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira de cartões de uso internacional"
       items:
         type: object
         title: Cartão e seus Históricos de Taxas
@@ -69,7 +69,7 @@ components:
           historicoTaxas:
             type: array
             title: Histórico de Taxas
-            description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, composto dos seguintes campos:\n- taxaTipoGasto\n- taxaData\n- taxaConversao\n- taxaDivulgacaoDataHora"
+            description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional."
             items:
               type: object
               required:
@@ -91,7 +91,7 @@ components:
                   type: string
                   format: date
                   title: Data
-                  description: Data da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional
+                  description: Data da taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional
                   example: '01/03/2020'
                 taxaConversao:
                   title: Taxa de Conversão
