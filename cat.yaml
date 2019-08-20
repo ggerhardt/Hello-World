@@ -22,6 +22,27 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/catalogo'
+        x-code-samples:
+          - lang: 'C#'
+            source: |
+              PetStore.v1.Pet pet = new PetStore.v1.Pet();
+              pet.setApiKey("your api key");
+              pet.petType = PetStore.v1.Pet.TYPE_DOG;
+              pet.name = "Rex";
+              // set other fields
+              PetStoreResponse response = pet.create();
+              if (response.statusCode == HttpStatusCode.Created)
+              {
+                // Successfully created
+              }
+              else
+              {
+                // Something wrong -- check response for errors
+                Console.WriteLine(response.getRawResponse());
+              }
+          - lang: PHP
+            source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
+
 components:
   schemas:
     catalogo:
@@ -184,4 +205,43 @@ components:
                 title: E-mail de contato API
                 description: E-mail da área de contato para tratar problemas nos dados desta API. Se não preenchido o contato considerado é o definido no catálogo.
                 example: pillarIII@bancoxyz.com
-
+    examples:
+      Banco XYZ:
+        codigo: 99.99.999
+        nome: Banco Xyz
+        dataUltimaAtualizacao: '2019-06-11'
+        contatoArea: Ouvidoria
+        contatoEmail: ouvid@bancoxyz.com.br
+        conjuntos:
+        - ref: https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao
+          nome: Basiléia - PillarIII
+          urlBase: http://dadosabertos.bancoxyz.com.br/pillar/1.0/
+          urlVisualizacao: https://bancoxyz.com.br/ConsultaPillarIII
+          situacao: Produção
+          recursos:
+          - caminhoRecurso: "/KM1/{periodo}"
+            periodos:
+            - '201901'
+            periodicidade: semestral
+          contatoArea: Financeiro
+          contatoEmail: pillarIII@bancoxyz.com      
+      Banco abc:
+        codigo: A2232222
+        nome: Banco Xyz
+        dataUltimaAtualizacao: '2019-06-11'
+        contatoArea: Ouvidoria
+        contatoEmail: ouvid@bancoxyz.com.br
+        conjuntos:
+        - ref: https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao
+          nome: Basiléia - PillarIII
+          urlBase: http://dadosabertos.bancoxyz.com.br/pillar/1.0/
+          urlVisualizacao: https://bancoxyz.com.br/ConsultaPillarIII
+          situacao: Produção
+          recursos:
+          - caminhoRecurso: "/KM1/{periodo}"
+            periodos:
+            - '201901'
+            periodicidade: semestral
+          contatoArea: Financeiro
+          contatoEmail: pillarIII@bancoxyz.com                
+              
