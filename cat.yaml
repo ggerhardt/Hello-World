@@ -1,3 +1,31 @@
+paths:
+  /catalogo:
+    get:
+      operationId: buscarCatalogo
+      description: "Retorna informações sobre a instituição e sobre os conjuntos de\
+        \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
+      responses:
+        200:
+          description: Resposta bem sucedida
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/catalogo'
+components:
+  schemas:
+    catalogo:
+      type: object
+      title: Catálogo de conjuntos de dados abertos
+      description: Catálogo com informações dos conjuntos de dados abertos publicados pela instituição financeira.
+      required:
+        - codigo
+        - nome
+        - dataUltimaAtualizacao
+        - contatoArea
+        - contatoEmail
+        - conjuntos
+      properties:
+
 openapi: 3.0.1
 info:
   title: Catálogo de Dados Abertos de Instituições Financeiras
@@ -9,10 +37,6 @@ info:
   license:
     name: "Open Database License (ODbL)"
     url: "http://opendefinition.org/licenses/odc-odbl/"
-servers:
-  - url: //petstore.swagger.io/v2
-    description: Default server
-
 paths:
   /catalogo:
     get:
@@ -51,8 +75,7 @@ components:
               title: Código do Conglomerado Prudencial ou da instituição
               description: Identificação do Conglomerado Prudencial ou Instituição.
               example: A0000000
-              pattern: '^[A-Z]{1}[0-9]{7}$'
-        nome:
+              pattern: '^[A-Z]{1}[0-9]{7}$'        nome:
           type: string
           title: Nome da IF
           description: Nome da Instituição Financeira.
@@ -188,3 +211,4 @@ components:
                 title: E-mail de contato API
                 description: E-mail da área de contato para tratar problemas nos dados desta API.
                 example: pillarIII@bancoxyz.com
+
