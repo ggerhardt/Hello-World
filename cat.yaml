@@ -9,6 +9,10 @@ info:
   license:
     name: "Open Database License (ODbL)"
     url: "http://opendefinition.org/licenses/odc-odbl/"
+servers:
+  - url: //petstore.swagger.io/v2
+    description: Default server
+
 paths:
   /catalogo:
     get:
