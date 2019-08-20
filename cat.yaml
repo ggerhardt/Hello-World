@@ -47,6 +47,80 @@ paths:
             }
         - lang: PHP
           source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
+  /catalogo2:
+    get:
+      operationId: buscarCatalogo
+      description: "Retorna informações sobre a instituição e sobre os conjuntos de\
+        \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
+      responses:
+        200:
+          description: Resposta bem sucedida
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/catalogo'
+              examples:
+                exemplo1:
+                  $ref:  '#/components/examples/Banco%20XYZ'
+                exemplo2:
+                  $ref: '#/components/examples/Banco%20abc'
+      x-code-samples:
+        - lang: 'C#'
+          source: |
+            PetStore.v1.Pet pet = new PetStore.v1.Pet();
+            pet.setApiKey("your api key");
+            pet.petType = PetStore.v1.Pet.TYPE_DOG;
+            pet.name = "Rex";
+            // set other fields
+            PetStoreResponse response = pet.create();
+            if (response.statusCode == HttpStatusCode.Created)
+            {
+              // Successfully created
+            }
+            else
+            {
+              // Something wrong -- check response for errors
+              Console.WriteLine(response.getRawResponse());
+            }
+        - lang: PHP
+          source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
+  /catalogo3:
+    get:
+      operationId: buscarCatalogo
+      description: "Retorna informações sobre a instituição e sobre os conjuntos de\
+        \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
+      responses:
+        200:
+          description: Resposta bem sucedida
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/catalogo'
+              examples:
+                exemplo1:
+                  $ref:  '#/components/examples/Banco%20XYZ'
+                exemplo2:
+                  $ref: '#/components/examples/Banco%20abc'
+      x-code-samples:
+        - lang: 'C#'
+          source: |
+            PetStore.v1.Pet pet = new PetStore.v1.Pet();
+            pet.setApiKey("your api key");
+            pet.petType = PetStore.v1.Pet.TYPE_DOG;
+            pet.name = "Rex";
+            // set other fields
+            PetStoreResponse response = pet.create();
+            if (response.statusCode == HttpStatusCode.Created)
+            {
+              // Successfully created
+            }
+            else
+            {
+              // Something wrong -- check response for errors
+              Console.WriteLine(response.getRawResponse());
+            }
+        - lang: PHP
+          source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
 
 components:
   schemas:
