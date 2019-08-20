@@ -9,6 +9,9 @@ info:
   license:
     name: "Open Database License (ODbL)"
     url: "http://opendefinition.org/licenses/odc-odbl/"
+servers:
+  - url: 'http://editor.swagger.io/'
+    description: Servidor de testes
 paths:
   /catalogo:
     get:
