@@ -167,14 +167,14 @@ components:
                     periodicidade:
                       type: string
                       title: Periodicidade
-                      description: Informativo. Se houver periodicidade definida, indica qual é.
+                      description: Se houver periodicidade de atualização dos dados definida, indica qual é.
                       example: semestral
                       maxLength: 50
                       pattern: ^(.*)$
               contatoArea:
                 type: string
                 title: Área de Contato API
-                description: Nome da área de contato para tratar problemas nos dados específicos desta API. Opcional
+                description: Nome da área de contato para tratar problemas nos dados específicos desta API. Se não preenchido o contato considerado é o definido no catálogo.
                 example: Financeiro
                 maxLength: 50
                 pattern: ^(.*)$
@@ -182,6 +182,6 @@ components:
                 type: string
                 format: email
                 title: E-mail de contato API
-                description: E-mail da área de contato para tratar problemas nos dados desta API.
+                description: E-mail da área de contato para tratar problemas nos dados desta API. Se não preenchido o contato considerado é o definido no catálogo.
                 example: pillarIII@bancoxyz.com
 
