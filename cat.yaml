@@ -1,31 +1,3 @@
-paths:
-  /catalogo:
-    get:
-      operationId: buscarCatalogo
-      description: "Retorna informações sobre a instituição e sobre os conjuntos de\
-        \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
-      responses:
-        200:
-          description: Resposta bem sucedida
-          content:
-            'application/json:':
-              schema:
-                $ref: '#/components/schemas/catalogo'
-components:
-  schemas:
-    catalogo:
-      type: object
-      title: Catálogo de conjuntos de dados abertos
-      description: Catálogo com informações dos conjuntos de dados abertos publicados pela instituição financeira.
-      required:
-        - codigo
-        - nome
-        - dataUltimaAtualizacao
-        - contatoArea
-        - contatoEmail
-        - conjuntos
-      properties:
-
 openapi: 3.0.1
 info:
   title: Catálogo de Dados Abertos de Instituições Financeiras
