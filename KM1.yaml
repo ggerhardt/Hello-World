@@ -1,219 +1,416 @@
-openapi: 3.0.1
+openapi: 3.0.2
 info:
-  title: Pillar3
+  title: Esta especificação define a API de serviços que disponibilizam dados do Relatório de Pilar 3
   version: 1.0.0
-  description: ""       
+  description: |
+    Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez.
   contact:
     email: "apiteam??@bcb.gov.br"
   license:
     name: "Open Database License (ODbL)"
     url: "http://opendefinition.org/licenses/odc-odbl/"
+tags:
+- name: "Comparação entre Informações Contábeis e Prudenciais"
+
 paths:
-  /KM1/relatorio/{periodo}:
+  /lia/{ano}:
     get:
-      summary: Informações quantitativas sobre os requerimentos prudenciais 
+      tags:
+        - "Comparação entre Informações Contábeis e Prudenciais"
+      summary: "Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2)."
       parameters:
-      - name: periodo
-        in: path
-        description: Opções de retorno das informações
-        required: true
-        schema:
-          type: string
+        - $ref: "Comum.yaml#/components/parameters/ano"
       responses:
         200:
           description: Sucesso
           content:
             'application/json:':
               schema:
-                $ref: '#/components/schemas/KM1-Report'
+                $ref: '#/components/schemas/lia'
+  /li1/{ano}:
+    get:
+      tags:
+        - "Comparação entre Informações Contábeis e Prudenciais"
+      summary: "Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco"
+      parameters:
+        - $ref: "Comum.yaml#/components/parameters/ano"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/li1'
+  /li2/{ano}:
+    get:
+      tags:
+        - "Comparação entre Informações Contábeis e Prudenciais"
+      summary: "Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições"
+      parameters:
+        - $ref: "Comum.yaml#/components/parameters/ano"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/li2'
+  /pv1/{ano}:
+    get:
+      tags:
+        - "Comparação entre Informações Contábeis e Prudenciais"
+      summary: "Detalhar os elementos considerados no cálculo dos ajustes prudenciais a serem efetuados no processo de apreçamento de instrumentos financeiros avaliados pelo valor de mercado, conforme disposto na Resolução nº 4.277, de 2013."
+      parameters:
+        - $ref: "Comum.yaml#/components/parameters/ano"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/pv1'
+                
 components:
   schemas:
-    KM1-Report:
+    lia:
       type: object
-      properties:    
+      title: "Explicação das diferenças entre valores registrados nas demonstrações contábeis e valores das exposições sujeitas a tratamento prudencial"
+      description: "Informações qualitativas."
+      properties:
+        lia_anoReferencia:
+          $ref: 'Comum.yaml#/components/schemas/ano'
+        lia_a:
+          type: string
+          description: "Explicação das diferenças significativas entre os valores reportados nas colunas (a) e (b) da tabela LI1."
+        lia_b:
+          type: string
+          description: "Explicação das diferenças relevantes reportadas nas linhas 6 a 9 da tabela LI2."
+        lia_c:
+          type: string
+          description: "Descrição dos sistemas e controles utilizados para assegurar a confiabilidade do apreçamento conforme disposto na Resolução nº 4.277, de 31 de outubro de 2013, quando este resultar em valor diferente do registrado contabilmente (linha 5 da tabela LI2), abrangendo:
+          
+          - descrição das metodologias de apreçamento, incluindo o grau de utilização de avaliação a mercado e de avaliação por modelo;
+          
+          - descrição dos procedimentos de verificação independente;
+          
+          - procedimentos para a avaliação da necessidade de ajustes prudenciais decorrentes do apreçamento de instrumentos financeiros."
+
+    valor_li1:
+      type: object
+      properties:
+        a:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Valores reportados nas demonstrações financeiras"
+        b:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Valores considerados na regulamentação prudencial"
+        c:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao risco de crédito"
+        d:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao risco de crédito de contraparte"
+        e:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao arcabouço de securitização"
+        f:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao risco de mercado"
+        g:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR"
+
+    li1:
+      type: object
+      title: Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco
+      description: "Valores contábeis reportados nas demonstrações financeiras publicadas e os considerados na regulamentação prudencial."
+      properties:
         li1_anoReferencia:
+          $ref: 'Comum.yaml#/components/schemas/ano'
+        li1_11:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: Disponibilidades
+            - description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
+        li1_12:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Aplicações interfinanceiras de liquidez"
+            - description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
+        li1_13:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Títulos e valores mobiliários e instrumentos financeiros derivativos"
+            - description: "Corresponde ao saldo da conta 1.3.0.00.00-4 do Cosif no último dia do ano de referência"
+        li1_14:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Relações interfinanceiras"
+            - description: "Corresponde ao saldo da conta 1.4.0.00.00-3 do Cosif no último dia do ano de referência"
+        li1_15:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Relações interdependências"
+            - description: "Corresponde ao saldo da conta 1.5.0.00.00-2 do Cosif no último dia do ano de referência"
+        li1_16:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Operações de crédito"
+            - description: "Corresponde ao saldo da conta 1.6.0.00.00-1 do Cosif no último dia do ano de referência"
+        li1_17:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Operações de arrendamento mercantil"
+            - description: "Corresponde ao saldo da conta 1.7.0.00.00-0 do Cosif no último dia do ano de referência"
+        li1_18:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Outros créditos"
+            - description: "Corresponde ao saldo da conta 1.8.0.00.00-9 do Cosif no último dia do ano de referência"
+        li1_19:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Outros valores e bens"
+            - description: "Corresponde ao saldo da conta 1.9.0.00.00-8 do Cosif no último dia do ano de referência"
+        li1_2:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Ativo Permanente"
+            - description: "Corresponde ao saldo da conta 2 do Cosif no último dia do ano de referência"
+        li1_I:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Total de ativos"
+            - description: "Corresponde ao saldo total dos ativos no último dia do ano de referência"
+        li1_41:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Depósitos"
+            - description: "Corresponde ao saldo da conta 4.1.0.00.00-7 do Cosif no último dia do ano de referência"
+        li1_42:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Obrigações por operações compromissadas"
+            - description: "Corresponde ao saldo da conta 4.2.0.00.00-6 do Cosif no último dia do ano de referência"
+        li1_43:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Recursos de aceites cambiais, letras imobiliárias e hipotecárias, debêntures e similares"
+            - description: "Corresponde ao saldo da conta 4.3.0.00.00-5 do Cosif no último dia do ano de referência"
+        li1_44:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Relações interfinanceiras"
+            - description: "Corresponde ao saldo da conta 4.4.0.00.00-4 do Cosif no último dia do ano de referência"
+        li1_45:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Relações interdependências"
+            - description: "Corresponde ao saldo da conta 4.5.0.00.00-3 do Cosif no último dia do ano de referência"
+        li1_46:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Obrigações por empréstimos e repasses"
+            - description: "Corresponde ao saldo da conta 4.6.0.00.00-2 do Cosif no último dia do ano de referência"
+        li1_47:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Instrumentos financeiros derivativos"
+            - description: "Corresponde ao saldo da conta 4.7.0.00.00-1 do Cosif no último dia do ano de referência"
+        li1_49:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Outras obrigações"
+            - description: "Corresponde ao saldo da conta 4.9.0.00.00-9 do Cosif no último dia do ano de referência"
+        li1_II:
+          allOf:
+            - $ref: '#/components/schemas/valor_li1'
+            - title: "Total de passivos"
+            - description: "Corresponde ao saldo total dos passivos no último dia do ano de referência"
+        li1_comentario:
           type: string
-          title: Ano de referência
-          description: "Ano a que se referem as informações."
-          example: 2019
-          maxLength: 50
-          pattern: ^(.*)$
-        Ativos:
-          type: array
-          title: Classificação da Conta
-          description: "Lista contas classificadas como Ativo"
-          items:
-            type: object
-            properties:
-              li1_coluna:
-                type: string
-                title: Categoria do valor
-                description: "Informações sobre as categorias dos valores, composto por repetições dos campos \nl11_trimestreReferencia. É composto pelos campos li1_11, li1_12, li1_13, li1_14, li1_15, li1_16, li1_17, li1_18, li1_19, li1_2, li1_I, li1_41, li1_42, li1_43, li1_46, li1_47, li1_48, li1_II. Seu valor deve ser:\n -\na = Valores reportados nas demonstrações financeiras\n\n -b = Valores considerados na regulamentação prudencial\n\n -c = Valores sujeitos ao risco de crédito considerados na regulamentação prudencial\n\n -d = Valores sujeitos ao risco de crédito de contraparte considerados na regulamentação prudencial\n\n -e = Valores sujeitos ao arcabouço de securitização considerados na regulamentação prudencial\n\n -f = Valores sujeitos ao risco de mercado considerados na regulamentação prudencial\n\n -g = Valores dos itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR e considerados na regulamentação prudencial"
-                enum:
-                  - a
-                  - b
-                  - c
-                  - d
-                  - e
-                  - f
-                  - g
-              
-                example:  a
-                maxLength: 50
-              
-              li1_11:
-                title: Disponibilidades
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
-              li1_12:
-                title: Aplicações interfinanceiras de liquidez
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
-              li1_13:
-                title: Títulos e valores mobiliários e instrumentos financeiros derivativos
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.3.0.00.00-4 do Cosif no último dia do ano de referência"
-              li1_14:
-                title: Relações interfinanceiras
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.4.0.00.00-3 do Cosif no último dia do ano de referência"
-              li1_15:
-                title: Relações interdependências
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.5.0.00.00-2 do Cosif no último dia do ano de referência"
-              li1_16:
-                title: Operações de crédito
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.6.0.00.00-1 do Cosif no último dia do ano de referência"
-              li1_17:
-                title: Operações de arrendamento mercantil
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.7.0.00.00-0 do Cosif no último dia do ano de referência"
-              li1_18:
-                title: Outros créditos
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.8.0.00.00-9 do Cosif no último dia do ano de referência"
-              li1_19:
-                title: Outros valores e bens
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 1.9.0.00.00-8 do Cosif no último dia do ano de referência"
-              li1_2:
-                title: Ativo Permanente
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 2 do Cosif no último dia do ano de referência"
-              li1_I:
-                title: Total de ativos
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo total dos ativos no último dia do ano de referência"
-        Passivo:
-          type: array
-          title: Classificação da Conta
-          description: "Lista contas classificadas como Passivo"
-          items:
-            type: object
-            properties:
-              li1_coluna:
-                type: string
-                title: Categoria do valor
-                description: "Informações sobre as categorias dos valores, composto por repetições dos campos \nl11_trimestreReferencia. É composto pelos campos li1_11, li1_12, li1_13, li1_14, li1_15, li1_16, li1_17, li1_18, li1_19, li1_2, li1_I, li1_41, li1_42, li1_43, li1_46, li1_47, li1_48, li1_II. Seu valor deve ser:\n -\na = Valores reportados nas demonstrações financeiras\n\n -b = Valores considerados na regulamentação prudencial\n\n -c = Valores sujeitos ao risco de crédito considerados na regulamentação prudencial\n\n -d = Valores sujeitos ao risco de crédito de contraparte considerados na regulamentação prudencial\n\n -e = Valores sujeitos ao arcabouço de securitização considerados na regulamentação prudencial\n\n -f = Valores sujeitos ao risco de mercado considerados na regulamentação prudencial\n\n -g = Valores dos itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR e considerados na regulamentação prudencial"
-                enum:
-                  - a
-                  - b
-                  - c
-                  - d
-                  - e
-                  - f
-                  - g
-              
-                example:  b
-                maxLength: 50
-              
-              li1_41:
-                title: Depósitos
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 4.1.0.00.00-7 do Cosif no último dia do ano de referência"
-              li1_42:
-                title: Obrigações por operações compromissadas
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 4.2.0.00.00-6 do Cosif no último dia do ano de referência"
-              li1_43:
-                title: Recursos de aceites cambiais, letras imobiliárias e hipotecárias, debêntures e similares
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 4.3.0.00.00-5 do Cosif no último dia do ano de referência"
-              li1_46:
-                title: Obrigações por empréstimos e repasses
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 4.6.0.00.00-2 do Cosif no último dia do ano de referência"
-              li1_47:
-                title: Instrumentos financeiros derivativos
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 4.7.0.00.00-1 do Cosif no último dia do ano de referência"
-              li1_49:
-                title: Outras obrigações
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo da conta 4.9.0.00.00-9 do Cosif no último dia do ano de referência"
-              li1_II:
-                title: Total de passivos
-                type: number
-                format: double
-                multipleOf: 0.0001
-                example: 10000000.28
-                description: "Corresponde ao saldo total dos passivos no último dia do ano de referência"
-        li1_Comentario:
-          type: string
-          title: Comentários adicionais 
+          title: "Comentários adicionais "
           description: "Comentários adicionais  que expliquem a associação de valores a mais de uma categoria de risco para fins da regulamentação prudencial."
-          example: ""
-          maxLength: 50
-          pattern: ^(.*)$
+
+    valor_li2:
+      type: object
+      properties:
+        a:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Total"
+        b:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao risco de crédito"
+        c:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao risco de crédito de contraparte"
+        d:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao arcabouço de securitização"
+        e:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Sujeitos ao risco de mercado"
+
+    li2:
+      type: object
+      title: Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições
+      description: "Valores considerados para fins de regulação prudencial (linhas 1 a 4 e 9) e montante da diferença entre os valores contábeis e os prudenciais (linhas 5 a 8)."
+      properties:
+        li2_anoReferencia:
+          $ref: 'Comum.yaml#/components/schemas/ano'
+        li2_1:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Total de ativos considerados na regulamentação prudencial"
+            - description: "Corresponde ao valor total de ativos informado na coluna “b” da tabela LI1 subtraído do valor informado na coluna “g” dessa tabela. Os valores reportados na linha 1, colunas “b” a “e”, correspondem aos valores respectivamente reportados na tabela LI1, linha “Total de ativos”, colunas “c” a “f”."
+        li2_2:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Total de passivos considerados na regulamentação prudencial"
+            - description: "Corresponde ao valor do total de passivos informado na coluna “b” da tabela LI1 subtraído do valor informado na coluna “g” dessa tabela. Os valores reportados na linha 2, colunas “b” a “e”, correspondem aos valores respectivamente reportados na tabela LI1, linha “Total de passivos”, colunas “c” a “f”."
+        li2_3:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Valor líquido considerado na regulamentação prudencial"
+            - description: "Corresponde ao valor da linha 1 subtraído do valor da linha 2."
+        li2_4:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Exposições não contabilizadas no balanço patrimonial"
+            - description: "Corresponde às exposições não contabilizadas no balanço patrimonial, considerando a aplicação dos Fatores de Conversão em Crédito (FCC)."
+        li2_5:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Diferenças no apreçamento de instrumentos financeiros"
+            - description: "Conforme disposto na Resolução nº 4.277, de 2013."
+        li2_6:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Diferenças devidas a regras de acordos de compensação e liquidação não incluídas na linha 2"
+        li2_7:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Diferenças decorrentes da consideração de provisões"
+        li2_8:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Outras diferenças"
+        li2_9:
+          allOf:
+            - $ref: '#/components/schemas/valor_li2'
+            - title: "Exposições consideradas para fins prudenciais"
+            - description: "Montante inicialmente considerado para o cálculo do montante de ativos ponderados pelo risco (RWA) por categoria de risco."
+              
+    valor_pv1:
+      type: object
+      properties:
+        a:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Ações"
+        b:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Taxa de juros"
+        c:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Câmbio"
+        d:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Crédito"
+        e:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Mercadorias"
+        f:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Total"
+        g:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Do qual: na carteira de negociação"
+        h:
+          allOf:
+            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - title: "Do qual: na carteira bancária"
+        
+    pv1:
+      type: object
+      title: Ajustes prudenciais (PVA)
+      description: "Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo)."
+      properties:
+        pv1_anoReferencia:
+          $ref: 'Comum.yaml#/components/schemas/ano'
+        pv1_1:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Incerteza sobre o custo de liquidação das posições"
+            - description: "Soma dos valores reportados nos campos pv1_3 e pv1_4."
+        pv1_3:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Custo de liquidação das posições"
+            - description: "Conforme o art. 8º, §2º, inciso I, da Resolução n° 4.277, de 2013."
+        pv1_4:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Concentração de mercado"
+            - description: "Ajuste prudencial necessário para fazer frente à diferença entre a avaliação realizada e o valor de liquidação de instrumentos financeiros nos quais a posição da instituição é maior do que o tamanho das posições para as quais os valores foram calculados."
+        pv1_5:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Risco de pagamento antecipado"
+            - description: "Conforme o art. 8º, §2º, inciso IV, da Resolução n° 4.277, de 2013."
+        pv1_6:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Risco de modelo"
+            - description: "Conforme o art. 8º, §2º, inciso VII, da Resolução n° 4.277, de 2013."
+        pv1_7:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Risco operacional"
+            - description: "Conforme o art. 8º, §2º, inciso VI, da Resolução n° 4.277, de 2013."
+        pv1_8:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Custos efetivos de aplicação e captação de recursos"
+            - description: "Conforme o art. 8º, §2º, inciso III, da Resolução n° 4.277, de 2013."
+        pv1_9:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Spread de risco de crédito"
+            - description: "Conforme o art. 8º, §2º, inciso II, da Resolução n° 4.277, de 2013."
+        pv1_10:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Custos administrativos futuros"
+            - description: "Conforme o art. 8º, §2º, inciso V, da Resolução n° 4.277, de 2013."
+        pv1_11:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Outros"
+        pv1_12:
+          allOf:
+            - $ref: '#/components/schemas/valor_pv1'
+            - title: "Total"
+        pv1_Comentario:
+          type: string
+          title: "Comentários adicionais"
+          description: "Comentários adicionais para explicar mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças. Devem ser informados os instrumentos financeiros sujeitos aos maiores ajustes prudenciais e explicadas as respectivas causas. Nos casos em que não for identificada necessidade de ajuste decorrente do processo de apreçamento, a linha correspondente à justificativa deve ser preenchida com valor zero e os motivos devem ser detalhados."
+
