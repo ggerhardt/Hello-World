@@ -69,7 +69,7 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/pv1'
-                
+components:                
   parameters:
     ano:
       name: "ano"
