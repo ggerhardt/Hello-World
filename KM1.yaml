@@ -1,0 +1,219 @@
+openapi: 3.0.1
+info:
+  title: Pillar3
+  version: 1.0.0
+  description: ""       
+  contact:
+    email: "apiteam??@bcb.gov.br"
+  license:
+    name: "Open Database License (ODbL)"
+    url: "http://opendefinition.org/licenses/odc-odbl/"
+paths:
+  /KM1/relatorio/{periodo}:
+    get:
+      summary: Informações quantitativas sobre os requerimentos prudenciais 
+      parameters:
+      - name: periodo
+        in: path
+        description: Opções de retorno das informações
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Sucesso
+          content:
+            'application/json:':
+              schema:
+                $ref: '#/components/schemas/KM1-Report'
+components:
+  schemas:
+    KM1-Report:
+      type: object
+      properties:    
+        li1_anoReferencia:
+          type: string
+          title: Ano de referência
+          description: "Ano a que se referem as informações."
+          example: 2019
+          maxLength: 50
+          pattern: ^(.*)$
+        Ativos:
+          type: array
+          title: Classificação da Conta
+          description: "Lista contas classificadas como Ativo"
+          items:
+            type: object
+            properties:
+              li1_coluna:
+                type: string
+                title: Categoria do valor
+                description: "Informações sobre as categorias dos valores, composto por repetições dos campos \nl11_trimestreReferencia. É composto pelos campos li1_11, li1_12, li1_13, li1_14, li1_15, li1_16, li1_17, li1_18, li1_19, li1_2, li1_I, li1_41, li1_42, li1_43, li1_46, li1_47, li1_48, li1_II. Seu valor deve ser:\n -\na = Valores reportados nas demonstrações financeiras\n\n -b = Valores considerados na regulamentação prudencial\n\n -c = Valores sujeitos ao risco de crédito considerados na regulamentação prudencial\n\n -d = Valores sujeitos ao risco de crédito de contraparte considerados na regulamentação prudencial\n\n -e = Valores sujeitos ao arcabouço de securitização considerados na regulamentação prudencial\n\n -f = Valores sujeitos ao risco de mercado considerados na regulamentação prudencial\n\n -g = Valores dos itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR e considerados na regulamentação prudencial"
+                enum:
+                  - a
+                  - b
+                  - c
+                  - d
+                  - e
+                  - f
+                  - g
+              
+                example:  a
+                maxLength: 50
+              
+              li1_11:
+                title: Disponibilidades
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
+              li1_12:
+                title: Aplicações interfinanceiras de liquidez
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
+              li1_13:
+                title: Títulos e valores mobiliários e instrumentos financeiros derivativos
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.3.0.00.00-4 do Cosif no último dia do ano de referência"
+              li1_14:
+                title: Relações interfinanceiras
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.4.0.00.00-3 do Cosif no último dia do ano de referência"
+              li1_15:
+                title: Relações interdependências
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.5.0.00.00-2 do Cosif no último dia do ano de referência"
+              li1_16:
+                title: Operações de crédito
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.6.0.00.00-1 do Cosif no último dia do ano de referência"
+              li1_17:
+                title: Operações de arrendamento mercantil
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.7.0.00.00-0 do Cosif no último dia do ano de referência"
+              li1_18:
+                title: Outros créditos
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.8.0.00.00-9 do Cosif no último dia do ano de referência"
+              li1_19:
+                title: Outros valores e bens
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 1.9.0.00.00-8 do Cosif no último dia do ano de referência"
+              li1_2:
+                title: Ativo Permanente
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 2 do Cosif no último dia do ano de referência"
+              li1_I:
+                title: Total de ativos
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo total dos ativos no último dia do ano de referência"
+        Passivo:
+          type: array
+          title: Classificação da Conta
+          description: "Lista contas classificadas como Passivo"
+          items:
+            type: object
+            properties:
+              li1_coluna:
+                type: string
+                title: Categoria do valor
+                description: "Informações sobre as categorias dos valores, composto por repetições dos campos \nl11_trimestreReferencia. É composto pelos campos li1_11, li1_12, li1_13, li1_14, li1_15, li1_16, li1_17, li1_18, li1_19, li1_2, li1_I, li1_41, li1_42, li1_43, li1_46, li1_47, li1_48, li1_II. Seu valor deve ser:\n -\na = Valores reportados nas demonstrações financeiras\n\n -b = Valores considerados na regulamentação prudencial\n\n -c = Valores sujeitos ao risco de crédito considerados na regulamentação prudencial\n\n -d = Valores sujeitos ao risco de crédito de contraparte considerados na regulamentação prudencial\n\n -e = Valores sujeitos ao arcabouço de securitização considerados na regulamentação prudencial\n\n -f = Valores sujeitos ao risco de mercado considerados na regulamentação prudencial\n\n -g = Valores dos itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR e considerados na regulamentação prudencial"
+                enum:
+                  - a
+                  - b
+                  - c
+                  - d
+                  - e
+                  - f
+                  - g
+              
+                example:  b
+                maxLength: 50
+              
+              li1_41:
+                title: Depósitos
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 4.1.0.00.00-7 do Cosif no último dia do ano de referência"
+              li1_42:
+                title: Obrigações por operações compromissadas
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 4.2.0.00.00-6 do Cosif no último dia do ano de referência"
+              li1_43:
+                title: Recursos de aceites cambiais, letras imobiliárias e hipotecárias, debêntures e similares
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 4.3.0.00.00-5 do Cosif no último dia do ano de referência"
+              li1_46:
+                title: Obrigações por empréstimos e repasses
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 4.6.0.00.00-2 do Cosif no último dia do ano de referência"
+              li1_47:
+                title: Instrumentos financeiros derivativos
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 4.7.0.00.00-1 do Cosif no último dia do ano de referência"
+              li1_49:
+                title: Outras obrigações
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo da conta 4.9.0.00.00-9 do Cosif no último dia do ano de referência"
+              li1_II:
+                title: Total de passivos
+                type: number
+                format: double
+                multipleOf: 0.0001
+                example: 10000000.28
+                description: "Corresponde ao saldo total dos passivos no último dia do ano de referência"
+        li1_Comentario:
+          type: string
+          title: Comentários adicionais 
+          description: "Comentários adicionais  que expliquem a associação de valores a mais de uma categoria de risco para fins da regulamentação prudencial."
+          example: ""
+          maxLength: 50
+          pattern: ^(.*)$
