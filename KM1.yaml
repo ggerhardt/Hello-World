@@ -17,6 +17,7 @@ paths:
     get:
       tags:
         - "Comparação entre Informações Contábeis e Prudenciais"
+      operationId: buscarLIA
       summary: "Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2)."
       parameters:
         - $ref: "#/components/parameters/ano"
