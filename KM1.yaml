@@ -19,7 +19,7 @@ paths:
         - "Comparação entre Informações Contábeis e Prudenciais"
       summary: "Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2)."
       parameters:
-        - $ref: "Comum.yaml#/components/parameters/ano"
+        - $ref: "#/components/parameters/ano"
       responses:
         200:
           description: Sucesso
@@ -33,7 +33,7 @@ paths:
         - "Comparação entre Informações Contábeis e Prudenciais"
       summary: "Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco"
       parameters:
-        - $ref: "Comum.yaml#/components/parameters/ano"
+        - $ref: "#/components/parameters/ano"
       responses:
         200:
           description: Sucesso
@@ -47,7 +47,7 @@ paths:
         - "Comparação entre Informações Contábeis e Prudenciais"
       summary: "Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições"
       parameters:
-        - $ref: "Comum.yaml#/components/parameters/ano"
+        - $ref: "#/components/parameters/ano"
       responses:
         200:
           description: Sucesso
@@ -61,7 +61,7 @@ paths:
         - "Comparação entre Informações Contábeis e Prudenciais"
       summary: "Detalhar os elementos considerados no cálculo dos ajustes prudenciais a serem efetuados no processo de apreçamento de instrumentos financeiros avaliados pelo valor de mercado, conforme disposto na Resolução nº 4.277, de 2013."
       parameters:
-        - $ref: "Comum.yaml#/components/parameters/ano"
+        - $ref: "#/components/parameters/ano"
       responses:
         200:
           description: Sucesso
@@ -70,15 +70,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/pv1'
                 
-components:
+  parameters:
+    ano:
+      name: "ano"
+      in: "path"
+      description: "Ano de referência"
+      required: true
+      schema:
+        $ref: "#/components/schemas/ano"
+    
+    semestre:
+      name: "semestre"
+      in: "path"
+      description: "Semestre de referência"
+      required: true
+      schema:
+        $ref: "#/components/schemas/semestre"
+    
+    trimestre:
+      name: "trimestre"
+      in: "path"
+      description: "Trimestre de referência"
+      required: true
+      schema:
+        $ref: "#/components/schemas/trimestre"
+
   schemas:
+    ano:
+      type: integer
+      example: 2019
+      title: "Ano de referência"
+      description: "Ano a que se referem as informações."
+      
+    semestre:
+      type: string
+      pattern: ^\d{4}-[1-2]$
+      example: "2019-2"
+      title: "Semestre de referência"
+      description: "Semeste a que se referem as informações, onde AAAA representa o ano e T representa o semestre do ano e seu valor deve ser 1 ou 2." 
+      
+    trimestre:
+      type: string
+      pattern: ^\d{4}-[1-4]$
+      example: "2019-3"
+      title: "Trimestre de referência"
+      description: "Trimeste a que se referem as informações, onde AAAA representa o ano e T representa o trimestre do ano e seu valor deve ser 1, 2, 3 ou 4." 
+      
+    valor:
+      type: string
+      pattern: ^-?\d+,\d{2}$
     lia:
       type: object
       title: "Explicação das diferenças entre valores registrados nas demonstrações contábeis e valores das exposições sujeitas a tratamento prudencial"
       description: "Informações qualitativas."
       properties:
         lia_anoReferencia:
-          $ref: 'Comum.yaml#/components/schemas/ano'
+          $ref: '#/components/schemas/ano'
         lia_a:
           type: string
           description: "Explicação das diferenças significativas entre os valores reportados nas colunas (a) e (b) da tabela LI1."
@@ -100,31 +147,31 @@ components:
       properties:
         a:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Valores reportados nas demonstrações financeiras"
         b:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Valores considerados na regulamentação prudencial"
         c:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de crédito"
         d:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de crédito de contraparte"
         e:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao arcabouço de securitização"
         f:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de mercado"
         g:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR"
 
     li1:
@@ -133,7 +180,7 @@ components:
       description: "Valores contábeis reportados nas demonstrações financeiras publicadas e os considerados na regulamentação prudencial."
       properties:
         li1_anoReferencia:
-          $ref: 'Comum.yaml#/components/schemas/ano'
+          $ref: '#/components/schemas/ano'
         li1_11:
           allOf:
             - $ref: '#/components/schemas/valor_li1'
@@ -244,23 +291,23 @@ components:
       properties:
         a:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Total"
         b:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de crédito"
         c:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de crédito de contraparte"
         d:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao arcabouço de securitização"
         e:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de mercado"
 
     li2:
@@ -269,7 +316,7 @@ components:
       description: "Valores considerados para fins de regulação prudencial (linhas 1 a 4 e 9) e montante da diferença entre os valores contábeis e os prudenciais (linhas 5 a 8)."
       properties:
         li2_anoReferencia:
-          $ref: 'Comum.yaml#/components/schemas/ano'
+          $ref: '#/components/schemas/ano'
         li2_1:
           allOf:
             - $ref: '#/components/schemas/valor_li2'
@@ -318,35 +365,35 @@ components:
       properties:
         a:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Ações"
         b:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Taxa de juros"
         c:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Câmbio"
         d:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Crédito"
         e:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Mercadorias"
         f:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Total"
         g:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Do qual: na carteira de negociação"
         h:
           allOf:
-            - $ref: 'Comum.yaml#/components/schemas/valor'
+            - $ref: '#/components/schemas/valor'
             - title: "Do qual: na carteira bancária"
         
     pv1:
@@ -355,7 +402,7 @@ components:
       description: "Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo)."
       properties:
         pv1_anoReferencia:
-          $ref: 'Comum.yaml#/components/schemas/ano'
+          $ref: '#/components/schemas/ano'
         pv1_1:
           allOf:
             - $ref: '#/components/schemas/valor_pv1'
