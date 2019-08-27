@@ -129,6 +129,7 @@ components:
           $ref: '#/components/schemas/ano'
         lia_a:
           type: string
+          title: "xxx  x x x x "
           description: "Explicação das diferenças significativas entre os valores reportados nas colunas (a) e (b) da tabela LI1."
         lia_b:
           type: string
@@ -184,14 +185,16 @@ components:
           $ref: '#/components/schemas/ano'
         li1_11:
           allOf:
-            - $ref: '#/components/schemas/valor_li1'
             - title: Disponibilidades
             - description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
+            - $ref: '#/components/schemas/valor_li1'
+            - type: string
+            - pattern: ^-?\d+,\d{2}$            
         li1_12:
           allOf:
-            - $ref: '#/components/schemas/valor_li1'
             - title: "Aplicações interfinanceiras de liquidez"
             - description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
+            - $ref: '#/components/schemas/valor_li1'
         li1_13:
           allOf:
             - $ref: '#/components/schemas/valor_li1'
