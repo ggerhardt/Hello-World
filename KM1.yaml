@@ -120,7 +120,9 @@ components:
     valor:
       type: string
       pattern: ^-?\d+,\d{2}$
-
+      example: "11.11"
+      maxLength: 20
+          
     li1_colunas:
       type: object
       properties:
@@ -188,7 +190,7 @@ components:
           type: string
           pattern: ^-?\d+.\d{2}$
           title: "Valores reportados nas demonstrações financeiras"
-          description: "Valor com duas casas decimais, separado por ponto"
+          description: "Valor numérico com duas casas decimais, separado por ponto"
           example: "11.11"
           maxLength: 20
         b:
