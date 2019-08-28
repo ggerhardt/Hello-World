@@ -97,6 +97,30 @@ components:
         $ref: "#/components/schemas/trimestre"
 
   schemas:
+    ano:
+      type: integer
+      example: 2019
+      title: "Ano de referência"
+      description: "Ano a que se referem as informações."
+      
+    semestre:
+      type: string
+      pattern: ^\d{4}-[1-2]$
+      example: "2019-2"
+      title: "Semestre de referência"
+      description: "Semeste a que se referem as informações, onde AAAA representa o ano e T representa o semestre do ano e seu valor deve ser 1 ou 2." 
+      
+    trimestre:
+      type: string
+      pattern: ^\d{4}-[1-4]$
+      example: "2019-3"
+      title: "Trimestre de referência"
+      description: "Trimeste a que se referem as informações, onde AAAA representa o ano e T representa o trimestre do ano e seu valor deve ser 1, 2, 3 ou 4." 
+      
+    valor:
+      type: string
+      pattern: ^-?\d+,\d{2}$
+
     colunas:
       type: object
       properties:
@@ -131,29 +155,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/valor'
             - title: "Itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR"
-    ano:
-      type: integer
-      example: 2019
-      title: "Ano de referência"
-      description: "Ano a que se referem as informações."
-      
-    semestre:
-      type: string
-      pattern: ^\d{4}-[1-2]$
-      example: "2019-2"
-      title: "Semestre de referência"
-      description: "Semeste a que se referem as informações, onde AAAA representa o ano e T representa o semestre do ano e seu valor deve ser 1 ou 2." 
-      
-    trimestre:
-      type: string
-      pattern: ^\d{4}-[1-4]$
-      example: "2019-3"
-      title: "Trimestre de referência"
-      description: "Trimeste a que se referem as informações, onde AAAA representa o ano e T representa o trimestre do ano e seu valor deve ser 1, 2, 3 ou 4." 
-      
-    valor:
-      type: string
-      pattern: ^-?\d+,\d{2}$
     lia:
       type: object
       title: "Explicação das diferenças entre valores registrados nas demonstrações contábeis e valores das exposições sujeitas a tratamento prudencial"
@@ -228,7 +229,7 @@ components:
           description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
           properties:
             allOf:
-            - $ref: '#/components/schemas/colunas
+            - $ref: '#/components/schemas/colunas'
         li1_11:
           title: "Aplicações interfinanceiras de liquidez"
           description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
