@@ -121,7 +121,7 @@ components:
       type: string
       pattern: ^-?\d+,\d{2}$
 
-    colunas:
+    li1_colunas:
       type: object
       properties:
         a:
@@ -229,7 +229,7 @@ components:
           allOf:
           - title: "Aplicações interfinanceiras de liquidez"
           - description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
-          - $ref: '#/components/schemas/colunas'
+          - $ref: '#/components/schemas/li1_colunas'
         li1_11:
           title: "Aplicações interfinanceiras de liquidez"
           description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
