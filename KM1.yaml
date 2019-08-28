@@ -135,7 +135,7 @@ components:
           maxLength: 20
         b:
           title: "Valores considerados na regulamentação prudencial"
-          description: "Valor com duas casas decimais, separado por ponto"
+          description: "Valor diferente com duas casas decimais também, e separado por ponto"
           allOf:
             - $ref: '#/components/schemas/valor'
         c:
