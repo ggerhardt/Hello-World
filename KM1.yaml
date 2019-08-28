@@ -97,41 +97,40 @@ components:
         $ref: "#/components/schemas/trimestre"
 
   schemas:
-      colunas:
-        type: object
-        properties:
-          a:
-            type: string
-            pattern: ^-?\d+.\d{2}$
-            title: "Valores reportados nas demonstrações financeiras"
-            description: "Valor com duas casas decimais, separado por ponto"
-            example: "11.11"
-            maxLength: 20
-          b:
-            allOf:
-              - $ref: '#/components/schemas/valor'
-              - title: "Valores considerados na regulamentação prudencial"
-          c:
-            allOf:
-              - $ref: '#/components/schemas/valor'
-              - title: "Sujeitos ao risco de crédito"
-          d:
-            allOf:
-              - $ref: '#/components/schemas/valor'
-              - title: "Sujeitos ao risco de crédito de contraparte"
-          e:
-            allOf:
-              - $ref: '#/components/schemas/valor'
-              - title: "Sujeitos ao arcabouço de securitização"
-          f:
-            allOf:
-              - $ref: '#/components/schemas/valor'
-              - title: "Sujeitos ao risco de mercado"
-          g:
-            allOf:
-              - $ref: '#/components/schemas/valor'
-              - title: "Itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR"
-
+    colunas:
+      type: object
+      properties:
+        a:
+          type: string
+          pattern: ^-?\d+.\d{2}$
+          title: "Valores reportados nas demonstrações financeiras"
+          description: "Valor com duas casas decimais, separado por ponto"
+          example: "11.11"
+          maxLength: 20
+        b:
+          allOf:
+            - $ref: '#/components/schemas/valor'
+            - title: "Valores considerados na regulamentação prudencial"
+        c:
+          allOf:
+            - $ref: '#/components/schemas/valor'
+            - title: "Sujeitos ao risco de crédito"
+        d:
+          allOf:
+            - $ref: '#/components/schemas/valor'
+            - title: "Sujeitos ao risco de crédito de contraparte"
+        e:
+          allOf:
+            - $ref: '#/components/schemas/valor'
+            - title: "Sujeitos ao arcabouço de securitização"
+        f:
+          allOf:
+            - $ref: '#/components/schemas/valor'
+            - title: "Sujeitos ao risco de mercado"
+        g:
+          allOf:
+            - $ref: '#/components/schemas/valor'
+            - title: "Itens desconsiderados na apuração dos requerimentos mínimos de PR ou deduzidos na apuração do PR"
     ano:
       type: integer
       example: 2019
