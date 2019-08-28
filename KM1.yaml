@@ -157,13 +157,13 @@ components:
           allOf:
             - $ref: '#/components/schemas/valor'
         b:
+          title: "Valores considerados na regulamentação prudencial"
           allOf:
             - $ref: '#/components/schemas/valor'
-            - title: "Valores considerados na regulamentação prudencial"
         c:
+          title: "Sujeitos ao risco de crédito"
           allOf:
             - $ref: '#/components/schemas/valor'
-            - title: "Sujeitos ao risco de crédito"
         d:
           allOf:
             - $ref: '#/components/schemas/valor'
