@@ -231,12 +231,12 @@ components:
             allOf:
             - $ref: '#/components/schemas/colunas
         li1_11:
-          type: string
-          pattern: ^-?\d+.\d{2}$
-          title: Disponibilidades
-          example: "11.11"
-          maxLength: 20
-          description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
+          title: "Aplicações interfinanceiras de liquidez"
+          description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
+          allOf:
+            - title: "Aplicações interfinanceiras de liquidez"
+            - description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
+            - $ref: '#/components/schemas/valor_li1'
         li1_12:
           allOf:
             - title: "Aplicações interfinanceiras de liquidez"
