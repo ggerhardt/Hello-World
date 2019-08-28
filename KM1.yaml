@@ -134,10 +134,12 @@ components:
           example: "11.11"
           maxLength: 20
         b:
+          title: "Valores considerados na regulamentação prudencial"
+          description: "Valor com duas casas decimais, separado por ponto"
           allOf:
             - $ref: '#/components/schemas/valor'
-            - title: "Valores considerados na regulamentação prudencial"
         c:
+          title: "Sujeitos ao risco de crédito"
           allOf:
             - $ref: '#/components/schemas/valor'
             - title: "Sujeitos ao risco de crédito"
