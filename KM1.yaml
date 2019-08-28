@@ -204,15 +204,15 @@ components:
             - title: "Títulos e valores mobiliários e instrumentos financeiros derivativos"
             - description: "Corresponde ao saldo da conta 1.3.0.00.00-4 do Cosif no último dia do ano de referência"
         li1_14:
+          title: "Relações interfinanceiras"
+          description: "Corresponde ao saldo da conta 1.4.0.00.00-3 do Cosif no último dia do ano de referência"
           allOf:
             - $ref: '#/components/schemas/valor_li1'
-            - title: "Relações interfinanceiras"
-            - description: "Corresponde ao saldo da conta 1.4.0.00.00-3 do Cosif no último dia do ano de referência"
         li1_15:
+          title: "Relações interdependências"
+          description: "Corresponde ao saldo da conta 1.5.0.00.00-2 do Cosif no último dia do ano de referência"
           allOf:
             - $ref: '#/components/schemas/valor_li1'
-            - title: "Relações interdependências"
-            - description: "Corresponde ao saldo da conta 1.5.0.00.00-2 do Cosif no último dia do ano de referência"
         li1_16:
           allOf:
             - $ref: '#/components/schemas/valor_li1'
