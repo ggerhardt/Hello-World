@@ -224,11 +224,12 @@ components:
         li1_anoReferencia:
           $ref: '#/components/schemas/ano'
         li1_11b:
-          type: object
           title: Disponibilidades
           description: "Corresponde ao saldo da conta 1.1.0.00.00-6 do Cosif no último dia do ano de referência"
           properties:
             allOf:
+            - title: "Aplicações interfinanceiras de liquidez"
+            - description: "Corresponde ao saldo da conta 1.2.0.00.00-5 do Cosif no último dia do ano de referência"
             - $ref: '#/components/schemas/colunas'
         li1_11:
           title: "Aplicações interfinanceiras de liquidez"
