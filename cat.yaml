@@ -157,22 +157,22 @@ components:
                       description: Nome do parâmetro existente no recurso, conforme API. 
                       example: 'semestre'
                       maxLength: 30
-                    periodos:
+                    paramDisponiveis:
                       oneOf:
                         - type: array
-                          title: Lista de períodos com publicação
-                          description: Para recursos com períodos definidos na norma, indica períodos com informação disponível.
+                          title: Lista de parâmetros implementados
+                          description: Lista com os parâmetros implementados, que geram recursos válidos. 
                           items:
                             type: string
-                            title: Período publicado
-                            description: Período publicado, conforme norma definida.
+                            title: Parâmetro válido publicado
+                            description: Parâmetro que gere recurso válido, conforme especificação.
                             example: '201901'
                             maxLength: 50
                         - type: string
                           format: uri
-                          title: URL Períodos Disponíveis
-                          description: Para recursos com períodos definidos na norma, indica URL que retorna array de períodos disponíveis.
-                          example: '/KM1/Periodos'
+                          title: URL de parâmetros  implementação
+                          description: URL de definição da instituição, que retorna lista com os parâmetros implementados, que geram recursos válidos.
+                          example: '/KM1/PeriodosDisponiveis'
                           maxLength: 100
               contatoArea:
                 type: string
