@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Catálogo de Dados Abertos de Instituições Financeiras
   description: |
-    Esta especificação define o formato da lista dos conjuntos de Dados Abertos a serem disponibilizados pelas IF, conforme definido pelo Banco Central do Brasil, assim como dados de contato e informações básicas sobre cada conjunto.
+    Esta especificação define o formato da lista dos conjuntos de Dados Abertos a serem disponibilizados pelas IF, conforme definido pelo Banco Central do Brasil, assim como dados de contato e algumas informações básicas sobre cada conjunto.
 
     # Introdução
     O Banco Central passou a definir que certas informações, classificadas como de interesse público, passem a ser disponibilizadas em formatos abertos e padronizados. Cada conjunto de informação tem sua própria especificação, e serão listados no Catálogo de Dados Abertos.
