@@ -100,8 +100,8 @@ components:
               ref:
                 type: string
                 format: uri
-                title: Link para especificação da API
-                description: Referência para especificação OpenAPI implementada no site do Banco Central
+                title: Referência à especificação da API 
+                description: Endereço html da especificação OpenAPI no site do Banco Central
                 example: 'https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao'
                 maxLength: 150
               nome:
@@ -148,42 +148,42 @@ components:
                       type: string
                       format: uri
                       title: Caminho do recurso
-                      description: Identificação do recurso implementado, conforme API.
+                      description: Identificação do recurso implementado, conforme definido na especificação
                       example: '/KM1/{semestre}'
                       maxLength: 100
                     paramRecurso:
                       type: string
                       title: Nome do parâmetro 
-                      description: Nome do parâmetro existente no recurso, conforme API. 
+                      description: Nome do parâmetro existente no recurso, conforme definido na especificação
                       example: 'semestre'
                       maxLength: 30
                     paramDisponiveis:
                       oneOf:
                         - type: array
                           title: Lista de parâmetros implementados
-                          description: Lista com os parâmetros implementados, que geram recursos válidos. 
+                          description: Lista com os parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
                           items:
                             type: string
                             title: Parâmetro válido publicado
-                            description: Parâmetro que gere recurso válido, conforme especificação.
+                            description: Parâmetro que gere recurso válido, conforme definido na especificação.
                             example: '201901'
                             maxLength: 50
                         - type: string
                           format: uri
                           title: URL de parâmetros  implementação
-                          description: URL de definição da instituição, que retorna lista com os parâmetros implementados, que geram recursos válidos.
+                          description: URL de definição da instituição, que retorna lista com os parâmetros implementadospela instituição e que geram recursos válidos, conforme definido na especificação
                           example: '/KM1/PeriodosDisponiveis'
                           maxLength: 100
               contatoArea:
                 type: string
                 title: Área de Contato API
-                description: Nome da área de contato para tratar problemas nos dados específicos desta API. Se não preenchido o contato considerado é o definido no catálogo.
+                description: Nome da área de contato para tratar problemas nos dados específicos deste conjunto de dados. Este valor é opcional e deve ser preenchido se existir um contato de negócios específico para este conjunto.
                 example: Financeiro
                 maxLength: 50
               contatoEmail:
                 type: string
                 format: email
                 title: E-mail de contato API
-                description: E-mail da área de contato para tratar problemas nos dados desta API. Se não preenchido o contato considerado é o definido no catálogo.
+                description: E-mail da área de contato para tratar problemas nos dados específicos deste conjunto de dados. Este valor é opcional e deve ser preenchido se existir um contato de negócios específico para este conjunto.
                 example: pillarIII@bancoxyz.com
 
