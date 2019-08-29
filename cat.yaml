@@ -44,7 +44,7 @@ components:
       title: Catálogo de conjuntos de dados abertos
       description: Catálogo com informações dos conjuntos de dados abertos publicados pela instituição financeira.
       required:
-        - codigo
+        - cnpj
         - nome
         - dataUltimaAtualizacao
         - contatoArea
