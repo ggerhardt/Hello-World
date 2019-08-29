@@ -41,7 +41,64 @@ paths:
                 Exemplo com parâmetros atualizados no catálogo:
                   $ref: '#/components/examples/example1'  
                 Exemplo com parâmetros vindos de um recurso externo:
-                  $ref:  '#/components/examples/example2'                
+                  $ref:  '#/components/examples/example2'
+      x-code-samples:
+        - lang: 'Curl'
+          source: |		
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/catalogo" -H "accept: application/json:"		
+        - lang: 'Javascript - Node'
+          source: |
+            var request = require("request");
+
+            var options = {
+              method: 'GET',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/catalogo',
+              headers: 
+              {   'cache-control': 'no-cache'
+              } 
+            };
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+              console.log(body);
+            });		
+
+        - lang: 'Javascript - Ajax'
+          source: |
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.bancoxyz.com.br/dadosabertos/catalogo",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+
+        - lang: 'Python'
+          source: |
+          import requests
+
+          url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
+
+          headers = {
+            'content-type': "application/json",
+            'cache-control': "no-cache"
+            }
+
+          response = requests.request("GET", url, headers=headers)
+
+          print(response.text)
+        - lang: 'Java'
+          source: |
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/catalogo")
+            .header("x-apikey", "560bd47058e7ab1b2648f4e7")
+            .header("cache-control", "no-cache")
+            .asString();                  
 components:
   schemas:
     catalogo:
