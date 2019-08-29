@@ -18,7 +18,7 @@ info:
     
 
     <SecurityDefinitions />
-  version: 0.1.1
+  version: 0.1.2
   contact:
     email: "apiteam??@bcb.gov.br"
   license:
@@ -63,7 +63,6 @@ components:
           description: Nome da Instituição Financeira.
           example: Banco Xyz
           maxLength: 50
-          pattern: ^(.*)$
         dataUltimaAtualizacao:
           type: string
           format: date
@@ -72,11 +71,10 @@ components:
           example: '2019-06-11'
         contatoArea:
           type: string
-          title: Área de Contato
+          title: Área de contato
           description: Nome da área de contato para tratar problemas nos dados.
           example: Ouvidoria
           maxLength: 50
-          pattern: ^(.*)$
         contatoEmail:
           type: string
           format: email
@@ -111,8 +109,7 @@ components:
                 title: Nome da API
                 description: Nome da API, conforme definido na especificação.
                 example: Basiléia - PillarIII
-                maxLength: 200
-                pattern: ^(.*)$
+                maxLength: 100
               urlBase:
                 type: string
                 format: uri
@@ -127,7 +124,7 @@ components:
                 example: 'https://bancoxyz.com.br/ConsultaPillarIII'
               situacao:
                 type: string
-                title: Situação da API
+                title: Situação da implementação
                 description: Indica o estado do desenvolvimento da API. Somente APIs marcadas como em 'Produção' são consideradas como publicadas.
                 enum:
                   - Desenvolvimento
@@ -136,10 +133,9 @@ components:
                   - Descontinuada
                 example: Produção
                 maxLength: 20
-                pattern: ^(.*)$
               recursos:
                 type: array
-                title: Lista de recursos da API
+                title: Lista de recursos publicados
                 description: Lista com os recursos implementados e publicados pela instituição
                 items:
                   type: object
@@ -153,8 +149,14 @@ components:
                       format: uri
                       title: Caminho do recurso
                       description: Identificação do recurso implementado, conforme API.
-                      example: '/KM1/{periodo}'
+                      example: '/KM1/{semestre}'
                       maxLength: 100
+                    paramRecurso:
+                      type: string
+                      title: Nome do parâmetro 
+                      description: Nome do parâmetro existente no recurso, conforme API. 
+                      example: 'semestre'
+                      maxLength: 30
                     periodos:
                       oneOf:
                         - type: array
@@ -166,27 +168,18 @@ components:
                             description: Período publicado, conforme norma definida.
                             example: '201901'
                             maxLength: 50
-                            pattern: ^(.*)$
                         - type: string
                           format: uri
                           title: URL Períodos Disponíveis
                           description: Para recursos com períodos definidos na norma, indica URL que retorna array de períodos disponíveis.
                           example: '/KM1/Periodos'
                           maxLength: 100
-                    periodicidade:
-                      type: string
-                      title: Periodicidade
-                      description: Se houver periodicidade de atualização dos dados definida, indica qual é.
-                      example: semestral
-                      maxLength: 50
-                      pattern: ^(.*)$
               contatoArea:
                 type: string
                 title: Área de Contato API
                 description: Nome da área de contato para tratar problemas nos dados específicos desta API. Se não preenchido o contato considerado é o definido no catálogo.
                 example: Financeiro
                 maxLength: 50
-                pattern: ^(.*)$
               contatoEmail:
                 type: string
                 format: email
