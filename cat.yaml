@@ -37,6 +37,11 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/catalogo'
+              examples:
+                Exemplo com parâmetros atualizados no catálogo:
+                  $ref: '#/components/examples/example1'  
+                Exemplo com parâmetros vindos de um recurso externo:
+                  $ref:  '#/components/examples/example2'                
 components:
   schemas:
     catalogo:
@@ -186,4 +191,45 @@ components:
                 title: E-mail de contato API
                 description: E-mail da área de contato para tratar problemas nos dados específicos deste conjunto de dados. Este valor é opcional e deve ser preenchido se existir um contato de negócios específico para este conjunto.
                 example: pillarIII@bancoxyz.com
-
+  examples:
+    example1:
+      value:
+        cnpj: 90.909.090
+        nome: Banco ZZZ
+        dataUltimaAtualizacao: '2019-08-11'
+        contatoArea: informacoes clientes
+        contatoEmail: clientInfo@bancozzz.com.br
+        conjuntos:
+          - ref: 'https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao'
+            nome: Basiléia - PillarIII
+            urlBase: 'http://www.bancozzz.com.br/dadosabertos/1.0/'
+            urlVisualizacao: 'https://bancozzz.com.br/DadosAbertos/Pilar3'
+            situacao: Produção
+            recursos:
+              - caminhoRecurso: '/KM1/{semestre}'
+                paramRecurso: semestre
+                paramDisponiveis: 
+                  - '2019-4'
+                  - '2020-1'
+            contatoArea: Financeiro
+            contatoEmail: pillarIII@bancoxyz.com
+    example2:
+      value:
+        cnpj: 01.010.101
+        nome: Banco Xyz
+        dataUltimaAtualizacao: '2019-06-11'
+        contatoArea: Ouvidoria
+        contatoEmail: ouvid@bancoxyz.com.br
+        conjuntos:
+          - ref: 'https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao'
+            nome: Basiléia - PillarIII
+            urlBase: 'http://dadosabertos.bancoxyz.com.br/pillar/'
+            urlVisualizacao: 'https://bancoxyz.com.br/ConsultaPilarIII'
+            situacao: Produção
+            recursos:
+              - caminhoRecurso: '/KM1/{semestre}'
+                paramRecurso: semestre
+                paramDisponiveis: 'http://dadosabertos.bancoxyz.com.br/pillar/periodos/km1.json'
+                  
+            contatoArea: Financeiro
+            contatoEmail: pillarIII@bancoxyz.com
