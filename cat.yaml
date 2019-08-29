@@ -2,7 +2,22 @@ openapi: 3.0.1
 info:
   title: Catálogo de Dados Abertos de Instituições Financeiras
   description: |
-    Lista conjuntos de informação disponibilizados pelas IF como Dados Abertos
+    Esta especificação define o formato da lista dos conjuntos de Dados Abertos a serem disponibilizados pelas IF, conforme definido pelo Banco Central do Brasil, assim como dados de contato e informações básicas sobre cada conjunto.
+
+    # Introdução
+    O Banco Central passou a definir que certas informações, classificadas como de interesse público, passem a ser disponibilizadas em formatos abertos e padronizados. Cada conjunto de informação tem sua própria especificação, e serão listados no Catálogo de Dados Abertos.
+    
+    Um dos objetivos na iniciativa de dados abertos para as instituições financeiras é que ela agregue valor à população, com o menor custo de observância possível para as IFs. Com isso em mente, as especificações geradas serão simples o bastante para que possam ser atendidas simplesmente com a disponibilização de arquivos nos portais das instituições.
+    
+    # Especificação OpenAPI
+    Como forma de descrever uma estrutura de dados padronizada, utilizamos o padrão [OpenAPI](https://github.com/OAI/OpenAPI-Specification). Com ele podemos definir caminhos e [schemas](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schema-object) a serem retornados por esses caminhos.
+    
+    # Autenticação
+
+    As informações disponibilizadas baseadas nesta especificação não devem possuir nenhum tipo de autenticação.
+    
+
+    <SecurityDefinitions />
   version: 0.1.1
   contact:
     email: "apiteam??@bcb.gov.br"
@@ -22,106 +37,6 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/catalogo'
-              examples:
-                exemplo1:
-                  $ref:  '#/components/examples/Banco%20XYZ'
-                exemplo2:
-                  $ref: '#/components/examples/Banco%20abc'
-      x-code-samples:
-        - lang: 'C#'
-          source: |
-            PetStore.v1.Pet pet = new PetStore.v1.Pet();
-            pet.setApiKey("your api key");
-            pet.petType = PetStore.v1.Pet.TYPE_DOG;
-            pet.name = "Rex";
-            // set other fields
-            PetStoreResponse response = pet.create();
-            if (response.statusCode == HttpStatusCode.Created)
-            {
-              // Successfully created
-            }
-            else
-            {
-              // Something wrong -- check response for errors
-              Console.WriteLine(response.getRawResponse());
-            }
-        - lang: PHP
-          source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
-  /catalogo2:
-    get:
-      operationId: buscarCatalogo2
-      description: "Retorna informações sobre a instituição e sobre os conjuntos de\
-        \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
-      responses:
-        200:
-          description: Resposta bem sucedida
-          content:
-            'application/json:':
-              schema:
-                $ref: '#/components/schemas/catalogo'
-              examples:
-                exemplo1:
-                  $ref:  '#/components/examples/Banco%20XYZ'
-                exemplo2:
-                  $ref: '#/components/examples/Banco%20abc'
-      x-code-samples:
-        - lang: 'C#'
-          source: |
-            PetStore.v1.Pet pet = new PetStore.v1.Pet();
-            pet.setApiKey("your api key");
-            pet.petType = PetStore.v1.Pet.TYPE_DOG;
-            pet.name = "Rex";
-            // set other fields
-            PetStoreResponse response = pet.create();
-            if (response.statusCode == HttpStatusCode.Created)
-            {
-              // Successfully created
-            }
-            else
-            {
-              // Something wrong -- check response for errors
-              Console.WriteLine(response.getRawResponse());
-            }
-        - lang: PHP
-          source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
-  /catalogo3:
-    get:
-      operationId: buscarCatalogo3
-      description: "Retorna informações sobre a instituição e sobre os conjuntos de\
-        \ dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais"
-      responses:
-        200:
-          description: Resposta bem sucedida
-          content:
-            'application/json:':
-              schema:
-                $ref: '#/components/schemas/catalogo'
-              examples:
-                exemplo1:
-                  $ref:  '#/components/examples/Banco%20XYZ'
-                exemplo2:
-                  $ref: '#/components/examples/Banco%20abc'
-      x-code-samples:
-        - lang: 'C#'
-          source: |
-            PetStore.v1.Pet pet = new PetStore.v1.Pet();
-            pet.setApiKey("your api key");
-            pet.petType = PetStore.v1.Pet.TYPE_DOG;
-            pet.name = "Rex";
-            // set other fields
-            PetStoreResponse response = pet.create();
-            if (response.statusCode == HttpStatusCode.Created)
-            {
-              // Successfully created
-            }
-            else
-            {
-              // Something wrong -- check response for errors
-              Console.WriteLine(response.getRawResponse());
-            }
-        - lang: PHP
-          source: "$form = new \\PetStore\\Entities\\Pet();\n$form->setPetType(\"Dog\");\n$form->setName(\"Rex\");\n// set other fields\ntry {\n    $pet = $client->pets()->create($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
-
 components:
   schemas:
     catalogo:
@@ -136,18 +51,12 @@ components:
         - contatoEmail
         - conjuntos
       properties:
-        codigo:
-          oneOf:
-            - type: string
-              title: CNPJ
-              description: 'codigo CNPJ de 8 dígitos, formatado.'
-              example: 01.010.101
-              pattern: '^[0-9]{2}.[0-9]{3}.[0-9]{3}$'
-            - type: string
-              title: Código do Conglomerado Prudencial ou da instituição
-              description: Identificação do Conglomerado Prudencial ou Instituição.
-              example: A0000000
-              pattern: '^[A-Z]{1}[0-9]{7}$'        
+        cnpj:
+          type: string
+          title: CNPJ
+          description: 'codigo CNPJ de 8 dígitos, formatado.'
+          example: 01.010.101
+          pattern: '^[0-9]{2}.[0-9]{3}.[0-9]{3}$'
         nome:
           type: string
           title: Nome da IF
@@ -179,9 +88,9 @@ components:
           title: Conjuntos de dados
           description: Lista de conjuntos de dados disponibilizados.
           items:
-            title: Item do catálogo - API
+            title: Item do catálogo
             type: object
-            description: Cada conjunto de dado faz referência a uma API publicada e indica onde ela está disponibilizada.
+            description: Cada conjunto de dado faz referência a uma especificação implementada e indica onde ela está disponibilizada.
             required:
               - ref
               - nome
@@ -194,7 +103,7 @@ components:
                 type: string
                 format: uri
                 title: Link para especificação da API
-                description: Referência para especificação da API no site do Banco Central
+                description: Referência para especificação OpenAPI implementada no site do Banco Central
                 example: 'https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao'
                 maxLength: 150
               nome:
@@ -284,49 +193,4 @@ components:
                 title: E-mail de contato API
                 description: E-mail da área de contato para tratar problemas nos dados desta API. Se não preenchido o contato considerado é o definido no catálogo.
                 example: pillarIII@bancoxyz.com
-  examples:
-    Banco XYZ:
-      summary: Banco XYZ
-      description: descrição do exemplo do banco xyz
-      value: 
-        codigo: 99.99.999
-        nome: Banco Xyz
-        dataUltimaAtualizacao: '2019-06-11'
-        contatoArea: Ouvidoria
-        contatoEmail: ouvid@bancoxyz.com.br
-        conjuntos:
-        - ref: https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao
-          nome: Basiléia - PillarIII
-          urlBase: http://dadosabertos.bancoxyz.com.br/pillar/1.0/
-          urlVisualizacao: https://bancoxyz.com.br/ConsultaPillarIII
-          situacao: Produção
-          recursos:
-          - caminhoRecurso: "/KM1/{periodo}"
-            periodos:
-            - '201901'
-            periodicidade: semestral
-          contatoArea: Financeiro
-          contatoEmail: pillarIII@bancoxyz.com      
-    Banco abc:
-      description: descrição do exemplo do banco abc
-      summary: Banco abc
-      value: 
-        codigo: A2232222
-        nome: Banco Xyz
-        dataUltimaAtualizacao: '2019-06-11'
-        contatoArea: Ouvidoria
-        contatoEmail: ouvid@bancoxyz.com.br
-        conjuntos:
-        - ref: https://www.bcb.gov.br/dadosabertos/apis/pilar3/1.0.0/especificacao
-          nome: Basiléia - PillarIII
-          urlBase: http://dadosabertos.bancoxyz.com.br/pillar/1.0/
-          urlVisualizacao: https://bancoxyz.com.br/ConsultaPillarIII
-          situacao: Produção
-          recursos:
-          - caminhoRecurso: "/KM1/{periodo}"
-            periodos:
-            - '201901'
-            periodicidade: semestral
-          contatoArea: Financeiro
-          contatoEmail: pillarIII@bancoxyz.com                
-   
+
