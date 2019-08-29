@@ -81,18 +81,17 @@ paths:
 
         - lang: 'Python'
           source: |
-          import requests
+            import requests
+            url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
 
-          url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
+            headers = {
+              'content-type': "application/json",
+              'cache-control': "no-cache"
+              }
 
-          headers = {
-            'content-type': "application/json",
-            'cache-control': "no-cache"
-            }
+            response = requests.request("GET", url, headers=headers)
 
-          response = requests.request("GET", url, headers=headers)
-
-          print(response.text)
+            print(response.text)
         - lang: 'Java'
           source: |
             HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/catalogo")
