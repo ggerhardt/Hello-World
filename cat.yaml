@@ -78,24 +78,19 @@ paths:
             $.ajax(settings).done(function (response) {
               console.log(response);
             });
-
         - lang: 'Python'
           source: |
             import requests
             url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
-
             headers = {
               'content-type': "application/json",
               'cache-control': "no-cache"
               }
-
             response = requests.request("GET", url, headers=headers)
-
             print(response.text)
         - lang: 'Java'
           source: |
             HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/catalogo")
-            .header("x-apikey", "560bd47058e7ab1b2648f4e7")
             .header("cache-control", "no-cache")
             .asString();                  
 components:
