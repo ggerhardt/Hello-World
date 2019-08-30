@@ -3,7 +3,23 @@ info:
   title: Taxas de Câmbio nos Cartões de Crédito
   version: 1.0.0
   description: |
-    Esta especificação define a API de serviços que permite visualizar as taxas de câmbio diárias para o dólar utilizadas nos cartões de crédito:
+    Esta especificação define a API de serviços que permite visualizar as taxas de câmbio diárias para o dólar utilizadas nos cartões de crédito de uso internacional
+    
+    # Iniciativa de Dados Abertos para o Sistema Financeiro
+    O Banco Central passou a definir que certas informações, classificadas como de interesse público, passem a ser disponibilizadas diretamente pelas instituições financeiras em formato aberto e padronizado. 
+
+    Um dos objetivos na iniciativa é que ela agregue valor à população, com o menor custo de observância possível para as IFs. Com isso em mente, as especificações geradas serão simples o bastante para que possam ser atendidas simplesmente com a disponibilização de arquivos nos portais das instituições ou pela implementação de APIs.    
+    
+    # Especificação OpenAPI
+    Como forma de descrever uma estrutura de dados padronizada, utilizamos o padrão [OpenAPI](https://github.com/OAI/OpenAPI-Specification). Com ele podemos definir caminhos, parâmetros e [schemas](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schema-object) a serem retornados por esses caminhos.
+    
+    
+    # Autenticação
+
+    As informações disponibilizadas baseadas nesta especificação não devem possuir nenhum tipo de autenticação.
+    
+
+    <SecurityDefinitions />
   contact:
     email: "apiteam??@bcb.gov.br"
   license:
@@ -58,14 +74,12 @@ components:
             description: "Nome do cartão de uso internacional"
             example: XYZ Paladium
             maxLength: 50
-            pattern: ^(.*)$
           cartaoBandeira:
             type: string
             title: Bandeira do Cartão
             description: "Nome do instituidor do arranjo de pagamento (bandeira do cartão)"
             example: Visa / Mastercard / Elo / American Express / ...
             maxLength: 50
-            pattern: ^(.*)$
           historicoTaxas:
             type: array
             title: Histórico de Taxas
