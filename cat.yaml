@@ -207,29 +207,34 @@ components:
                       description: Identificação do recurso implementado, conforme definido na especificação
                       example: '/KM1/{semestre}'
                       maxLength: 100
-                    paramRecurso:
-                      type: string
-                      title: Nome do parâmetro 
-                      description: Nome do parâmetro existente no recurso, conforme definido na especificação
-                      example: 'semestre'
-                      maxLength: 30
-                    paramDisponiveis:
-                      oneOf:
-                        - type: array
-                          title: Lista de parâmetros implementados
-                          description: Lista com os parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
-                          items:
-                            type: string
-                            title: Parâmetro válido publicado
-                            description: Parâmetro que gere recurso válido, conforme definido na especificação.
-                            example: '201901'
-                            maxLength: 50
-                        - type: string
-                          format: uri
-                          title: URL de parâmetros  implementação
-                          description: URL de definição da instituição, que retorna lista com os parâmetros implementadospela instituição e que geram recursos válidos, conforme definido na especificação
-                          example: '/KM1/PeriodosDisponiveis'
-                          maxLength: 100
+                    parametros:
+                      type: array
+                      title: Lista de parâmetros implementados
+                      description: Lista com os parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
+                      items:
+                        nome:
+                          type: string
+                          title: Nome do parâmetro 
+                          description: Nome do parâmetro existente no recurso, conforme definido na especificação
+                          example: 'semestre'
+                          maxLength: 30
+                        valores:
+                          oneOf:
+                            - type: array
+                              title: Lista de parâmetros implementados
+                              description: Lista com os parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
+                              items:
+                                type: string
+                                title: Parâmetro válido publicado
+                                description: Parâmetro que gere recurso válido, conforme definido na especificação.
+                                example: '201901'
+                                maxLength: 50
+                            - type: string
+                              format: uri
+                              title: URL de parâmetros  implementação
+                              description: URL de definição da instituição, que retorna lista com os parâmetros implementadospela instituição e que geram recursos válidos, conforme definido na especificação
+                              example: '/KM1/PeriodosDisponiveis'
+                              maxLength: 100
               contatoArea:
                 type: string
                 title: Área de Contato API
