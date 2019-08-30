@@ -2,15 +2,15 @@ openapi: 3.0.1
 info:
   title: Catálogo de Dados Abertos de Instituições Financeiras
   description: |
-    Esta especificação define o formato da lista dos conjuntos de Dados Abertos a serem disponibilizados pelas IF, conforme definido pelo Banco Central do Brasil, assim como dados de contato e algumas informações básicas sobre cada conjunto.
+    Esta especificação define o formato da lista dos conjuntos de Dados Abertos a disponibilizados pelas IF, conforme definido pelo Banco Central do Brasil, assim como dados de contato e algumas informações básicas sobre cada conjunto.
 
     # Introdução
-    O Banco Central passou a definir que certas informações, classificadas como de interesse público, passem a ser disponibilizadas em formatos abertos e padronizados. Cada conjunto de informação tem sua própria especificação, e serão listados no Catálogo de Dados Abertos.
-    
-    Um dos objetivos na iniciativa de dados abertos para as instituições financeiras é que ela agregue valor à população, com o menor custo de observância possível para as IFs. Com isso em mente, as especificações geradas serão simples o bastante para que possam ser atendidas simplesmente com a disponibilização de arquivos nos portais das instituições.
+    O Banco Central passou a definir que certas informações, classificadas como de interesse público, passem a ser disponibilizadas diretamente pelas instituições financeiras em formato aberto e padronizado. Cada um desses conjuntos de dados, uma vez disponíveis, será listados neste Catálogo de Dados Abertos desta IF.
     
     # Especificação OpenAPI
-    Como forma de descrever uma estrutura de dados padronizada, utilizamos o padrão [OpenAPI](https://github.com/OAI/OpenAPI-Specification). Com ele podemos definir caminhos e [schemas](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schema-object) a serem retornados por esses caminhos.
+    Como forma de descrever uma estrutura de dados padronizada, utilizamos o padrão [OpenAPI](https://github.com/OAI/OpenAPI-Specification). Com ele podemos definir caminhos, parâmetros e [schemas](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schema-object) a serem retornados por esses caminhos.
+    
+    Um dos objetivos na iniciativa é que ela agregue valor à população, com o menor custo de observância possível para as IFs. Com isso em mente, as especificações geradas serão simples o bastante para que possam ser atendidas simplesmente com a disponibilização de arquivos nos portais das instituições ou pela implementação de APIs.    
     
     # Autenticação
 
