@@ -200,11 +200,17 @@ components:
                   required:
                     - caminhoRecurso
                   properties:
+                    nome:
+                      type: string
+                      title: Nome do Recurso 
+                      description: Nome do recurso, conforme definido na especificação
+                      example: 'semestre'
+                      maxLength: 30
                     caminhoRecurso:
                       type: string
                       format: uri
                       title: Caminho do recurso
-                      description: Identificação do recurso implementado, conforme definido na especificação
+                      description: Caminho relativo do recurso implementado, conforme definido na especificação
                       example: '/KM1/{semestre}'
                       maxLength: 100
                     parametros:
@@ -269,7 +275,8 @@ components:
             urlVisualizacao: 'https://bancozzz.com.br/DadosAbertos/Pilar3'
             situacao: Produção
             recursos:
-              - caminhoRecurso: '/KM1/{semestre}'
+              - nome: KM1 - Informações quantitativas sobre os requerimentos prudenciais
+                caminhoRecurso: '/KM1/{semestre}'
                 parametros:
                   nome: semestre
                   valores: 
@@ -292,7 +299,8 @@ components:
             urlVisualizacao: 'https://bancoxyz.com.br/ConsultaPilarIII'
             situacao: Produção
             recursos:
-              - caminhoRecurso: '/lia/{ano}'
+              - nome: LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).
+                caminhoRecurso: '/lia/{ano}'
                 parametros:
                   nome: ano
                   valores: 'http://dadosabertos.bancoxyz.com.br/pillar/periodos/lia.json'
