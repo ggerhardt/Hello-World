@@ -33,14 +33,14 @@ paths:
       x-code-samples:
         - lang: 'Curl'
           source: |		
-            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/catalogo" -H "accept: application/json:"		
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens" -H "accept: application/json:"		
         - lang: 'Javascript - Node'
           source: |
             var request = require("request");
 
             var options = {
               method: 'GET',
-              url: 'https://www.bancoxyz.com.br/dadosabertos/catalogo',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens',
               headers: 
               {   'cache-control': 'no-cache'
               } 
@@ -55,7 +55,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://www.bancoxyz.com.br/dadosabertos/catalogo",
+              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens",
               "method": "GET",
               "headers": {
                 "content-type": "application/json",
@@ -69,7 +69,7 @@ paths:
         - lang: 'Python'
           source: |
             import requests
-            url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
+            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens"
             headers = {
               'content-type': "application/json",
               'cache-control': "no-cache"
@@ -78,7 +78,7 @@ paths:
             print(response.text)
         - lang: 'Java'
           source: |
-            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/catalogo")
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens")
             .header("cache-control", "no-cache")
             .asString();    
   /itens/ultimo:
@@ -93,6 +93,60 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/historicoTaxasCartoes'
+              examples:
+                Exemplo com vários cartoes e bandeiras e a última data-base:
+                  $ref:  '#/components/examples/example2'
+      x-code-samples:
+        - lang: 'Curl'
+          source: |		
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo" -H "accept: application/json:"		
+        - lang: 'Javascript - Node'
+          source: |
+            var request = require("request");
+
+            var options = {
+              method: 'GET',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo',
+              headers: 
+              {   'cache-control': 'no-cache'
+              } 
+            };
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+              console.log(body);
+            });		
+
+        - lang: 'Javascript - Ajax'
+          source: |
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: 'Python'
+          source: |
+            import requests
+            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo"
+            headers = {
+              'content-type': "application/json",
+              'cache-control': "no-cache"
+              }
+            response = requests.request("GET", url, headers=headers)
+            print(response.text)
+        - lang: 'Java'
+          source: |
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo")
+            .header("cache-control", "no-cache")
+            .asString();    
 components:
   schemas:
     historicoTaxasCartoes:
