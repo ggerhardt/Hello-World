@@ -208,10 +208,10 @@ components:
                       example: '/KM1/{semestre}'
                       maxLength: 100
                     parametros:
-                      type: array
-                      title: Lista de parâmetros implementados
-                      description: Lista com os parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
-                      items:
+                      type: object
+                      title: Parâmetro e valores implementados
+                      description: Nome do parâmetro e lista com os valores implementados pela instituição, que geram recursos válidos, conforme definido na especificação
+                      properties:
                         nome:
                           type: string
                           title: Nome do parâmetro 
@@ -222,7 +222,7 @@ components:
                           oneOf:
                             - type: array
                               title: Lista de parâmetros implementados
-                              description: Lista com os parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
+                              description: Lista com os valores de parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação
                               items:
                                 type: string
                                 title: Parâmetro válido publicado
@@ -235,6 +235,12 @@ components:
                               description: URL de definição da instituição, que retorna lista com os parâmetros implementadospela instituição e que geram recursos válidos, conforme definido na especificação
                               example: '/KM1/PeriodosDisponiveis'
                               maxLength: 100
+                    periodicidade:
+                      type: string
+                      title: Periodicidade
+                      description: Informativo. Se houver periodicidade definida, indica qual é.
+                      example: semestral
+                      maxLength: 50
               contatoArea:
                 type: string
                 title: Área de Contato API
@@ -263,10 +269,12 @@ components:
             situacao: Produção
             recursos:
               - caminhoRecurso: '/KM1/{semestre}'
-                paramRecurso: semestre
-                paramDisponiveis: 
-                  - '2019-4'
-                  - '2020-1'
+                parametros:
+                  nome: semestre
+                  valores: 
+                    - '2019-4'
+                    - '2020-1'
+            periodicidade: semestral
             contatoArea: Financeiro
             contatoEmail: pillarIII@bancoxyz.com
     example2:
@@ -283,9 +291,10 @@ components:
             urlVisualizacao: 'https://bancoxyz.com.br/ConsultaPilarIII'
             situacao: Produção
             recursos:
-              - caminhoRecurso: '/KM1/{semestre}'
-                paramRecurso: semestre
-                paramDisponiveis: 'http://dadosabertos.bancoxyz.com.br/pillar/periodos/km1.json'
-                  
+              - caminhoRecurso: '/lia/{ano}'
+                parametros:
+                  nome: ano
+                  valores: 'http://dadosabertos.bancoxyz.com.br/pillar/periodos/lia.json'
+            periodicidade: anual      
             contatoArea: Financeiro
             contatoEmail: pillarIII@bancoxyz.com
