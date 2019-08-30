@@ -3,23 +3,7 @@ info:
   title: Taxas de Câmbio nos Cartões de Crédito
   version: 1.0.0
   description: |
-    Esta especificação define a API de serviços que permite visualizar as taxas de câmbio diárias para o dólar utilizadas nos cartões de crédito de uso internacional
-    
-    # Iniciativa de Dados Abertos para o Sistema Financeiro
-    O Banco Central passou a definir que certas informações, classificadas como de interesse público, passem a ser disponibilizadas diretamente pelas instituições financeiras em formato aberto e padronizado. 
-
-    Um dos objetivos na iniciativa é que ela agregue valor à população, com o menor custo de observância possível para as IFs. Com isso em mente, as especificações geradas serão simples o bastante para que possam ser atendidas simplesmente com a disponibilização de arquivos nos portais das instituições ou pela implementação de APIs.    
-    
-    # Especificação OpenAPI
-    Como forma de descrever uma estrutura de dados padronizada, utilizamos o padrão [OpenAPI](https://github.com/OAI/OpenAPI-Specification). Com ele podemos definir caminhos, parâmetros e [schemas](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schema-object) a serem retornados por esses caminhos.
-    
-    
-    # Autenticação
-
-    As informações disponibilizadas baseadas nesta especificação não devem possuir nenhum tipo de autenticação.
-    
-
-    <SecurityDefinitions />
+    Esta especificação define a API de serviços que permite visualizar as taxas de câmbio diárias para o dólar utilizadas nos cartões de crédito de uso internacional:
   contact:
     email: "apiteam??@bcb.gov.br"
   license:
@@ -41,6 +25,62 @@ paths:
             'application/json:':
               schema:
                 $ref: '#/components/schemas/historicoTaxasCartoes'
+              examples:
+                Exemplo com vários cartoes e bandeiras e datas-base:
+                  $ref: '#/components/examples/example1'  
+                Exemplo com vários cartoes e bandeiras e a última data-base:
+                  $ref:  '#/components/examples/example2'
+      x-code-samples:
+        - lang: 'Curl'
+          source: |		
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/catalogo" -H "accept: application/json:"		
+        - lang: 'Javascript - Node'
+          source: |
+            var request = require("request");
+
+            var options = {
+              method: 'GET',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/catalogo',
+              headers: 
+              {   'cache-control': 'no-cache'
+              } 
+            };
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+              console.log(body);
+            });		
+
+        - lang: 'Javascript - Ajax'
+          source: |
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.bancoxyz.com.br/dadosabertos/catalogo",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: 'Python'
+          source: |
+            import requests
+            url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
+            headers = {
+              'content-type': "application/json",
+              'cache-control': "no-cache"
+              }
+            response = requests.request("GET", url, headers=headers)
+            print(response.text)
+        - lang: 'Java'
+          source: |
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/catalogo")
+            .header("cache-control", "no-cache")
+            .asString();    
   /itens/ultimo:
     get:
       tags: [API]
@@ -121,3 +161,80 @@ components:
                   description: "Data e hora da divulgação da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional"
                   example: '2017-07-21T17:32:28Z'
                   maxLength: 25
+  examples:
+    example1:
+      value:
+      - cartaoNome: XYZ Paladium
+        cartaoBandeira: Visa 
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-01'
+            taxaConversao: 3.456789
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Paladium
+        cartaoBandeira: Elo 
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-01'
+            taxaConversao: 3.43322
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Zirconium
+        cartaoBandeira: Mastercard
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-01'
+            taxaConversao: 3.443
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Zirconium
+        cartaoBandeira: Mastercard
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-01'
+            taxaConversao: 3.4534
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Paladium
+        cartaoBandeira: Visa 
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.84342
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+      - cartaoNome: XYZ Zirconium
+        cartaoBandeira: Mastercard
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.465433
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+    example2:
+      value:
+      - cartaoNome: XYZ Paladium
+        cartaoBandeira: Visa 
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.456789
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Zirconium
+        cartaoBandeira: Mastercard
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.443
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Paladium
+        cartaoBandeira: Elo 
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.43322
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+      - cartaoNome: XYZ Zirconium
+        cartaoBandeira: Mastercard
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.4534
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+
+          
