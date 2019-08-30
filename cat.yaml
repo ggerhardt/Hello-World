@@ -233,7 +233,7 @@ components:
                               format: uri
                               title: URL de parâmetros  implementação
                               description: |
-                                URL definida pela instituição, que retorna lista com os parâmetros implementados (que geram recursos válidos), conforme definido na especificação. A url deve retornar um json simples com array de valores em texto disponíveis. Ex:['2018','2019','2020']
+                                URL definida pela instituição, que retorna lista com os parâmetros implementados (que geram recursos válidos), conforme definido na especificação. A url deve retornar um json simples com array de valores em texto disponíveis. 
                               example: '/KM1/PeriodosDisponiveis'
                               maxLength: 100
                     periodicidade:
