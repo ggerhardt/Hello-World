@@ -1,0 +1,91 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://ckantemplate.bcb.gov.br/api/1'
+    description: Production
+  - url: 'https://ckantemplate-hom.bcb.gov.br'
+    description: Test
+info:
+  title: Extensão de APIs do Portal de Dados Abertos
+  description: Esta API fornece funcionalidades para facilitar processos comuns nos portais CKAN que compõe o Portal de Dados Abertos do BC.
+  contact:
+    name: Escritório de Governança da Informação
+    url: 'https://home.intranet.bcb.gov.br/colab/govinf/'
+    email: escritoriodegovernanca.deinf.grupo@bcnet.bcb.gov.br
+  version: 0.0.1
+tags:
+  - name: ação
+    description: Produzem alterações nos objetos do portal.
+  - name: consulta
+    description: Produzem alterações nos objetos do portal.
+paths:
+  /cria_conjunto_template:
+    post:
+      tags:
+      - "ação"
+      summary: 'Cria novo conjunto de dados, ou atualiza existente, baseado em um template'
+      description: Retorna o id do conjunto de dados criado
+      operationId: "addOrg"
+      parameters:
+        - in: query
+          name: ambiente
+          required: true
+          schema:      
+              type: string
+              title: Ambiente do CKAN
+              description: Indica o portal onde será aplicado o template
+              enum:
+                - Português
+                - Inglês
+              example: Português          
+        - in: query
+          name: template
+          required: true
+          schema:      
+            type: string
+            title: Nome do template
+            description: Nome do template a ser utilizado na criação dos dados. Deve ser um dos existentes.
+            example: Olinda_pt   
+      requestBody:
+        description: "Informações do template"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/objetos_template"
+      responses:
+        201:
+          description: "item criado"
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 1c87db03-08c2-4702-b567-134ffce28435
+        202:
+          description: "item atualizado"
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 1c87db03-08c2-4702-b567-134ffce28435
+        400:
+          description: "dados de entrada inválidos"
+      security:
+      - ckanapikey: []          
+components:
+  schemas: 
+    objetos_template:
+      type: "object"
+      example:
+      - value:
+        - "value1"
+        key:
+        - "key1"
+        active:
+        - "false"
+      description: "Objeto com informações necessárias para o template selecionado"
+      properties: {}
+  securitySchemes:
+    ckanapikey:
+      type: "apiKey"
+      name: "X-API-Key"
+      in: "header"      
