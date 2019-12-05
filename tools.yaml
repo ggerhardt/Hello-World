@@ -66,43 +66,45 @@ paths:
           content:
             application/json:
               schema:
+                title: Retorno
+                description: Retorno da API
                 type: "object"
-                  properties:
-                    id:  
-                      type: string
-                      title: Id 
-                      description:  Id do conjunto de dados 
-                      example: '3b382322-5037-4bda-9802-7805621e6af5'
-                    name:
-                      type: string
-                      title: Nome 
-                      description:  Nome interno do conjunto de dados 
-                      example: 'cip-siloc-media-diaria'
-                    new_dataset:
-                      type: string
-                      title: É um novo dataset 
-                      description:  Indica se o dataset já existia ou foi criado novo 
-                      enum:
-                      - true
-                      - false
-                      example: true   
+                properties:
+                  id:  
+                    type: string
+                    title: Id 
+                    description:  Id do conjunto de dados 
+                    example: '3b382322-5037-4bda-9802-7805621e6af5'
+                  name:
+                    type: string
+                    title: Nome 
+                    description:  Nome interno do conjunto de dados 
+                    example: 'cip-siloc-media-diaria'
+                  new_dataset:
+                    type: string
+                    title: É um novo dataset 
+                    description:  Indica se o dataset já existia ou foi criado novo 
+                    enum:
+                    - true
+                    - false
+                    example: true   
         400:
           description: "Dados de entrada inválidos"
           content:
             application/json:
               schema:
                 type: "object"
-                  properties:
-                    err:  
-                      type: string
-                      title: Erro 
-                      description:  Erro encontrado 
-                      example: 'Erro na inclusão do conjunto'
-                    err_detail:
-                      type: string
-                      title: Detalhes do erro 
-                      description:  Informação interna com detalhes do problema ocorrido
-                      example: 'CKANJS API Error. HTTP code 409. Message:....'
+                properties:
+                  err:  
+                    type: string
+                    title: Erro 
+                    description:  Erro encontrado 
+                    example: 'Erro na inclusão do conjunto'
+                  err_detail:
+                    type: string
+                    title: Detalhes do erro 
+                    description:  Informação interna com detalhes do problema ocorrido
+                    example: 'CKANJS API Error. HTTP code 409. Message:....'
       security:
       - ckanapikey: []          
 components:
