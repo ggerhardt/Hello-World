@@ -27,7 +27,7 @@ paths:
       operationId: "addOrg"
       parameters:
         - in: query
-          name: ambiente
+          name: idioma
           required: true
           schema:      
               type: string
@@ -45,6 +45,14 @@ paths:
             title: Nome do template
             description: Nome do template a ser utilizado na criação dos dados. Deve ser um dos existentes.
             example: Olinda_pt   
+        - in: query
+          name: callback
+          required: false
+          schema:      
+              type: string
+              title: Função de callback
+              description: Se feita solicitação por javascript/cliente, em vez de retornar os dados, retorna uma chamada para função de callback chamando os dados
+              example: fn_callback          
       requestBody:
         description: "Informações do template"
         required: true
@@ -53,22 +61,48 @@ paths:
             schema:
               $ref: "#/components/schemas/objetos_template"
       responses:
-        201:
-          description: "item criado"
+        200:
+          description: "Ok"
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: 1c87db03-08c2-4702-b567-134ffce28435
-        202:
-          description: "item atualizado"
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 1c87db03-08c2-4702-b567-134ffce28435
+                type: "object"
+                  properties:
+                    id:  
+                      type: string
+                      title: Id 
+                      description:  Id do conjunto de dados 
+                      example: '3b382322-5037-4bda-9802-7805621e6af5'
+                    name:
+                      type: string
+                      title: Nome 
+                      description:  Nome interno do conjunto de dados 
+                      example: 'cip-siloc-media-diaria'
+                    new_dataset:
+                      type: string
+                      title: É um novo dataset 
+                      description:  Indica se o dataset já existia ou foi criado novo 
+                      enum:
+                      - true
+                      - false
+                      example: true   
         400:
-          description: "dados de entrada inválidos"
+          description: "Dados de entrada inválidos"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                  properties:
+                    err:  
+                      type: string
+                      title: Erro 
+                      description:  Erro encontrado 
+                      example: 'Erro na inclusão do conjunto'
+                    err_detail:
+                      type: string
+                      title: Detalhes do erro 
+                      description:  Informação interna com detalhes do problema ocorrido
+                      example: 'CKANJS API Error. HTTP code 409. Message:....'
       security:
       - ckanapikey: []          
 components:
