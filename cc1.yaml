@@ -12,7 +12,7 @@ info:
 paths:
   /itens:
     get:
-      summary: Todas Datas
+      summary: Todas as Datas
       description: Taxas de conversão aplicadas nos cartões de uso internacional
       responses:
         '200':
