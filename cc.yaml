@@ -1,46 +1,40 @@
 openapi: 3.0.1
 info:
-  title: Taxas de Câmbio nos Cartões de Crédito
-  version: 1.0.0
-  description: |
-    Esta especificação define a API de serviços que permite visualizar as taxas de câmbio diárias para o dólar utilizadas nos cartões de crédito de uso internacional:
+  title: Taxas de Conversão nos Cartões de Uso Internacional
+  description: Esta especificação define a API de serviços que permite visualizar as taxas de conversão diárias para o dólar utilizadas nos cartões de uso internacional
   contact:
-    email: "apiteam??@bcb.gov.br"
+    name: Dados Abertos do Sistema Financeiro Nacional
+    email: dadosabertossfn@bcb.gov.br
   license:
-    name: "Open Database License (ODbL)"
-    url: "http://opendefinition.org/licenses/odc-odbl/"
-tags:
-- name: API
-  description: Informações sobre recursos disponíveis na API
+    name: Open Database License (ODbL)
+    url: 'http://opendefinition.org/licenses/odc-odbl/'
+  version: 1.0.1
 paths:
   /itens:
     get:
-      tags: [API]
-      summary: Taxas de câmbio aplicadas nos cartões de
-        crédito
+      summary: Taxas de conversão aplicadas nos cartões de uso internacional
+      description: Taxas de conversão aplicadas nos cartões de uso internacional
       responses:
-        200:
+        '200':
           description: Sucesso
           content:
-            'application/json:':
+            application/json:
               schema:
                 $ref: '#/components/schemas/historicoTaxasCartoes'
               examples:
-                Exemplo com vários cartoes e bandeiras e datas-base:
-                  $ref: '#/components/examples/example1'  
-                Exemplo com vários cartoes e bandeiras e a última data-base:
-                  $ref:  '#/components/examples/example2'
+                Exemplo com várias datas-base:
+                  $ref: '#/components/examples/example1'
       x-code-samples:
-        - lang: 'Curl'
-          source: |		
-            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens" -H "accept: application/json:"		
-        - lang: 'Javascript - Node'
+        - lang: Curl
+          source: |
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens" -H "accept: application/json"    
+        - lang: Javascript - Node
           source: |
             var request = require("request");
 
             var options = {
               method: 'GET',
-              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens',
               headers: 
               {   'cache-control': 'no-cache'
               } 
@@ -48,14 +42,13 @@ paths:
             request(options, function (error, response, body) {
               if (error) throw new Error(error);
               console.log(body);
-            });		
-
-        - lang: 'Javascript - Ajax'
+            });    
+        - lang: Javascript - Ajax
           source: |
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens",
+              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens",
               "method": "GET",
               "headers": {
                 "content-type": "application/json",
@@ -66,47 +59,46 @@ paths:
             $.ajax(settings).done(function (response) {
               console.log(response);
             });
-        - lang: 'Python'
+        - lang: Python
           source: |
             import requests
-            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens"
+            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens"
             headers = {
               'content-type': "application/json",
               'cache-control': "no-cache"
               }
             response = requests.request("GET", url, headers=headers)
             print(response.text)
-        - lang: 'Java'
+        - lang: Java
           source: |
-            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens")
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens")
             .header("cache-control", "no-cache")
             .asString();    
   /itens/ultimo:
     get:
-      tags: [API]
-      summary: Taxas de câmbio aplicadas nos cartões de
-        crédito no último dia disponível
+      summary: Taxas de conversão aplicadas nos cartões de uso internacional no último dia disponível
+      description: Taxas de conversão aplicadas nos cartões de uso internacional no último dia disponível
       responses:
-        200:
+        '200':
           description: Sucesso
           content:
-            'application/json:':
+            application/json:
               schema:
                 $ref: '#/components/schemas/historicoTaxasCartoes'
               examples:
-                Exemplo com vários cartoes e bandeiras e a última data-base:
-                  $ref:  '#/components/examples/example2'
+                Exemplo com a última data-base:
+                  $ref: '#/components/examples/example2'
       x-code-samples:
-        - lang: 'Curl'
-          source: |		
-            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo" -H "accept: application/json:"		
-        - lang: 'Javascript - Node'
+        - lang: Curl
+          source: |
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo" -H "accept: application/json"    
+        - lang: Javascript - Node
           source: |
             var request = require("request");
 
             var options = {
               method: 'GET',
-              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo',
               headers: 
               {   'cache-control': 'no-cache'
               } 
@@ -114,14 +106,13 @@ paths:
             request(options, function (error, response, body) {
               if (error) throw new Error(error);
               console.log(body);
-            });		
-
-        - lang: 'Javascript - Ajax'
+            });    
+        - lang: Javascript - Ajax
           source: |
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo",
+              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo",
               "method": "GET",
               "headers": {
                 "content-type": "application/json",
@@ -132,163 +123,127 @@ paths:
             $.ajax(settings).done(function (response) {
               console.log(response);
             });
-        - lang: 'Python'
+        - lang: Python
           source: |
             import requests
-            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo"
+            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo"
             headers = {
               'content-type': "application/json",
               'cache-control': "no-cache"
               }
             response = requests.request("GET", url, headers=headers)
             print(response.text)
-        - lang: 'Java'
+        - lang: Java
           source: |
-            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCambioCartoesCredito/itens/ultimo")
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo")
             .header("cache-control", "no-cache")
             .asString();    
 components:
   schemas:
     historicoTaxasCartoes:
-      type: array
       title: Lista de Cartões e seus Históricos de Taxas
-      description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira de cartões de uso internacional"
+      type: array
+      description: Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira de cartões de uso internacional
       items:
-        type: object
-        title: Cartão e seus Históricos de Taxas
-        description: Agrega os dados de um cartão de uma bandeira
-        required:
-          - cartaoNome
-          - cartaoBandeira
-          - historicoTaxas
-        properties:
-          cartaoNome:
-            type: string
-            title: Nome do Cartão
-            description: "Nome do cartão de uso internacional"
-            example: XYZ Paladium
-            maxLength: 50
-          cartaoBandeira:
-            type: string
-            title: Bandeira do Cartão
-            description: "Nome do instituidor do arranjo de pagamento (bandeira do cartão)"
-            example: Visa / Mastercard / Elo / American Express / ...
-            maxLength: 50
-          historicoTaxas:
-            type: array
-            title: Histórico de Taxas
-            description: "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional."
-            items:
-              type: object
-              required:
-                - taxaTipoGasto
-                - taxaData
-                - taxaConversao
-                - taxaDivulgacaoDataHora
-              properties:
-                taxaTipoGasto:
-                  type: string
-                  title: Tipo do Gasto
-                  description: "Identificação do tipo de gasto efetuado: \n- Compras ou saques na função crédito\n- Compras ou saques na função débito à conta"
-                  enum:
-                    - Crédito
-                    - Débito à conta
-                  example:   Crédito
-                  maxLength: 50
-                taxaData:
-                  type: string
-                  format: date
-                  title: Data
-                  description: Data da taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional
-                  example: '01/03/2020'
-                taxaConversao:
-                  title: Taxa de Conversão
-                  type: number
-                  format: double
-                  multipleOf: 0.0001
-                  example: 3.456789
-                  description: "Taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional, representada com a precisão de até seis casas decimais"
-                taxaDivulgacaoDataHora:
-                  type: string
-                  format: date-time
-                  title: Data da Divulgação
-                  description: "Data e hora da divulgação da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartao de uso internacional"
-                  example: '2017-07-21T17:32:28Z'
-                  maxLength: 25
+        $ref: '#/components/schemas/taxaCartao'
+    taxaCartao:    
+      title: Cartão e seus Históricos de Taxas
+      required:
+        - emissorCnpj
+        - emissorNome
+        - historicoTaxas
+      type: object
+      properties:
+        emissorCnpj:
+          title: CNPJ do emissor
+          maxLength: 18
+          type: string
+          description: CNPJ do cartão de uso internacional
+          example: 90.909.090/0001-90
+        emissorNome:
+          title: Nome do emissor
+          maxLength: 50
+          type: string
+          description: Nome do emissor do cartão de uso internacional
+          example: Banco ZZZ
+        historicoTaxas:
+          title: Histórico de Taxas
+          type: array
+          description: Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional.
+          items:
+            required:
+              - taxaConversao
+              - taxaData
+              - taxaDivulgacaoDataHora
+              - taxaTipoGasto
+            type: object
+            properties:
+              taxaTipoGasto:
+                title: Tipo do Gasto
+                maxLength: 50
+                type: string
+                description: |-
+                  Identificação do tipo de gasto efetuado: 
+                  - Compras ou saques na função crédito
+                  - Compras ou saques na função débito à conta
+                example: Crédito
+                enum:
+                  - Crédito
+                  - Débito à conta
+              taxaData:
+                title: Data
+                type: string
+                description: Data da taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional
+                format: date
+              taxaConversao:
+                title: Taxa de Conversão
+                multipleOf: 0.0001
+                type: number
+                description: 'Taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional, representada com quatro casas decimais'
+                format: double
+                example: 3.4567
+              taxaDivulgacaoDataHora:
+                title: Data da Divulgação
+                maxLength: 25
+                type: string
+                description: Data e hora da divulgação da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional
+                format: date-time
   examples:
     example1:
       value:
-      - cartaoNome: XYZ Paladium
-        cartaoBandeira: Visa 
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-01'
-            taxaConversao: 3.456789
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Paladium
-        cartaoBandeira: Elo 
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-01'
-            taxaConversao: 3.43322
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Zirconium
-        cartaoBandeira: Mastercard
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-01'
-            taxaConversao: 3.443
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Zirconium
-        cartaoBandeira: Mastercard
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-01'
-            taxaConversao: 3.4534
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Paladium
-        cartaoBandeira: Visa 
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-02'
-            taxaConversao: 3.84342
-            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
-      - cartaoNome: XYZ Zirconium
-        cartaoBandeira: Mastercard
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-02'
-            taxaConversao: 3.465433
-            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+        - emissorCnpj: 90.909.090/0001-90
+          emissorNome: Banco ZZZ
+          historicoTaxas:
+            - taxaTipoGasto: Débito à conta
+              taxaData: '2019-03-01'
+              taxaConversao: 3.4567
+              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+            - taxaTipoGasto: Crédito
+              taxaData: '2019-03-02'
+              taxaConversao: 3.4332
+              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+            - taxaTipoGasto: Crédito
+              taxaData: '2019-03-03'
+              taxaConversao: 3.443
+              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+            - taxaTipoGasto: Crédito
+              taxaData: '2019-03-04'
+              taxaConversao: 3.4534
+              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+            - taxaTipoGasto: Crédito
+              taxaData: '2019-03-05'
+              taxaConversao: 3.8434
+              taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+            - taxaTipoGasto: Crédito
+              taxaData: '2019-03-06'
+              taxaConversao: 3.4654
+              taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
     example2:
       value:
-      - cartaoNome: XYZ Paladium
-        cartaoBandeira: Visa 
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-02'
-            taxaConversao: 3.456789
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Zirconium
-        cartaoBandeira: Mastercard
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-02'
-            taxaConversao: 3.443
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Paladium
-        cartaoBandeira: Elo 
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-02'
-            taxaConversao: 3.43322
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-      - cartaoNome: XYZ Zirconium
-        cartaoBandeira: Mastercard
-        historicoTaxas:
-          - taxaTipoGasto: Crédito
-            taxaData: '2019-03-02'
-            taxaConversao: 3.4534
-            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-
-          
+        - emissorCnpj: 90.909.090/0001-90
+          emissorNome: Banco ZZZ
+          historicoTaxas:
+            - taxaTipoGasto: Crédito
+              taxaData: '2019-03-06'
+              taxaConversao: 3.4654
+              taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
