@@ -12,7 +12,7 @@ info:
 paths:
   /itens:
     get:
-      summary: Todas as Datas
+      summary: Todas as Taxas
       description: Taxas de conversão aplicadas nos cartões de uso internacional
       responses:
         '200':
@@ -76,7 +76,7 @@ paths:
             .asString();    
   /itens/ultimo:
     get:
-      summary: Última Data
+      summary: Última Taxa Disponível
       description: Taxas de conversão aplicadas nos cartões de uso internacional no último dia disponível
       responses:
         '200':
