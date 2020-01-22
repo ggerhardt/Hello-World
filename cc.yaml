@@ -12,7 +12,7 @@ info:
 paths:
   /itens:
     get:
-      summary: Todas Datas - Taxas de conversão aplicadas nos cartões de uso internacional
+      summary: Todas as Datas - Taxas de conversão aplicadas nos cartões de uso internacional
       description: Taxas de conversão aplicadas nos cartões de uso internacional
       responses:
         '200':
