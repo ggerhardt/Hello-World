@@ -76,7 +76,7 @@ paths:
             .asString();    
   /itens/ultimo:
     get:
-      summary: Última Taxa Disponível
+      summary: Taxas no Último Dia Disponível
       description: Taxas de conversão aplicadas nos cartões de uso internacional no último dia disponível
       responses:
         '200':
