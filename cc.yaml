@@ -141,13 +141,8 @@ paths:
 components:
   schemas:
     historicoTaxasCartoes:
-      title: Lista de Cartões e seus Históricos de Taxas
-      type: array
+      title: Lista de Históricos de Taxas de Cartões Internacionais
       description: Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira de cartões de uso internacional
-      items:
-        $ref: '#/components/schemas/taxaCartao'
-    taxaCartao:    
-      title: Cartão e seus Históricos de Taxas
       required:
         - emissorCnpj
         - emissorNome
@@ -211,39 +206,39 @@ components:
   examples:
     example1:
       value:
-        - emissorCnpj: 90.909.090/0001-90
-          emissorNome: Banco ZZZ
-          historicoTaxas:
-            - taxaTipoGasto: Débito à conta
-              taxaData: '2019-03-01'
-              taxaConversao: 3.4567
-              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-            - taxaTipoGasto: Crédito
-              taxaData: '2019-03-02'
-              taxaConversao: 3.4332
-              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-            - taxaTipoGasto: Crédito
-              taxaData: '2019-03-03'
-              taxaConversao: 3.443
-              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-            - taxaTipoGasto: Crédito
-              taxaData: '2019-03-04'
-              taxaConversao: 3.4534
-              taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
-            - taxaTipoGasto: Crédito
-              taxaData: '2019-03-05'
-              taxaConversao: 3.8434
-              taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
-            - taxaTipoGasto: Crédito
-              taxaData: '2019-03-06'
-              taxaConversao: 3.4654
-              taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+        emissorCnpj: 90.909.090/0001-90
+        emissorNome: Banco ZZZ
+        historicoTaxas:
+          - taxaTipoGasto: Débito à conta
+            taxaData: '2019-03-01'
+            taxaConversao: 3.4567
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.4332
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-03'
+            taxaConversao: 3.443
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-04'
+            taxaConversao: 3.4534
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-05'
+            taxaConversao: 3.8434
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-06'
+            taxaConversao: 3.4654
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
     example2:
       value:
-        - emissorCnpj: 90.909.090/0001-90
-          emissorNome: Banco ZZZ
-          historicoTaxas:
-            - taxaTipoGasto: Crédito
-              taxaData: '2019-03-06'
-              taxaConversao: 3.4654
-              taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+        emissorCnpj: 90.909.090/0001-90
+        emissorNome: Banco ZZZ
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-06'
+            taxaConversao: 3.4654
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
