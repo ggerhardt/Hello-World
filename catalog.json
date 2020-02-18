@@ -1,4 +1,1 @@
-{
- "$id" : "https://raw.githubusercontent.com/ggerhardt/Hello-World/master/catalog.json",
  "$ref": "cat2.json#/components/schemas/catalogo"
-}
