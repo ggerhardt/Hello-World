@@ -12,20 +12,7 @@
       },
       "version": "1.0.1"
     },
-"servers": [
-    {
-      "url": "https://my-api.com",
-      "description": "Production server"
-    },
-    {
-      "url": "https://beta.my-api.com",
-      "description": "Beta server"
-    },
-    {
-      "url": "https://some-other.my-api.com",
-      "description": "Some other server"
-    }
-  ],    
+  
     "paths": {
       "/catalogo": {
         "get": {
