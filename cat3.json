@@ -1,0 +1,139 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Catálogo de Dados Abertos de Instituições",
+      "description": "Esta especificação define o formato da lista dos conjuntos de Dados Abertos disponibilizados pelas instituições financeiras e demais instituições autorizadas a funcionar pelo Banco Central do Brasil, assim como dados de contato e informações básicas sobre cada conjunto.",
+      "contact": {
+        "email": "dadosabertossfn@bcb.gov.br"
+      },
+      "license": {
+        "name": "Open Database License (ODbL)",
+        "url": "http://opendefinition.org/licenses/odc-odbl/"
+      },
+      "version": "1.0.1"
+    },
+    "paths": {
+      "/catalogo": {
+        "get": {
+          "summary": "Informações sobre a instituição e seus conjuntos de dados abertos",
+          "description": "Retorna informações sobre a instituição e sobre os conjuntos de dados publicados como Dados Abertos.\n\nAlgumas informações são opcionais",
+          "operationId": "buscarCatalogo",
+          "responses": {
+            "200": {
+              "description": "Resposta bem sucedida",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/catalogo"
+                  },
+                  "examples": {
+                    "Exemplo com parâmetros atualizados no catálogo": {
+                      "$ref": "#/components/examples/example1"
+                    },
+                    "Exemplo com parâmetros vindos de um recurso externo": {
+                      "$ref": "#/components/examples/example2"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x-code-samples": [
+            {
+              "lang": "Curl",
+              "source": "\"curl -X GET \\\"https://www.bancoxyz.com.br/dadosabertos/catalogo\\\" -H \\\"accept: application/json\\\"\"\n"
+            },
+            {
+              "lang": "Javascript - Node",
+              "source": "var request = require(\"request\");\nvar options = {\n  method: 'GET',\n  url: 'https://www.bancoxyz.com.br/dadosabertos/catalogo',\n  headers: \n  {   'cache-control': 'no-cache'\n  } \n};\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n  console.log(body);\n});\t\t\n"
+            },
+            {
+              "lang": "Javascript - Ajax",
+              "source": "var settings = {\n  \"async\": true,\n  \"crossDomain\": true,\n  \"url\": \"https://www.bancoxyz.com.br/dadosabertos/catalogo\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"content-type\": \"application/json\",\n    \"cache-control\": \"no-cache\"\n  }\n}\n$.ajax(settings).done(function (response) {\n  console.log(response);\n});\n"
+            },
+            {
+              "lang": "Python",
+              "source": "import requests\nurl = \"https://www.bancoxyz.com.br/dadosabertos/catalogo\"\nheaders = {\n  'content-type': \"application/json\",\n  'cache-control': \"no-cache\"\n  }\nresponse = requests.request(\"GET\", url, headers=headers)\nprint(response.text)\n"
+            },
+            {
+              "lang": "Java",
+              "source": "HttpResponse response = Unirest.get(\"https://www.bancoxyz.com.br/dadosabertos/catalogo\")\n.header(\"cache-control\", \"no-cache\")\n.asString();                  \n"
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "catalogo": {"$ref":"cat_schema.json"}
+      },
+      "examples": {
+        "example1": {
+          "value": {
+            "cnpj": "90.909.090",
+            "nome": "Banco ZZZ",
+            "dataUltimaAtualizacao": "2019-08-11",
+            "contatoArea": "informacoes clientes",
+            "contatoEmail": "clientInfo@bancozzz.com.br",
+            "conjuntos": [
+              {
+                "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.0.0/openapi.json",
+                "nome": "Relatório de Pilar 3",
+                "urlBase": "http://www.bancozzz.com.br/dadosabertos/1.0/",
+                "urlVisualizacao": "https://bancozzz.com.br/DadosAbertos/Pilar3",
+                "situacao": "Produção",
+                "recursos": [
+                  {
+                    "nome": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
+                    "caminhoRecurso": "/KM1/{semestre}",
+                    "parametros": {
+                      "nome": "semestre",
+                      "valores": [
+                        "2019-4",
+                        "2020-1"
+                      ]
+                     },
+                    "periodicidade": "semestral"
+                  }
+                ],
+                "contatoArea": "Financeiro",
+                "contatoEmail": "pilar3@bancoxyz.com"
+              }
+            ]
+          }
+        },
+        "example2": {
+          "value": {
+            "cnpj": "01.010.101",
+            "nome": "Banco Xyz",
+            "dataUltimaAtualizacao": "2019-06-11",
+            "contatoArea": "Ouvidoria",
+            "contatoEmail": "ouvid@bancoxyz.com.br",
+            "conjuntos": [
+              {
+                "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.0.0/openapi.json",
+                "nome": "Relatório de Pilar 3",
+                "urlBase": "http://dadosabertos.bancoxyz.com.br/pilar3/",
+                "urlVisualizacao": "https://bancoxyz.com.br/ConsultaPilar3",
+                "situacao": "Produção",
+                "recursos": [
+                  {
+                    "nome": "LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).",
+                    "caminhoRecurso": "/lia/{ano}",
+                    "parametros": {
+                      "nome": "ano",
+                      "urlValores": "http://dadosabertos.bancoxyz.com.br/pilar3/periodos/lia.json"
+                    },
+                    "periodicidade": "anual"
+              }
+                ],
+                "contatoArea": "Financeiro",
+                "contatoEmail": "pilar3@bancoxyz.com"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+  
