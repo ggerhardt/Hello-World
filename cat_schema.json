@@ -143,7 +143,7 @@
                                             "properties": {
                                                 "nome": {
                                                     "title": "Nome do parâmetro",
-                                                    "maxLength": 30,
+                                                    "maxLength": 50,
                                                     "type": "string",
                                                     "description": "Nome do parâmetro existente no recurso, conforme definido na especificação",
                                                     "example": "semestre"
