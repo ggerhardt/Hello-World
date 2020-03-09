@@ -1,0 +1,349 @@
+openapi: 3.0.1
+info:
+  title: Catálogo de Dados Abertos de Instituições
+  description: 'Esta especificação define o formato da lista dos conjuntos de Dados Abertos disponibilizados pelas instituições financeiras e demais instituições autorizadas a funcionar pelo Banco Central do Brasil, assim como dados de contato e informações básicas sobre cada conjunto.'
+  contact:
+    email: dadosabertossfn@bcb.gov.br
+  license:
+    name: Open Database License (ODbL)
+    url: 'http://opendefinition.org/licenses/odc-odbl/'
+  version: 1.0.1
+paths:
+  /catalogo:
+    get:
+      summary: Informações sobre a instituição e seus conjuntos de dados abertos
+      description: |-
+        Retorna informações sobre a instituição e sobre os conjuntos de dados publicados como Dados Abertos.
+
+        Algumas informações são opcionais
+      operationId: buscarCatalogo
+      responses:
+        '200':
+          description: Resposta bem sucedida
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/catalogo'
+              examples:
+                Exemplo com parâmetros atualizados no catálogo:
+                  $ref: '#/components/examples/example1'
+                Exemplo com parâmetros vindos de um recurso externo:
+                  $ref: '#/components/examples/example2'
+      x-code-samples:
+        - lang: Curl
+          source: |
+            "curl -X GET \"https://www.bancoxyz.com.br/dadosabertos/catalogo\" -H \"accept: application/json\""
+        - lang: Javascript - Node
+          source: "var request = require(\"request\");\nvar options = {\n  method: 'GET',\n  url: 'https://www.bancoxyz.com.br/dadosabertos/catalogo',\n  headers: \n  {   'cache-control': 'no-cache'\n  } \n};\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n  console.log(body);\n});\t\t\n"
+        - lang: Javascript - Ajax
+          source: |
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.bancoxyz.com.br/dadosabertos/catalogo",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache"
+              }
+            }
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Python
+          source: |
+            import requests
+            url = "https://www.bancoxyz.com.br/dadosabertos/catalogo"
+            headers = {
+              'content-type': "application/json",
+              'cache-control': "no-cache"
+              }
+            response = requests.request("GET", url, headers=headers)
+            print(response.text)
+        - lang: Java
+          source: |
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/catalogo")
+            .header("cache-control", "no-cache")
+            .asString();                  
+components:
+  schemas:
+    catalogo:
+      title: Catálogo de conjuntos de dados abertos
+      description: Catálogo com informações dos conjuntos de dados abertos publicados pela instituição financeira.
+      required:
+        - cnpj
+        - conjuntos
+        - contatoArea
+        - contatoEmail
+        - dataUltimaAtualizacao
+        - nome
+      type: object
+      additionalProperties: false
+      properties:
+        cnpj:
+          title: CNPJ
+          pattern: '^[0-9]{2}.[0-9]{3}.[0-9]{3}$'
+          type: string
+          description: 'Código CNPJ de 8 dígitos, formatado.'
+          example: 01.010.101
+        nome:
+          title: Nome da Instituição
+          maxLength: 100
+          type: string
+          description: Nome da Instituição.
+          example: Banco Xyz
+        dataUltimaAtualizacao:
+          title: Data da última atualização
+          type: string
+          description: 'Data da última atualização destas informações, no formato yyyy-mm-dd.'
+          format: date
+        contatoArea:
+          title: Área de contato
+          maxLength: 100
+          type: string
+          description: Nome da área de contato para tratar problemas nos dados.
+          example: Ouvidoria
+        contatoEmail:
+          title: E-mail de contato
+          type: string
+          description: E-mail da área de contato para tratar problemas nos dados.
+          format: email
+          example: ouvid@bancoxyz.com.br
+        conjuntos:
+          title: Conjuntos de dados
+          type: array
+          description: Lista de conjuntos de dados disponibilizados.
+          items:
+            title: Item do catálogo
+            required:
+              - nome
+              - recursos
+              - ref
+              - situacao
+              - urlBase
+              - urlVisualizacao
+            type: object
+            additionalProperties: false
+            properties:
+              ref:
+                title: Referência à especificação da API
+                maxLength: 150
+                type: string
+                description: Endereço da especificação OpenAPI no site do Banco Central
+                format: uri
+                example: 'https://www.bcb.gov.br/htms/dasfn/taxas_cartoes/1.1.0/openapi.json'
+                enum:
+                  - 'https://www.bcb.gov.br/htms/dasfn/taxas_cartoes/1.1.0/openapi.json'
+                  - 'https://www.bcb.gov.br/htms/dasfn/pilar3/1.0.0/openapi.json'
+              nome:
+                title: Nome da API
+                maxLength: 100
+                type: string
+                description: 'Nome da API, conforme definido na especificação.'
+                example: Relatório de Pilar 3
+              urlBase:
+                title: URL de base
+                type: string
+                description: Indica o caminho base da implementação da API na Instituição.
+                format: uri
+                example: 'http://dadosabertos.bancoxyz.com.br/pilar3/1.0/'
+              urlVisualizacao:
+                title: URL de visualização
+                type: string
+                description: Url que aponta para visualização dos dados para usuários finais no site da instituição.
+                format: uri
+                example: 'https://bancoxyz.com.br/ConsultaPilar3'
+              situacao:
+                title: Situação da implementação
+                maxLength: 20
+                type: string
+                description: Indica o estado do desenvolvimento da API. Somente APIs marcadas como em 'Produção' são consideradas como publicadas.
+                example: Produção
+                enum:
+                  - Desenvolvimento
+                  - Homologação
+                  - Produção
+                  - Descontinuada
+              recursos:
+                title: Lista de recursos publicados
+                type: array
+                description: Lista com os recursos implementados e publicados pela instituição
+                items:
+                  title: Recurso da API
+                  required:
+                    - caminhoRecurso
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    nome:
+                      title: Nome do Recurso
+                      maxLength: 300
+                      type: string
+                      description: 'Nome do recurso, conforme definido na especificação'
+                      example: semestre
+                    caminhoRecurso:
+                      title: Caminho do recurso
+                      maxLength: 100
+                      type: string
+                      description: 'Caminho relativo do recurso implementado, conforme definido na especificação'
+                      format: uri-reference
+                      example: '/km1/{trimestre}'
+                      enum:
+                        - /itens
+                        - /itens/ultimo
+                        - '/km1/{trimestre}'
+                        - '/ova/{ano}'
+                        - '/ov1/{trimestre}'
+                        - '/lia/{ano}'
+                        - '/li1/{ano}'
+                        - '/li2/{ano}'
+                        - '/pv1/{ano}'
+                        - '/cca/{semestre}'
+                        - '/cc1/{semestre}'
+                        - '/cc22/{semestre}'
+                        - '/gsib1/{ano}'
+                        - '/ccyb1/{semestre}'
+                        - '/lr1/{semestre}'
+                        - '/lr2/{trimestre}'
+                        - '/liqa/{ano}'
+                        - '/liq1/{trimestre}'
+                        - '/liq2/{trimestre}'
+                        - '/cra/{ano}'
+                        - '/cr1/{semestre}'
+                        - '/cr2/{semestre}'
+                        - '/crb/{ano}'
+                        - '/crc/{ano}'
+                        - '/cr3/{semestre}'
+                        - '/cr4/{semestre}'
+                        - '/cr5/{semestre}'
+                        - '/ccra/{ano}'
+                        - '/ccr1/{semestre}'
+                        - '/ccr3/{semestre}'
+                        - '/ccr5/{semestre}'
+                        - '/ccr6/{semestre}'
+                        - '/ccr8/{semestre}'
+                        - '/seca/{ano}'
+                        - '/sec1/{semestre}'
+                        - '/sec2/{semestre}'
+                        - '/sec3/{semestre}'
+                        - '/sec4/{semestre}'
+                        - '/mra/{ano}'
+                        - '/mr1/{trimestre}'
+                        - '/mrb/{ano}'
+                        - '/mr2/{trimestre}'
+                        - '/mr3/{trimestre}'
+                        - '/mr4/{trimestre}'
+                        - '/irrbba/{ano}'
+                        - '/irrbb1/{ano}'
+                        - '/rema/{ano}'
+                        - '/rem1/{ano}'
+                        - '/rem2/{ano}'
+                        - '/rem3/{ano}'
+                    parametros:
+                      oneOf:
+                        - title: Parâmetro e valores implementados - no catálogo
+                          type: object
+                          additionalProperties: false
+                          properties:
+                            nome:
+                              title: Nome do parâmetro
+                              maxLength: 30
+                              type: string
+                              description: 'Nome do parâmetro existente no recurso, conforme definido na especificação'
+                              example: semestre
+                            valores:
+                              title: Lista de parâmetros implementados
+                              type: array
+                              description: 'Lista com os valores de parâmetros implementados pela instituição e que geram recursos válidos, conforme definido na especificação'
+                              items:
+                                title: Parâmetro válido publicado
+                                maxLength: 500
+                                type: string
+                                description: 'Parâmetro que gere recurso válido, conforme definido na especificação.'
+                                example: '201901'
+                          description: 'Nome do parâmetro e lista com os valores implementados pela instituição, que geram recursos válidos, conforme definido na especificação'
+                        - title: Parâmetro e valores implementados - em url
+                          type: object
+                          additionalProperties: false
+                          properties:
+                            nome:
+                              title: Nome do parâmetro
+                              maxLength: 50
+                              type: string
+                              description: 'Nome do parâmetro existente no recurso, conforme definido na especificação'
+                              example: semestre
+                            urlValores:
+                              title: URL de parâmetros implementação
+                              maxLength: 200
+                              type: string
+                              description: |
+                                URL definida pela instituição, que retorna lista com os parâmetros implementados (que geram recursos válidos), conforme definido na especificação. A url deve retornar um json simples com array de valores em texto disponíveis. Ex:['2018','2019','2020']
+                              format: uri-reference
+                              example: /KM1/PeriodosDisponiveis
+                          description: 'Nome do parâmetro e lista com os valores implementados pela instituição, que geram recursos válidos, conforme definido na especificação'
+                    periodicidade:
+                      title: Periodicidade
+                      maxLength: 50
+                      type: string
+                      description: 'Informativo. Se houver periodicidade definida, indica qual é.'
+                      example: semestral
+                  description: Recurso implementado pela Instituição.
+              contatoArea:
+                title: Área de Contato API
+                maxLength: 50
+                type: string
+                description: Nome da área de contato para tratar problemas nos dados específicos deste conjunto de dados.
+                example: Financeiro
+              contatoEmail:
+                title: E-mail de contato API
+                type: string
+                description: E-mail da área de contato para tratar problemas nos dados específicos deste conjunto de dados.
+                format: email
+                example: pilar3@bancoxyz.com
+  examples:
+    example1:
+      value:
+        cnpj: 90.909.090
+        nome: Banco ZZZ
+        dataUltimaAtualizacao: '2019-08-11'
+        contatoArea: informacoes clientes
+        contatoEmail: clientInfo@bancozzz.com.br
+        conjuntos:
+          - ref: 'https://www.bcb.gov.br/htms/dasfn/pilar3/1.0.0/openapi.json'
+            nome: Relatório de Pilar 3
+            urlBase: 'http://www.bancozzz.com.br/dadosabertos/1.0/'
+            urlVisualizacao: 'https://bancozzz.com.br/DadosAbertos/Pilar3'
+            situacao: Produção
+            recursos:
+              - nome: KM1 - Informações quantitativas sobre os requerimentos prudenciais
+                caminhoRecurso: '/KM1/{semestre}'
+                parametros:
+                  nome: semestre
+                  valores:
+                    - 2019-4
+                    - 2020-1
+                periodicidade: semestral
+            contatoArea: Financeiro
+            contatoEmail: pilar3@bancoxyz.com
+    example2:
+      value:
+        cnpj: 01.010.101
+        nome: Banco Xyz
+        dataUltimaAtualizacao: '2019-06-11'
+        contatoArea: Ouvidoria
+        contatoEmail: ouvid@bancoxyz.com.br
+        conjuntos:
+          - ref: 'https://www.bcb.gov.br/htms/dasfn/pilar3/1.0.0/openapi.json'
+            nome: Relatório de Pilar 3
+            urlBase: 'http://dadosabertos.bancoxyz.com.br/pilar3/'
+            urlVisualizacao: 'https://bancoxyz.com.br/ConsultaPilar3'
+            situacao: Produção
+            recursos:
+              - nome: LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).
+                caminhoRecurso: '/lia/{ano}'
+                parametros:
+                  nome: ano
+                  urlValores: 'http://dadosabertos.bancoxyz.com.br/pilar3/periodos/lia.json'
+                periodicidade: anual
+            contatoArea: Financeiro
+            contatoEmail: pilar3@bancoxyz.com
