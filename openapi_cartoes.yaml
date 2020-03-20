@@ -20,7 +20,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: cartoes_schema.json
+                $ref: 'cartoes_schema.json'
               examples:
                 Exemplo com várias datas-base:
                   $ref: '#/components/examples/example1'
