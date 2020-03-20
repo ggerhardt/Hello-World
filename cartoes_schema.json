@@ -1,0 +1,74 @@
+{
+  "title": "Lista de Históricos de Taxas de Cartões Internacionais",
+  "description": "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira de cartões de uso internacional",
+  "required": [
+    "emissorCnpj",
+    "emissorNome",
+    "historicoTaxas"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "emissorCnpj": {
+      "title": "CNPJ do emissor",
+      "type": "string",
+      "description": "CNPJ do cartão de uso internacional, com 8 dígitos e formatado",
+      "pattern": "^[0-9]{2}.[0-9]{3}.[0-9]{3}$",
+      "example": "01.010.101"
+    },
+    "emissorNome": {
+      "title": "Nome do emissor",
+      "maxLength": 100,
+      "type": "string",
+      "description": "Nome do emissor do cartão de uso internacional",
+      "example": "Banco ZZZ"
+    },
+    "historicoTaxas": {
+      "title": "Histórico de Taxas",
+      "type": "array",
+      "description": "Informações sobre a taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional.",
+      "minItems": 1,
+      "items": {
+        "required": [
+          "taxaConversao",
+          "taxaData",
+          "taxaDivulgacaoDataHora",
+          "taxaTipoGasto"
+        ],
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "taxaTipoGasto": {
+            "title": "Tipo do Gasto",
+            "type": "string",
+            "description": "Identificação do tipo de gasto efetuado: \n- Compras ou saques na função crédito\n- Compras ou saques na função débito à conta",
+            "example": "Crédito",
+            "enum": [
+              "Crédito",
+              "Débito à conta"
+            ]
+          },
+          "taxaData": {
+            "title": "Data",
+            "type": "string",
+            "description": "Data da taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional",
+            "format": "date"
+          },
+          "taxaConversao": {
+            "title": "Taxa de Conversão",
+            "type": "number",
+            "description": "Taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional, representada com quatro casas decimais",
+            "example": 3.4567
+          },
+          "taxaDivulgacaoDataHora": {
+            "title": "Data da Divulgação",
+            "maxLength": 25,
+            "type": "string",
+            "description": "Data e hora da divulgação da  taxa de conversão do dólar dos Estados Unidos para reais referente aos gastos em moeda estrangeira do cartão de uso internacional",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
