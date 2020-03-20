@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: Taxas de Conversão nos Cartões de Uso Internacional
+  description: Esta especificação define a API de serviços que permite visualizar as taxas de conversão diárias para o dólar utilizadas nos cartões de uso internacional
+  contact:
+    name: Dados Abertos do Sistema Financeiro Nacional
+    email: dadosabertossfn@bcb.gov.br
+  license:
+    name: Open Database License (ODbL)
+    url: 'http://opendefinition.org/licenses/odc-odbl/'
+  version: 1.2.0
+paths:
+  /itens:
+    get:
+      summary: Todas as Taxas
+      description: Taxas de conversão aplicadas nos cartões de uso internacional
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: schema.json
+              examples:
+                Exemplo com várias datas-base:
+                  $ref: '#/components/examples/example1'
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens" -H "accept: application/json"    
+        - lang: Javascript - Node
+          source: |
+            var request = require("request");
+
+            var options = {
+              method: 'GET',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens',
+              headers: 
+              {   'cache-control': 'no-cache'
+              } 
+            };
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+              console.log(body);
+            });    
+        - lang: Javascript - Ajax
+          source: |
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Python
+          source: |
+            import requests
+            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens"
+            headers = {
+              'content-type': "application/json",
+              'cache-control': "no-cache"
+              }
+            response = requests.request("GET", url, headers=headers)
+            print(response.text)
+        - lang: Java
+          source: |
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens")
+            .header("cache-control", "no-cache")
+            .asString();    
+  /itens/ultimo:
+    get:
+      summary: Taxas no Último Dia Disponível
+      description: Taxas de conversão aplicadas nos cartões de uso internacional no último dia disponível
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/historicoTaxasCartoes'
+              examples:
+                Exemplo com a última data-base:
+                  $ref: '#/components/examples/example2'
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo" -H "accept: application/json"    
+        - lang: Javascript - Node
+          source: |
+            var request = require("request");
+
+            var options = {
+              method: 'GET',
+              url: 'https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo',
+              headers: 
+              {   'cache-control': 'no-cache'
+              } 
+            };
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+              console.log(body);
+            });    
+        - lang: Javascript - Ajax
+          source: |
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Python
+          source: |
+            import requests
+            url = "https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo"
+            headers = {
+              'content-type': "application/json",
+              'cache-control': "no-cache"
+              }
+            response = requests.request("GET", url, headers=headers)
+            print(response.text)
+        - lang: Java
+          source: |
+            HttpResponse response = Unirest.get("https://www.bancoxyz.com.br/dadosabertos/taxasCartoes/itens/ultimo")
+            .header("cache-control", "no-cache")
+            .asString();    
+components:
+  examples:
+    example1:
+      value:
+        emissorCnpj: 90.909.090
+        emissorNome: Banco ZZZ
+        historicoTaxas:
+          - taxaTipoGasto: Débito à conta
+            taxaData: '2019-03-01'
+            taxaConversao: 3.4567
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-02'
+            taxaConversao: 3.4332
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-03'
+            taxaConversao: 3.443
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-04'
+            taxaConversao: 3.4534
+            taxaDivulgacaoDataHora: '2019-03-02T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-05'
+            taxaConversao: 3.8434
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-06'
+            taxaConversao: 3.4654
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
+    example2:
+      value:
+        emissorCnpj: 90.909.090
+        emissorNome: Banco ZZZ
+        historicoTaxas:
+          - taxaTipoGasto: Crédito
+            taxaData: '2019-03-06'
+            taxaConversao: 3.4654
+            taxaDivulgacaoDataHora: '2019-03-03T17:32:28Z'
