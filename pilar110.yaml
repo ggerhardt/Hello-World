@@ -30,7 +30,7 @@ paths:
       summary: KM1 - Informações quantitativas sobre os requerimentos prudenciais
       description: 'Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez. Devem ser evidenciados os valores relativos ao período corrente (T) e aos quatro períodos anteriores (T-1 a T-4).'
       parameters:
-        - $ref: 'components/parameters/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -50,7 +50,7 @@ paths:
       summary: OVA - Visão geral do gerenciamento de riscos da instituição
       description: 'Descrição das estratégias de gerenciamento de riscos e da atuação do conselho de administração (CA) e da diretoria, de modo a permitir o claro entendimento da relação entre o apetite por riscos da instituição e as suas principais atividades e riscos relevantes.'
       parameters:
-        - $ref: 'components/parameters/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
