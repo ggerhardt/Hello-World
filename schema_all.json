@@ -1,14 +1,14 @@
 {
   "definitions": {
     "ano": {
-      "$id": "ano",
+      "$id": "#ano",
       "title": "Ano",
       "type": "integer",
       "description": "Ano a que se referem as informações.",
       "example": 2019
     },
     "semestre": {
-      "$id": "semestre",
+      "$id": "#semestre",
       "title": "Semestre",
       "pattern": "^\\d{4}-[1-2]$",
       "type": "string",
@@ -16,7 +16,7 @@
       "example": "2019-2"
     },
     "trimestre": {
-      "$id": "trimestre",
+      "$id": "#trimestre",
       "title": "Trimestre",
       "pattern": "^\\d{4}-[1-4]$",
       "type": "string",
@@ -24,14 +24,14 @@
       "example": "2019-3"
     },
     "valor": {
-      "$id": "valor",
+      "$id": "#valor",
       "type": "number",
       "description": "Valor numérico com duas casas decimais, separado por ponto",
       "format": "double",
       "example": 1123.11
     },
     "km1": {
-      "$id": "km1",
+      "$id": "#km1",
       "title": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
       "required": [
         "km1_1",
@@ -290,7 +290,7 @@
       "description": "Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez. Devem ser evidenciados os valores relativos ao período corrente (T) e aos quatro períodos anteriores (T-1 a T-4)."
     },
     "ova": {
-      "$id": "ova",
+      "$id": "#ova",
       "title": "OVA - Visão geral do gerenciamento de riscos da instituição",
       "required": [
         "ova_anoReferencia"
