@@ -70,7 +70,7 @@ paths:
       summary: OV1 - Visão geral dos ativos ponderados pelo risco (RWA)
       description: Apresentar visão geral do montante dos ativos ponderados pelo risco (RWA) utilizado na apuração do requerimento mínimo de Patrimônio de Referência (PR).
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -90,7 +90,7 @@ paths:
       summary: LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -110,7 +110,7 @@ paths:
       summary: 'LI1 - Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco'
       description: Valores contábeis reportados nas demonstrações financeiras publicadas e os considerados na regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -130,7 +130,7 @@ paths:
       summary: LI2 - Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições
       description: Valores considerados para fins de regulação prudencial (linhas 1 a 4 e 9) e montante da diferença entre os valores contábeis e os prudenciais (linhas 5 a 8).
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -150,7 +150,7 @@ paths:
       summary: 'PV1 - Detalhar os elementos considerados no cálculo dos ajustes prudenciais a serem efetuados no processo de apreçamento de instrumentos financeiros avaliados pelo valor de mercado, conforme disposto na Resolução nº 4.277, de 2013.'
       description: Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo).
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -170,7 +170,7 @@ paths:
       summary: CCA - Principais características dos instrumentos que compõem o Patrimônio de Referência (PR)
       description: Informações quantitativas e qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -190,7 +190,7 @@ paths:
       summary: CC1 - Composição do Patrimônio de Referência (PR)
       description: Informações quantitativas relativas aos elementos patrimoniais que compõem o PR.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -215,7 +215,7 @@ paths:
       summary: CC2 - Conciliação do Patrimônio de Referência (PR) com o balanço patrimonial
       description: Valores das demonstrações financeiras publicadas e valores utilizados na composição do Patrimônio de Referência (PR).
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -238,7 +238,7 @@ paths:
       summary: GSIB1 - Indicadores utilizados para caracterização de instituição financeira como sistemicamente importante em âmbito global (G-SIBs)
       description: Indicadores base da metodologia de apuração do ISG.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -258,7 +258,7 @@ paths:
       summary: CCYB1 - Distribuição geográfica das exposições ao risco de crédito consideradas no cálculo do ACP Contracíclico
       description: 'Informações necessárias para o cálculo do ACPContracíclico, conforme disposto na Circular nº 3.769, de 29 de outubro de 2015.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -278,7 +278,7 @@ paths:
       summary: LR1 - Comparação entre informações das demonstrações financeiras e as utilizadas para apuração da Razão de Alavancagem (RA)
       description: Informações quantitativas referentes à RA.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -298,7 +298,7 @@ paths:
       summary: LR2 - Informações detalhadas sobre a Razão de Alavancagem
       description: Informações quantitativas referentes à RA.
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -318,7 +318,7 @@ paths:
       summary: LIQA - Informações qualitativas sobre o gerenciamento do risco de liquidez
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -338,7 +338,7 @@ paths:
       summary: LIQ1 - Indicador de Liquidez de Curto Prazo (LCR)
       description: Médias dos valores diários relativos ao trimestre de referência.
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -365,7 +365,7 @@ paths:
       summary: LIQ2 - Indicador Liquidez de Longo Prazo (NSFR)
       description: Valores relativos ao trimestre de referência.
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -389,7 +389,7 @@ paths:
       summary: CRA - Informações qualitativas sobre o gerenciamento do risco de crédito
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -409,7 +409,7 @@ paths:
       summary: CR1 - Qualidade creditícia das exposições
       description: Valores considerados para fins da regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -429,7 +429,7 @@ paths:
       summary: CR2 - Mudanças no estoque de operações em curso anormal
       description: Valores considerados para fins da regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -456,7 +456,7 @@ paths:
       summary: CRB - Informações adicionais sobre a qualidade creditícia das exposições
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -476,7 +476,7 @@ paths:
       summary: CRC - Informações sobre instrumentos mitigadores do risco de crédito
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -496,7 +496,7 @@ paths:
       summary: CR3 - Visão geral das técnicas de mitigação do risco de crédito
       description: 'Valores considerados para fins da regulamentação prudencial antes e após a utilização de instrumentos mitigadores do risco de crédito, de acordo com a Circular n° 3.809, de 25 de agosto de 2016.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -527,7 +527,7 @@ paths:
       summary: CR4 - Abordagem padronizada – exposições e efeitos da mitigação do risco de crédito
       description: Valores das exposições prévia e posteriormente à aplicação do Fator de Conversão em Crédito (FCC) e ao reconhecimento do efeito de instrumento mitigador.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -554,7 +554,7 @@ paths:
       summary: CR5 - Abordagem padronizada - exposições por contraparte e fator de ponderação de risco (FPR)
       description: 'Valores das exposições. O valor a ser informado corresponde às exposições contabilizadas e não contabilizadas no balanço patrimonial, líquidas de adiantamentos recebidos, provisões e rendas a apropriar, depois de aplicado o Fator de Conversão em Crédito (FCC) e após uso das técnicas de mitigação de risco.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -579,7 +579,7 @@ paths:
       summary: CCRA - Informações qualitativas sobre o gerenciamento do risco de crédito de contraparte (CCR)
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -599,7 +599,7 @@ paths:
       summary: CCR1 - Análise das exposições ao risco de crédito de contraparte (CCR) por abordagem utilizada
       description: 'Exposições ao risco de crédito de contraparte, montante dos ativos ponderados pelo risco (RWA) e seus parâmetros de cálculo.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -619,7 +619,7 @@ paths:
       summary: CCR3 - Abordagem padronizada – segregação de exposições ao CCR por contraparte e por fator de ponderação de risco
       description: Valores das exposições após a utilização de instrumentos de mitigação.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -639,7 +639,7 @@ paths:
       summary: CCR5 - Colaterais financeiros associados a exposições ao risco de crédito de contraparte
       description: Valores justos dos colaterais financeiros.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -659,7 +659,7 @@ paths:
       summary: CCR6 - Informações sobre o risco de crédito de contraparte associado a derivativos de crédito
       description: 'Valor de nocional e valor justo dos derivativos de crédito (risco transferido e risco recebido), antes da compensação entre as posições vendidas e compradas.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -679,7 +679,7 @@ paths:
       summary: CCR8 - Informações sobre o risco de crédito de contraparte associado a exposições a contrapartes centrais
       description: Exposições e montante dos ativos ponderados pelo risco (RWA).
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -699,7 +699,7 @@ paths:
       summary: SECA - Informações qualitativas sobre o gerenciamento de riscos das exposições de securitização
       description: Informações qualitativas e quantitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -719,7 +719,7 @@ paths:
       summary: SEC1 - Exposições de securitização classificadas na carteira bancária
       description: Valores considerados na regulamentação prudencial. Os processos assemelhados a securitização estruturados em apenas uma classe de priorização de pagamento não devem ser reportados.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -739,7 +739,7 @@ paths:
       summary: SEC2 - Exposições de securitização classificadas na carteira de negociação
       description: Valores considerados para fins da regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -759,7 +759,7 @@ paths:
       summary: SEC3 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como originadora ou patrocinadora
       description: 'Valores das exposições, do montante dos ativos ponderados pelo risco (RWA) e dos requerimentos de capital.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -779,7 +779,7 @@ paths:
       summary: SEC4 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como investidora
       description: 'Valores das exposições, do montante dos ativos ponderados pelo risco (RWA) e dos requerimentos de capital.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/semestre'
+        - $ref: '#/components/parameters/semestre'
       responses:
         '200':
           description: Sucesso
@@ -799,7 +799,7 @@ paths:
       summary: MRA - Informações qualitativas sobre o gerenciamento do risco de mercado
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -819,7 +819,7 @@ paths:
       summary: MR1 - Abordagem padronizada - fatores de risco associados ao risco de mercado
       description: RWA<sub>MPAD</sub>.
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -839,7 +839,7 @@ paths:
       summary: MRB - Informações qualitativas sobre o risco de mercado na abordagem de modelos internos
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -859,7 +859,7 @@ paths:
       summary: MR2 - Informações sobre as variações do RWA MINT mercado
       description: RWA<sub>MINT</sub>.
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -882,7 +882,7 @@ paths:
       summary: MR3 - Valores dos modelos internos de risco de mercado
       description: Resultados dos modelos internos de risco de mercado para cálculo do requerimento de capital.
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -902,7 +902,7 @@ paths:
       summary: MR4 - Comparação das estimativas do VaR com os resultados efetivo e hipotético
       description: 'Estimativas do VaR, conforme disposto no art. 6º, inciso III, da Circular nº 3.646 de 2013.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: '#/components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -927,7 +927,7 @@ paths:
       summary: IRRBBA - Informações qualitativas sobre o gerenciamento do IRRBB
       description: Informações qualitativas e quantitativas. Informações quantitativas devem se basear na média diária ou mensal no ano da data-base de divulgação.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -947,7 +947,7 @@ paths:
       summary: IRRBB1 - Informações quantitativas sobre o IRRBB
       description: Medidas de IRRBB.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -970,7 +970,7 @@ paths:
       summary: REMA - Política de remuneração
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -990,7 +990,7 @@ paths:
       summary: REM1 - Remuneração atribuída durante o ano de referência
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -1010,7 +1010,7 @@ paths:
       summary: REM2 - Pagamentos extraordinários
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -1030,7 +1030,7 @@ paths:
       summary: REM3 - Remuneração diferida
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: '#/components/parameters/ano'
       responses:
         '200':
           description: Sucesso
