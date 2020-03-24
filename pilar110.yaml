@@ -30,7 +30,7 @@ paths:
       summary: KM1 - Informações quantitativas sobre os requerimentos prudenciais
       description: 'Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez. Devem ser evidenciados os valores relativos ao período corrente (T) e aos quatro períodos anteriores (T-1 a T-4).'
       parameters:
-        - $ref: 'schema_all.json#/definitions/trimestre'
+        - $ref: 'components/parameters/trimestre'
       responses:
         '200':
           description: Sucesso
@@ -50,7 +50,7 @@ paths:
       summary: OVA - Visão geral do gerenciamento de riscos da instituição
       description: 'Descrição das estratégias de gerenciamento de riscos e da atuação do conselho de administração (CA) e da diretoria, de modo a permitir o claro entendimento da relação entre o apetite por riscos da instituição e as suas principais atividades e riscos relevantes.'
       parameters:
-        - $ref: 'schema_all.json#/definitions/ano'
+        - $ref: 'components/parameters/ano'
       responses:
         '200':
           description: Sucesso
@@ -1069,18 +1069,18 @@ components:
       description: Ano de referência
       required: true
       schema:
-        $ref: 'schema_all.json#/definitions/ano'
+        $ref: 'components/schemas/ano'
     semestre:
       name: semestre
       in: path
       description: Semestre de referência
       required: true
       schema:
-        $ref: 'schema_all.json#/definitions/semestre'
+        $ref: 'components/schemas/semestre'
     trimestre:
       name: trimestre
       in: path
       description: Trimestre de referência
       required: true
       schema:
-        $ref: 'schema_all.json#/definitions/trimestre'
+        $ref: 'components/schemas/trimestre'
