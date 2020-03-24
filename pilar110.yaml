@@ -1069,18 +1069,18 @@ components:
       description: Ano de referência
       required: true
       schema:
-        $ref: 'components/schemas/ano'
+        $ref: '#/components/schemas/ano'
     semestre:
       name: semestre
       in: path
       description: Semestre de referência
       required: true
       schema:
-        $ref: 'components/schemas/semestre'
+        $ref: '#/components/schemas/semestre'
     trimestre:
       name: trimestre
       in: path
       description: Trimestre de referência
       required: true
       schema:
-        $ref: 'components/schemas/trimestre'
+        $ref: '#/components/schemas/trimestre'
