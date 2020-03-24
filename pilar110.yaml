@@ -30,14 +30,14 @@ paths:
       summary: KM1 - Informações quantitativas sobre os requerimentos prudenciais
       description: 'Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez. Devem ser evidenciados os valores relativos ao período corrente (T) e aos quatro períodos anteriores (T-1 a T-4).'
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/km1'
+                $ref: 'schema_all.json#/definitions/km1'
       x-dasfn-cod-doc: Apresentar as principais métricas estabelecidas pela regulamentação prudencial.
       x-dasfn-objetivo: 'Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez. Devem ser evidenciados os valores relativos ao período corrente (T) e aos quatro períodos anteriores (T-1 a T-4).'
       x-dasfn-frequencia: Trimestral.
@@ -50,14 +50,14 @@ paths:
       summary: OVA - Visão geral do gerenciamento de riscos da instituição
       description: 'Descrição das estratégias de gerenciamento de riscos e da atuação do conselho de administração (CA) e da diretoria, de modo a permitir o claro entendimento da relação entre o apetite por riscos da instituição e as suas principais atividades e riscos relevantes.'
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ova'
+                $ref: 'schema_all.json#/definitions/ova'
       x-dasfn-cod-doc: OVA
       x-dasfn-objetivo: Informações qualitativas.
       x-dasfn-frequencia: Anual.
@@ -70,14 +70,14 @@ paths:
       summary: OV1 - Visão geral dos ativos ponderados pelo risco (RWA)
       description: Apresentar visão geral do montante dos ativos ponderados pelo risco (RWA) utilizado na apuração do requerimento mínimo de Patrimônio de Referência (PR).
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ov1'
+                $ref: 'schema_all.json#/definitions/ov1'
       x-dasfn-cod-doc: OV1
       x-dasfn-objetivo: 'Informações quantitativas sobre o RWA e o requerimento mínimo de PR conforme estabelecido no art. 4º da Resolução nº 4.193, de 2013.'
       x-dasfn-frequencia: Trimestral.
@@ -90,14 +90,14 @@ paths:
       summary: LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/lia'
+                $ref: 'schema_all.json#/definitions/lia'
       x-dasfn-cod-doc: LIA
       x-dasfn-objetivo: Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).
       x-dasfn-frequencia: Anual.
@@ -110,14 +110,14 @@ paths:
       summary: 'LI1 - Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco'
       description: Valores contábeis reportados nas demonstrações financeiras publicadas e os considerados na regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/li1'
+                $ref: 'schema_all.json#/definitions/li1'
       x-dasfn-cod-doc: LI1
       x-dasfn-objetivo: Permitir a identificação de diferenças entre o escopo de consolidação utilizado nas demonstrações financeiras publicadas (coluna a) e aquele empregado para fins da regulamentação prudencial (coluna b). As colunas “c” a “g” detalham os valores por categorias de riscos.
       x-dasfn-frequencia: Anual.
@@ -130,14 +130,14 @@ paths:
       summary: LI2 - Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições
       description: Valores considerados para fins de regulação prudencial (linhas 1 a 4 e 9) e montante da diferença entre os valores contábeis e os prudenciais (linhas 5 a 8).
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/li2'
+                $ref: 'schema_all.json#/definitions/li2'
       x-dasfn-cod-doc: LI2
       x-dasfn-objetivo: Demonstrar as principais causas das diferenças entre os valores da coluna “b” da tabela LI1 e os valores das exposições.
       x-dasfn-frequencia: Anual.
@@ -150,14 +150,14 @@ paths:
       summary: 'PV1 - Detalhar os elementos considerados no cálculo dos ajustes prudenciais a serem efetuados no processo de apreçamento de instrumentos financeiros avaliados pelo valor de mercado, conforme disposto na Resolução nº 4.277, de 2013.'
       description: Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo).
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pv1'
+                $ref: 'schema_all.json#/definitions/pv1'
       x-dasfn-cod-doc: PV1
       x-dasfn-objetivo: Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo).
       x-dasfn-frequencia: Anual.
@@ -170,14 +170,14 @@ paths:
       summary: CCA - Principais características dos instrumentos que compõem o Patrimônio de Referência (PR)
       description: Informações quantitativas e qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cca'
+                $ref: 'schema_all.json#/definitions/cca'
       x-dasfn-cod-doc: CCA
       x-dasfn-objetivo: Descrever as principais características dos instrumentos que compõem o PR.
       x-dasfn-frequencia: 'Semestral ou sempre que emitido novo instrumento ou efetuada a liquidação, amortização, conversão, extinção ou outra alteração relevante em instrumento de capital. Devem ser informados os links para os relatórios das emissões, quando públicas, feitas no período anterior.'
@@ -190,14 +190,14 @@ paths:
       summary: CC1 - Composição do Patrimônio de Referência (PR)
       description: Informações quantitativas relativas aos elementos patrimoniais que compõem o PR.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cc1'
+                $ref: 'schema_all.json#/definitions/cc1'
       x-dasfn-cod-doc: CC1
       x-dasfn-objetivo: 'Detalhamento da composição do Patrimônio de Referência (PR), conforme a Resolução nº 4.192, de 2013.'
       x-dasfn-frequencia: Semestral.
@@ -215,14 +215,14 @@ paths:
       summary: CC2 - Conciliação do Patrimônio de Referência (PR) com o balanço patrimonial
       description: Valores das demonstrações financeiras publicadas e valores utilizados na composição do Patrimônio de Referência (PR).
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cc2'
+                $ref: 'schema_all.json#/definitions/cc2'
       x-dasfn-cod-doc: CC2
       x-dasfn-objetivo: 'Demonstrar a origem, no balanço patrimonial publicado, dos valores informados na Tabela CC1.'
       x-dasfn-frequencia: Semestral.
@@ -238,14 +238,14 @@ paths:
       summary: GSIB1 - Indicadores utilizados para caracterização de instituição financeira como sistemicamente importante em âmbito global (G-SIBs)
       description: Indicadores base da metodologia de apuração do ISG.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/gsib1'
+                $ref: 'schema_all.json#/definitions/gsib1'
       x-dasfn-cod-doc: GSIB1
       x-dasfn-objetivo: 'Divulgação de informações relativas ao índice de importância sistêmica global (ISG), mencionado na Circular nº 3.751, de 19 de março de 2015.'
       x-dasfn-frequencia: Anual.
@@ -258,14 +258,14 @@ paths:
       summary: CCYB1 - Distribuição geográfica das exposições ao risco de crédito consideradas no cálculo do ACP Contracíclico
       description: 'Informações necessárias para o cálculo do ACPContracíclico, conforme disposto na Circular nº 3.769, de 29 de outubro de 2015.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccyb1'
+                $ref: 'schema_all.json#/definitions/ccyb1'
       x-dasfn-cod-doc: CCYB1
       x-dasfn-objetivo: Fornecer visão geral da distribuição geográfica das exposições ao risco de crédito ao setor privado não bancário para fins do cálculo do Adicional Contracíclico de Capital Principal (ACP Contracíclico).
       x-dasfn-frequencia: Semestral.
@@ -278,14 +278,14 @@ paths:
       summary: LR1 - Comparação entre informações das demonstrações financeiras e as utilizadas para apuração da Razão de Alavancagem (RA)
       description: Informações quantitativas referentes à RA.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/lr1'
+                $ref: 'schema_all.json#/definitions/lr1'
       x-dasfn-cod-doc: LR1
       x-dasfn-objetivo: 'Discriminar os ajustes efetuados no valor do ativo total para a obtenção da Exposição Total utilizada na apuração da Razão de Alavancagem (RA), conforme disposto na Circular nº 3.748, de 2015.'
       x-dasfn-frequencia: Semestral.
@@ -298,14 +298,14 @@ paths:
       summary: LR2 - Informações detalhadas sobre a Razão de Alavancagem
       description: Informações quantitativas referentes à RA.
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/lr2'
+                $ref: 'schema_all.json#/definitions/lr2'
       x-dasfn-cod-doc: LR2
       x-dasfn-objetivo: 'Detalhar os componentes da Exposição Total utilizada na apuração da Razão de Alavancagem (RA), de que trata a Circular nº 3.748, de 2015.'
       x-dasfn-frequencia: Trimestral.
@@ -318,14 +318,14 @@ paths:
       summary: LIQA - Informações qualitativas sobre o gerenciamento do risco de liquidez
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/liqa'
+                $ref: 'schema_all.json#/definitions/liqa'
       x-dasfn-cod-doc: LIQA
       x-dasfn-objetivo: Descrever as principais características do gerenciamento do risco de liquidez.
       x-dasfn-frequencia: Anual.
@@ -338,14 +338,14 @@ paths:
       summary: LIQ1 - Indicador de Liquidez de Curto Prazo (LCR)
       description: Médias dos valores diários relativos ao trimestre de referência.
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/liq1'
+                $ref: 'schema_all.json#/definitions/liq1'
       x-dasfn-cod-doc: LIQ1
       x-dasfn-objetivo: 'Informar as entradas e saídas de caixa, bem como o estoque de Ativos de Alta Liquidez (HQLA) da instituição, conforme definições e metodologia de cálculo estabelecidas na Circular nº 3.749, de 2015.'
       x-dasfn-frequencia: Trimestral.
@@ -365,14 +365,14 @@ paths:
       summary: LIQ2 - Indicador Liquidez de Longo Prazo (NSFR)
       description: Valores relativos ao trimestre de referência.
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/liq2'
+                $ref: 'schema_all.json#/definitions/liq2'
       x-dasfn-cod-doc: LIQ2
       x-dasfn-objetivo: 'Divulgar informações relativas ao Indicador Liquidez de Longo Prazo (NSFR) e seus componentes, conforme estabelecido na Circular nº 3.869, de 19 de dezembro de 2017.'
       x-dasfn-frequencia: Trimestral.
@@ -389,14 +389,14 @@ paths:
       summary: CRA - Informações qualitativas sobre o gerenciamento do risco de crédito
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cra'
+                $ref: 'schema_all.json#/definitions/cra'
       x-dasfn-cod-doc: CRA
       x-dasfn-objetivo: Descrever as principais características de gerenciamento do risco de crédito.
       x-dasfn-frequencia: Anual.
@@ -409,14 +409,14 @@ paths:
       summary: CR1 - Qualidade creditícia das exposições
       description: Valores considerados para fins da regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cr1'
+                $ref: 'schema_all.json#/definitions/cr1'
       x-dasfn-cod-doc: CR1
       x-dasfn-objetivo: 'Fornecer visão geral da qualidade das exposições sujeitas ao risco de crédito relativas apenas às operações de crédito, aos títulos de dívida e às operações não contabilizadas no Balanço Patrimonial.'
       x-dasfn-frequencia: Semestral.
@@ -429,14 +429,14 @@ paths:
       summary: CR2 - Mudanças no estoque de operações em curso anormal
       description: Valores considerados para fins da regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cr2'
+                $ref: 'schema_all.json#/definitions/cr2'
       x-dasfn-cod-doc: CR2
       x-dasfn-objetivo: 'Identificar mudanças no estoque de operações em curso anormal entre dois períodos, considerando as operações reportadas na tabela CR1.'
       x-dasfn-frequencia: Semestral.
@@ -456,14 +456,14 @@ paths:
       summary: CRB - Informações adicionais sobre a qualidade creditícia das exposições
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/crb'
+                $ref: 'schema_all.json#/definitions/crb'
       x-dasfn-cod-doc: CRB
       x-dasfn-objetivo: Prover informações adicionais sobre a qualidade creditícia das exposições reportadas na tabela CR1.
       x-dasfn-frequencia: Anual.
@@ -476,14 +476,14 @@ paths:
       summary: CRC - Informações sobre instrumentos mitigadores do risco de crédito
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/crc'
+                $ref: 'schema_all.json#/definitions/crc'
       x-dasfn-cod-doc: CRC
       x-dasfn-objetivo: Fornecer informações qualitativas sobre os instrumentos mitigadores do risco de crédito.
       x-dasfn-frequencia: Anual.
@@ -496,14 +496,14 @@ paths:
       summary: CR3 - Visão geral das técnicas de mitigação do risco de crédito
       description: 'Valores considerados para fins da regulamentação prudencial antes e após a utilização de instrumentos mitigadores do risco de crédito, de acordo com a Circular n° 3.809, de 25 de agosto de 2016.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cr3'
+                $ref: 'schema_all.json#/definitions/cr3'
       x-dasfn-cod-doc: CR3
       x-dasfn-objetivo: Divulgar a utilização de mitigação do risco de crédito.
       x-dasfn-frequencia: Semestral.
@@ -527,14 +527,14 @@ paths:
       summary: CR4 - Abordagem padronizada – exposições e efeitos da mitigação do risco de crédito
       description: Valores das exposições prévia e posteriormente à aplicação do Fator de Conversão em Crédito (FCC) e ao reconhecimento do efeito de instrumento mitigador.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cr4'
+                $ref: 'schema_all.json#/definitions/cr4'
       x-dasfn-cod-doc: CR4
       x-dasfn-objetivo: 'Demonstrar os efeitos da mitigação do risco de crédito no cálculo dos requerimentos de capital, conforme a Circular nº 3.809, de 25 de agosto de 2016.'
       x-dasfn-frequencia: Semestral.
@@ -554,14 +554,14 @@ paths:
       summary: CR5 - Abordagem padronizada - exposições por contraparte e fator de ponderação de risco (FPR)
       description: 'Valores das exposições. O valor a ser informado corresponde às exposições contabilizadas e não contabilizadas no balanço patrimonial, líquidas de adiantamentos recebidos, provisões e rendas a apropriar, depois de aplicado o Fator de Conversão em Crédito (FCC) e após uso das técnicas de mitigação de risco.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cr5'
+                $ref: 'schema_all.json#/definitions/cr5'
       x-dasfn-cod-doc: CR5
       x-dasfn-objetivo: Informar as exposições reportadas na tabela CR4 por categoria e fator de ponderação de risco.
       x-dasfn-frequencia: Semestral.
@@ -579,14 +579,14 @@ paths:
       summary: CCRA - Informações qualitativas sobre o gerenciamento do risco de crédito de contraparte (CCR)
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccra'
+                $ref: 'schema_all.json#/definitions/ccra'
       x-dasfn-cod-doc: CCRA
       x-dasfn-objetivo: Descrever as principais características do gerenciamento do risco de crédito de contraparte (CCR).
       x-dasfn-frequencia: Anual.
@@ -599,14 +599,14 @@ paths:
       summary: CCR1 - Análise das exposições ao risco de crédito de contraparte (CCR) por abordagem utilizada
       description: 'Exposições ao risco de crédito de contraparte, montante dos ativos ponderados pelo risco (RWA) e seus parâmetros de cálculo.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccr1'
+                $ref: 'schema_all.json#/definitions/ccr1'
       x-dasfn-cod-doc: CCR1
       x-dasfn-objetivo: 'Fornecer visão geral da abordagem utilizada para o cálculo do requerimento de capital para o risco de crédito de contraparte em operações de derivativos, operações compromissadas e operações de empréstimo de ativos, e fornecer os principais parâmetros empregados, conforme estabelecido na Circular nº 3.809, de 2016, e na Circular nº 3.904, de 2018. Não devem ser incluídas as exposições a contrapartes centrais (CCPs), que devem ser reportadas na tabela CCR8.'
       x-dasfn-frequencia: Semestral.
@@ -619,14 +619,14 @@ paths:
       summary: CCR3 - Abordagem padronizada – segregação de exposições ao CCR por contraparte e por fator de ponderação de risco
       description: Valores das exposições após a utilização de instrumentos de mitigação.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccr3'
+                $ref: 'schema_all.json#/definitions/ccr3'
       x-dasfn-cod-doc: CCR3
       x-dasfn-objetivo: 'Informar as exposições ao risco de crédito de contraparte em operações de derivativos, operações compromissadas e operações de empréstimo de ativos sujeitas à abordagem padronizada, conforme estabelecido na Circular nº 3.644, de 2013, por tipo de contraparte e fator de ponderação de risco (FPR). Não devem ser incluídas as exposições a contrapartes centrais (CCPs), que devem ser reportadas na tabela CCR8.'
       x-dasfn-frequencia: Semestral.
@@ -639,14 +639,14 @@ paths:
       summary: CCR5 - Colaterais financeiros associados a exposições ao risco de crédito de contraparte
       description: Valores justos dos colaterais financeiros.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccr5'
+                $ref: 'schema_all.json#/definitions/ccr5'
       x-dasfn-cod-doc: CCR5
       x-dasfn-objetivo: 'Detalhar os tipos de colaterais financeiros recebidos ou entregues em operações de derivativos, operações compromissadas e de empréstimo de ativos, de acordo com a Circular nº 3.809, de 2016. Inclui as transações efetuadas por meio de contrapartes centrais.'
       x-dasfn-frequencia: Semestral.
@@ -659,14 +659,14 @@ paths:
       summary: CCR6 - Informações sobre o risco de crédito de contraparte associado a derivativos de crédito
       description: 'Valor de nocional e valor justo dos derivativos de crédito (risco transferido e risco recebido), antes da compensação entre as posições vendidas e compradas.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccr6'
+                $ref: 'schema_all.json#/definitions/ccr6'
       x-dasfn-cod-doc: CCR6
       x-dasfn-objetivo: Informar as exposições associadas a derivativos de crédito.
       x-dasfn-frequencia: Semestral.
@@ -679,14 +679,14 @@ paths:
       summary: CCR8 - Informações sobre o risco de crédito de contraparte associado a exposições a contrapartes centrais
       description: Exposições e montante dos ativos ponderados pelo risco (RWA).
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ccr8'
+                $ref: 'schema_all.json#/definitions/ccr8'
       x-dasfn-cod-doc: CCR8
       x-dasfn-objetivo: Fornecer visão abrangente das exposições a contrapartes centrais.
       x-dasfn-frequencia: Semestral.
@@ -699,14 +699,14 @@ paths:
       summary: SECA - Informações qualitativas sobre o gerenciamento de riscos das exposições de securitização
       description: Informações qualitativas e quantitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/seca'
+                $ref: 'schema_all.json#/definitions/seca'
       x-dasfn-cod-doc: SECA
       x-dasfn-objetivo: 'Fornecer informações qualitativas sobre as exposições de securitização, conforme definidas na Circular nº 3.848, de 2017.'
       x-dasfn-frequencia: Anual.
@@ -719,14 +719,14 @@ paths:
       summary: SEC1 - Exposições de securitização classificadas na carteira bancária
       description: Valores considerados na regulamentação prudencial. Os processos assemelhados a securitização estruturados em apenas uma classe de priorização de pagamento não devem ser reportados.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sec1'
+                $ref: 'schema_all.json#/definitions/sec1'
       x-dasfn-cod-doc: SEC1
       x-dasfn-objetivo: Apresentar as exposições de securitização classificadas na carteira bancária.
       x-dasfn-frequencia: Semestral.
@@ -739,14 +739,14 @@ paths:
       summary: SEC2 - Exposições de securitização classificadas na carteira de negociação
       description: Valores considerados para fins da regulamentação prudencial.
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sec2'
+                $ref: 'schema_all.json#/definitions/sec2'
       x-dasfn-cod-doc: SEC2
       x-dasfn-objetivo: Apresentar as exposições de securitização classificadas na carteira de negociação.
       x-dasfn-frequencia: Semestral.
@@ -759,14 +759,14 @@ paths:
       summary: SEC3 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como originadora ou patrocinadora
       description: 'Valores das exposições, do montante dos ativos ponderados pelo risco (RWA) e dos requerimentos de capital.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sec3'
+                $ref: 'schema_all.json#/definitions/sec3'
       x-dasfn-cod-doc: SEC3
       x-dasfn-objetivo: Apresentar exposições de securitização classificadas na carteira bancária e os respectivos requerimentos de capital quando a instituição atua como originadora ou patrocinadora.
       x-dasfn-frequencia: Semestral.
@@ -779,14 +779,14 @@ paths:
       summary: SEC4 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como investidora
       description: 'Valores das exposições, do montante dos ativos ponderados pelo risco (RWA) e dos requerimentos de capital.'
       parameters:
-        - $ref: 'schema_all.json#definitions/semestre'
+        - $ref: 'schema_all.json#/definitions/semestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sec4'
+                $ref: 'schema_all.json#/definitions/sec4'
       x-dasfn-cod-doc: SEC4
       x-dasfn-objetivo: Apresentar exposições de securitização classificadas na carteira bancária e os respectivos requerimentos de capital quando a instituição atua como investidora.
       x-dasfn-frequencia: Semestral.
@@ -799,14 +799,14 @@ paths:
       summary: MRA - Informações qualitativas sobre o gerenciamento do risco de mercado
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mra'
+                $ref: 'schema_all.json#/definitions/mra'
       x-dasfn-cod-doc: MRA
       x-dasfn-objetivo: Descrever as principais características do gerenciamento do risco de mercado.
       x-dasfn-frequencia: Anual.
@@ -819,14 +819,14 @@ paths:
       summary: MR1 - Abordagem padronizada - fatores de risco associados ao risco de mercado
       description: RWA<sub>MPAD</sub>.
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mr1'
+                $ref: 'schema_all.json#/definitions/mr1'
       x-dasfn-cod-doc: MR1
       x-dasfn-objetivo: Divulgar o montante dos ativos ponderados pelo risco para o risco de mercado apurado mediante abordagem padronizada (RWA MPAD).
       x-dasfn-frequencia: Trimestral.
@@ -839,14 +839,14 @@ paths:
       summary: MRB - Informações qualitativas sobre o risco de mercado na abordagem de modelos internos
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mrb'
+                $ref: 'schema_all.json#/definitions/mrb'
       x-dasfn-cod-doc: MRB
       x-dasfn-objetivo: 'Apresentar o escopo de utilização, as características e as metodologias dos diferentes modelos (VaR, VaR estressado) empregados no cálculo do requerimento de capital para risco de mercado, conforme disposto na Circular nº 3.646, de 4 de março de 2013.'
       x-dasfn-frequencia: Anual.
@@ -859,14 +859,14 @@ paths:
       summary: MR2 - Informações sobre as variações do RWA MINT mercado
       description: RWA<sub>MINT</sub>.
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mr2'
+                $ref: 'schema_all.json#/definitions/mr2'
       x-dasfn-cod-doc: MR2
       x-dasfn-objetivo: 'Apresentar informações das variações dos ativos ponderados pelo risco referentes às exposições sujeitas ao risco de mercado na abordagem de modelos internos (RWA MINT), de que trata a Circular nº 3.646, de 2013, para apuração do requerimento de capital.'
       x-dasfn-frequencia: Trimestral.
@@ -882,14 +882,14 @@ paths:
       summary: MR3 - Valores dos modelos internos de risco de mercado
       description: Resultados dos modelos internos de risco de mercado para cálculo do requerimento de capital.
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mr3'
+                $ref: 'schema_all.json#/definitions/mr3'
       x-dasfn-cod-doc: MR3
       x-dasfn-objetivo: 'Informar os valores (máximo, médio, mínimo e final do trimestre) apurados pelos modelos internos de risco de mercado.'
       x-dasfn-frequencia: Trimestral.
@@ -902,14 +902,14 @@ paths:
       summary: MR4 - Comparação das estimativas do VaR com os resultados efetivo e hipotético
       description: 'Estimativas do VaR, conforme disposto no art. 6º, inciso III, da Circular nº 3.646 de 2013.'
       parameters:
-        - $ref: 'schema_all.json#definitions/trimestre'
+        - $ref: 'schema_all.json#/definitions/trimestre'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/mr4'
+                $ref: 'schema_all.json#/definitions/mr4'
       x-dasfn-cod-doc: MR4
       x-dasfn-objetivo: 'Apresentar comparação entre o resultado efetivo e o hipotético com o VaR calculado pelo modelo interno de risco de mercado, de forma a assegurar avaliações consistentes da aderência do modelo utilizado, conforme disposto na Circular nº 3.646, de 2013.'
       x-dasfn-frequencia: Trimestral.
@@ -927,14 +927,14 @@ paths:
       summary: IRRBBA - Informações qualitativas sobre o gerenciamento do IRRBB
       description: Informações qualitativas e quantitativas. Informações quantitativas devem se basear na média diária ou mensal no ano da data-base de divulgação.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/irrbba'
+                $ref: 'schema_all.json#/definitions/irrbba'
       x-dasfn-cod-doc: IRRBBA
       x-dasfn-objetivo: Descrever objetivos e políticas de gerenciamento do risco de variação das taxas de juros em instrumentos classificados na carteira bancária (IRRBB)
       x-dasfn-frequencia: Anual.
@@ -947,14 +947,14 @@ paths:
       summary: IRRBB1 - Informações quantitativas sobre o IRRBB
       description: Medidas de IRRBB.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/irrbb1'
+                $ref: 'schema_all.json#/definitions/irrbb1'
       x-dasfn-cod-doc: IRRBB1
       x-dasfn-objetivo: 'Informar as variações nos valores de ΔEVE e de ΔNII, de que trata a Circular nº 3.876, de 2018, para cada cenário padronizado de juros prescrito.'
       x-dasfn-frequencia: Anual.
@@ -970,14 +970,14 @@ paths:
       summary: REMA - Política de remuneração
       description: Informações qualitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rema'
+                $ref: 'schema_all.json#/definitions/rema'
       x-dasfn-cod-doc: REMA
       x-dasfn-objetivo: 'Descrever a política de remuneração da instituição, de que trata Resolução nº 3.921, de 25 de novembro de 2010.'
       x-dasfn-frequencia: Anual.
@@ -990,14 +990,14 @@ paths:
       summary: REM1 - Remuneração atribuída durante o ano de referência
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rem1'
+                $ref: 'schema_all.json#/definitions/rem1'
       x-dasfn-cod-doc: REM1
       x-dasfn-objetivo: Informar a remuneração atribuída aos diretores e membros do conselho de administração durante o ano de referência.
       x-dasfn-frequencia: Anual.
@@ -1010,14 +1010,14 @@ paths:
       summary: REM2 - Pagamentos extraordinários
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rem2'
+                $ref: 'schema_all.json#/definitions/rem2'
       x-dasfn-cod-doc: REM2
       x-dasfn-objetivo: 'Informar o total de pagamentos extraordinários (bônus garantidos, bônus de contratação e pagamentos por desligamento) realizados no ano de referência.'
       x-dasfn-frequencia: Anual.
@@ -1030,14 +1030,14 @@ paths:
       summary: REM3 - Remuneração diferida
       description: Informações quantitativas.
       parameters:
-        - $ref: 'schema_all.json#definitions/ano'
+        - $ref: 'schema_all.json#/definitions/ano'
       responses:
         '200':
           description: Sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/rem3'
+                $ref: 'schema_all.json#/definitions/rem3'
       x-dasfn-cod-doc: REM3
       x-dasfn-objetivo: Informar o total da remuneração diferida.
       x-dasfn-frequencia: Anual.
@@ -1069,18 +1069,18 @@ components:
       description: Ano de referência
       required: true
       schema:
-        $ref: '#/components/schemas/ano'
+        $ref: 'schema_all.json#/definitions/ano'
     semestre:
       name: semestre
       in: path
       description: Semestre de referência
       required: true
       schema:
-        $ref: '#/components/schemas/semestre'
+        $ref: 'schema_all.json#/definitions/semestre'
     trimestre:
       name: trimestre
       in: path
       description: Trimestre de referência
       required: true
       schema:
-        $ref: '#/components/schemas/trimestre'
+        $ref: 'schema_all.json#/definitions/trimestre'
