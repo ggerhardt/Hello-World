@@ -28,6 +28,7 @@
     },
     "km1": {
       "title": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
+      "additionalProperties": false,
       "required": [
         "km1_1",
         "km1_10",
@@ -286,6 +287,7 @@
     },
     "ova": {
       "title": "OVA - Visão geral do gerenciamento de riscos da instituição",
+      "additionalProperties": false,
       "required": [
         "ova_anoReferencia"
       ],
@@ -358,6 +360,7 @@
     },
     "ov1": {
       "title": "OV1 - Visão geral dos ativos ponderados pelo risco (RWA)",
+      "additionalProperties": false,
       "required": [
         "ov1_0",
         "ov1_10",
