@@ -5863,7 +5863,7 @@
     "sec2": {
       "title": "SEC2 - Exposições de securitização classificadas na carteira de negociação",
       "required": [
-        "sec_semestreReferencia"
+        "sec2_semestreReferencia"
       ],
       "type": "object",
       "properties": {
