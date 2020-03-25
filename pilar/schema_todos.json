@@ -6028,19 +6028,19 @@
     "sec3": {
       "title": "SEC3 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como originadora ou patrocinadora",
       "required": [
-        "sec_1",
-        "sec_10",
-        "sec_11",
-        "sec_12",
-        "sec_13",
-        "sec_2",
-        "sec_3",
-        "sec_4",
-        "sec_6",
-        "sec_8",
-        "sec_9",
-        "sec_comentarios",
-        "sec_semestreReferencia"
+        "sec3_1",
+        "sec3_10",
+        "sec3_11",
+        "sec3_12",
+        "sec3_13",
+        "sec3_2",
+        "sec3_3",
+        "sec3_4",
+        "sec3_6",
+        "sec3_8",
+        "sec3_9",
+        "sec3_comentarios",
+        "sec3_semestreReferencia"
       ],
       "type": "object",
       "properties": {
