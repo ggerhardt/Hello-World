@@ -262,6 +262,7 @@
           "type": "array",
           "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
           "items": {
+            "additionalProperties": false,
             "required": [
               "definicao",
               "valor"
@@ -332,6 +333,7 @@
       "description": "Descrição das estratégias de gerenciamento de riscos e da atuação do conselho de administração (CA) e da diretoria, de modo a permitir o claro entendimento da relação entre o apetite por riscos da instituição e as suas principais atividades e riscos relevantes."
     },
     "valor_ov1": {
+      "additionalProperties": false,
       "required": [
         "a",
         "c"
@@ -548,6 +550,7 @@
     },
     "lia": {
       "title": "LIA - Explicação das diferenças entre valores registrados nas demonstrações contábeis e valores das exposições sujeitas a tratamento prudencial",
+      "additionalProperties": false,
       "required": [
         "lia_anoReferencia"
       ],
@@ -572,6 +575,7 @@
       "description": "Informações qualitativas."
     },
     "valor_li1": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -643,6 +647,7 @@
     },
     "li1": {
       "title": "LI1 - Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco",
+      "additionalProperties": false,
       "required": [
         "li1_anoReferencia"
       ],
@@ -840,6 +845,7 @@
       "description": "Valores contábeis reportados nas demonstrações financeiras publicadas e os considerados na regulamentação prudencial."
     },
     "valor_li2": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -893,6 +899,7 @@
     },
     "li2": {
       "title": "LI2 - Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições",
+      "additionalProperties": false,
       "required": [
         "li2_1",
         "li2_2",
@@ -972,6 +979,7 @@
       "description": "Valores considerados para fins de regulação prudencial (linhas 1 a 4 e 9) e montante da diferença entre os valores contábeis e os prudenciais (linhas 5 a 8)."
     },
     "valor_pv1": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -1052,6 +1060,7 @@
     },
     "pv1": {
       "title": "PV1 - Ajustes prudenciais (PVA)",
+      "additionalProperties": false,
       "required": [
         "pv1_1",
         "pv1_10",
@@ -1179,6 +1188,7 @@
     },
     "cca": {
       "title": "CCA - Principais características dos instrumentos que compõem o Patrimônio de Referência (PR)",
+      "additionalProperties": false,
       "required": [
         "cca_semestreReferencia"
       ],
@@ -1467,6 +1477,7 @@
       }
     },
     "valor_cc1_ab": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b"
@@ -1488,6 +1499,7 @@
       }
     },
     "valor_cc1_a": {
+      "additionalProperties": false,
       "required": [
         "a"
       ],
@@ -1505,6 +1517,7 @@
     },
     "cc1": {
       "title": "CC1 - Composição do Patrimônio de Referência (PR)",
+      "additionalProperties": false,
       "required": [
         "cc1_1",
         "cc1_10",
@@ -2331,6 +2344,7 @@
       }
     },
     "valor_cc2": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -2363,6 +2377,7 @@
     "cc2": {
       "title": "CC2 - Conciliação do Patrimônio de Referência (PR) com o balanço patrimonial",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "cc2_semestreReferencia": {
           "$ref": "#/definitions/semestre"
@@ -2632,6 +2647,7 @@
     },
     "gsib1": {
       "title": "GSIB1 - Indicadores utilizados para caracterização de instituição financeira como sistemicamente importante em âmbito global (G-SIBs)",
+      "additionalProperties": false,
       "required": [
         "gsib1_1",
         "gsib1_10",
@@ -2757,6 +2773,7 @@
       "description": "Divulgação de informações relativas ao índice de importância sistêmica global (ISG), mencionado na Circular nº 3.751, de 19 de março de 2015."
     },
     "valor_ccyb1": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -2805,6 +2822,7 @@
     },
     "ccyb1": {
       "title": "CCYB1 - Distribuição geográfica das exposições ao risco de crédito consideradas no cálculo do ACP Contracíclico",
+      "additionalProperties": false,
       "required": [
         "ccyb1_jurisdicoes",
         "ccyb1_semestreReferencia",
@@ -2830,6 +2848,7 @@
         "ccyb1_subtotal": {
           "title": "Subtotal",
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "b": {
               "title": "Montante da exposição ao risco de crédito ao setor privado não bancário",
@@ -2852,6 +2871,7 @@
         "ccyb1_total": {
           "title": "Total",
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "b": {
               "title": "Montante da exposição ao risco de crédito ao setor privado não bancário",
@@ -2897,6 +2917,7 @@
     },
     "lr1": {
       "title": "LR1 - Comparação entre informações das demonstrações financeiras e as utilizadas para apuração da Razão de Alavancagem (RA)",
+      "additionalProperties": false,
       "required": [
         "lr1_1",
         "lr1_2",
@@ -2994,6 +3015,7 @@
     },
     "lr2": {
       "title": "LR2 - Informações detalhadas sobre a Razão de Alavancagem",
+      "additionalProperties": false,
       "required": [
         "lr2_1",
         "lr2_10",
@@ -3222,6 +3244,7 @@
     },
     "liqa": {
       "title": "LIQA - Informações qualitativas sobre o gerenciamento do risco de liquidez",
+      "additionalProperties": false,
       "required": [
         "liqa_anoReferencia"
       ],
@@ -3258,6 +3281,7 @@
       "description": "Principais características do gerenciamento do risco de liquidez."
     },
     "valor_liq1": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b"
@@ -3286,6 +3310,7 @@
     },
     "liq1": {
       "title": "LIQ1 - Indicador de Liquidez de Curto Prazo (LCR)",
+      "additionalProperties": false,
       "required": [
         "liq1_1",
         "liq1_10",
@@ -3534,6 +3559,7 @@
     },
     "valor_liq2": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Sem vencimento",
@@ -3579,6 +3605,7 @@
     },
     "valor_liq2_bcd": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "bcd": {
           "title": "Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Menor do que seis meses / Maior ou igual a seis meses e menor do que um ano / Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Maior ou igual a um ano",
@@ -3592,6 +3619,7 @@
     },
     "valor_liq2_e": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "e": {
           "title": "Valor após a ponderação (R$ mil)",
@@ -3605,6 +3633,7 @@
     },
     "valor_liq2_a_e": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Sem vencimento",
@@ -3626,6 +3655,7 @@
     },
     "valor_liq2_bcd_e": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "bcd": {
           "title": "Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Menor do que seis meses / Maior ou igual a seis meses e menor do que um ano / Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Maior ou igual a um ano",
@@ -3647,6 +3677,7 @@
     },
     "valor_liq2_na": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "b": {
           "title": "Valor por prazo efetivo de vencimento residual, antes da ponderação (R$ mil) - Menor do que seis meses",
@@ -3684,6 +3715,7 @@
     },
     "liq2": {
       "title": "LIQ2 - Indicador Liquidez de Longo Prazo (NSFR)",
+      "additionalProperties": false,
       "required": [
         "liq2_1",
         "liq2_10",
@@ -4042,6 +4074,7 @@
     },
     "cra": {
       "title": "CRA - Informações qualitativas sobre o gerenciamento do risco de crédito",
+      "additionalProperties": false,
       "required": [
         "cra_anoReferencia"
       ],
@@ -4074,6 +4107,7 @@
       "description": "Principais características de gerenciamento do risco de crédito."
     },
     "valor_cr1": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -4120,6 +4154,7 @@
     },
     "cr1": {
       "title": "CR1 - Qualidade creditícia das exposições",
+      "additionalProperties": false,
       "required": [
         "cr1_1",
         "cr1_2",
@@ -4190,6 +4225,7 @@
     },
     "cr2": {
       "title": "CR2 - Mudanças no estoque de operações em curso anormal",
+      "additionalProperties": false,
       "required": [
         "cr2_1",
         "cr2_2",
@@ -4269,6 +4305,7 @@
     },
     "crb": {
       "title": "CRB - Informações adicionais sobre a qualidade creditícia das exposições",
+      "additionalProperties": false,
       "required": [
         "crb_anoReferencia"
       ],
@@ -4302,6 +4339,7 @@
     },
     "crc": {
       "title": "CRC - Informações sobre instrumentos mitigadores do risco de crédito",
+      "additionalProperties": false,
       "required": [
         "crc_anoReferencia"
       ],
@@ -4326,6 +4364,7 @@
       "description": "Informações qualitativas sobre os instrumentos mitigadores do risco de crédito."
     },
     "valor_cr3": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -4385,6 +4424,7 @@
     },
     "cr3": {
       "title": "CR3 - Visão geral das técnicas de mitigação do risco de crédito",
+      "additionalProperties": false,
       "required": [
         "cr3_1",
         "cr3_2",
@@ -4463,6 +4503,7 @@
       "description": "Utilização de mitigação do risco de crédito."
     },
     "valor_cr4": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -4530,6 +4571,7 @@
     },
     "cr4": {
       "title": "CR4 - Abordagem padronizada – exposições e efeitos da mitigação do risco de crédito",
+      "additionalProperties": false,
       "required": [
         "cr4_1",
         "cr4_10",
@@ -4652,6 +4694,7 @@
       "description": "Os efeitos da mitigação do risco de crédito no cálculo dos requerimentos de capital, conforme a Circular nº 3.809, de 25 de agosto de 2016."
     },
     "valor_cr5": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -4750,6 +4793,7 @@
     },
     "cr5": {
       "title": "CR5 - Abordagem padronizada - exposições por contraparte e fator de ponderação de risco (FPR)",
+      "additionalProperties": false,
       "required": [
         "cr5_1",
         "cr5_10",
@@ -4875,6 +4919,7 @@
     },
     "ccra": {
       "title": "CCRA - Informações qualitativas sobre o gerenciamento do risco de crédito de contraparte (CCR)",
+      "additionalProperties": false,
       "required": [
         "ccra_anoReferencia"
       ],
@@ -4900,6 +4945,7 @@
     },
     "valor_ccr1": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Valor de reposição",
@@ -4944,6 +4990,7 @@
     },
     "ccr1": {
       "title": "CCR1 - Análise das exposições ao risco de crédito de contraparte (CCR) por abordagem utilizada",
+      "additionalProperties": false,
       "required": [
         "ccr1_1",
         "ccr1_1.1",
@@ -5011,6 +5058,7 @@
       "description": "Fornece visão geral da abordagem utilizada para o cálculo do requerimento de capital para o risco de crédito de contraparte em operações de derivativos, operações compromissadas e operações de empréstimo de ativos, e fornece os principais parâmetros empregados, conforme estabelecido na Circular nº 3.809, de 2016, e na Circular nº 3.904, de 2018. Não são incluídas as exposições a contrapartes centrais (CCPs), que são reportadas na tabela CCR8."
     },
     "valor_ccr3": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -5109,6 +5157,7 @@
     },
     "ccr3": {
       "title": "CCR3 - Abordagem padronizada – segregação de exposições ao CCR por contraparte e por fator de ponderação de risco",
+      "additionalProperties": false,
       "required": [
         "ccr3_1",
         "ccr3_2",
@@ -5198,6 +5247,7 @@
       "description": "As exposições ao risco de crédito de contraparte em operações de derivativos, operações compromissadas e operações de empréstimo de ativos sujeitas à abordagem padronizada, conforme estabelecido na Circular nº 3.644, de 2013, por tipo de contraparte e fator de ponderação de risco (FPR). Não são incluídas as exposições a contrapartes centrais (CCPs), que devem ser reportadas na tabela CCR8."
     },
     "valor_ccr5": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -5271,6 +5321,7 @@
     "ccr5": {
       "title": "CCR5 - Colaterais financeiros associados a exposições ao risco de crédito de contraparte",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "ccr5_semestreReferencia": {
           "$ref": "#/definitions/semestre"
@@ -5354,6 +5405,7 @@
       "description": "Os tipos de colaterais financeiros recebidos ou entregues em operações de derivativos, operações compromissadas e de empréstimo de ativos, de acordo com a Circular nº 3.809, de 2016. Inclui as transações efetuadas por meio de contrapartes centrais."
     },
     "valor_ccr6": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b"
@@ -5381,6 +5433,7 @@
     "ccr6": {
       "title": "CCR6 - Informações sobre o risco de crédito de contraparte associado a derivativos de crédito",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "ccr6_semestreReferencia": {
           "$ref": "#/definitions/semestre"
@@ -5458,6 +5511,7 @@
       "description": "Valor de nocional e valor justo dos derivativos de crédito (risco transferido e risco recebido), antes da compensação entre as posições vendidas e compradas."
     },
     "valor_ccr8": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b"
@@ -5484,6 +5538,7 @@
     },
     "ccr8": {
       "title": "CCR8 - Informações sobre o risco de crédito de contraparte associado a exposições a contrapartes centrais",
+      "additionalProperties": false,
       "required": [
         "ccr8_1",
         "ccr8_10",
@@ -5686,6 +5741,7 @@
     },
     "seca": {
       "title": "SECA - Informações qualitativas sobre o gerenciamento de riscos das exposições de securitização",
+      "additionalProperties": false,
       "required": [
         "seca_anoReferencia"
       ],
@@ -5719,6 +5775,7 @@
     },
     "valor_sec12": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Tradicional",
@@ -5805,6 +5862,7 @@
     },
     "valor_sec12_categoria": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "nome": {
           "title": "Nome da categoria",
@@ -5817,6 +5875,7 @@
     },
     "sec1": {
       "title": "SEC1 - Exposições de securitização classificadas na carteira bancária",
+      "additionalProperties": false,
       "required": [
         "sec1_semestreReferencia"
       ],
@@ -5865,6 +5924,7 @@
     },
     "sec2": {
       "title": "SEC2 - Exposições de securitização classificadas na carteira de negociação",
+      "additionalProperties": false,
       "required": [
         "sec2_semestreReferencia"
       ],
@@ -5912,6 +5972,7 @@
       "description": "Apresentar as exposições de securitização classificadas na carteira de negociação."
     },
     "valor_sec34": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -6030,6 +6091,7 @@
     },
     "sec3": {
       "title": "SEC3 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como originadora ou patrocinadora",
+      "additionalProperties": false,
       "required": [
         "sec3_1",
         "sec3_10",
@@ -6148,6 +6210,7 @@
     },
     "sec4": {
       "title": "SEC4 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como investidora",
+      "additionalProperties": false,
       "required": [
         "sec4_1",
         "sec4_10",
@@ -6266,6 +6329,7 @@
     },
     "mra": {
       "title": "MRA - Informações qualitativas sobre o gerenciamento do risco de mercado",
+      "additionalProperties": false,
       "required": [
         "mra_anoReferencia"
       ],
@@ -6304,6 +6368,7 @@
         "mr1_comentarios",
         "mr1_trimestreReferencia"
       ],
+      "additionalProperties": false,
       "type": "object",
       "properties": {
         "mr1_trimestreReferencia": {
@@ -6400,6 +6465,7 @@
     },
     "mrb": {
       "title": "MRB - Informações qualitativas sobre o risco de mercado na abordagem de modelos internos",
+      "additionalProperties": false,
       "required": [
         "mrb_anoReferencia"
       ],
@@ -6444,6 +6510,7 @@
       "description": "Apresentação do escopo de utilização, as características e as metodologias dos diferentes modelos (VaR, VaR estressado) empregados no cálculo do requerimento de capital para risco de mercado, conforme disposto na Circular nº 3.646, de 4 de março de 2013."
     },
     "valor_mr2": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -6492,6 +6559,7 @@
     },
     "mr2": {
       "title": "MR2 - Informações sobre as variações do RWA MINT",
+      "additionalProperties": false,
       "required": [
         "mr2_1",
         "mr2_2",
@@ -6566,6 +6634,7 @@
           "type": "array",
           "description": "Mudanças não atribuíveis às demais categorias.",
           "items": {
+            "additionalProperties": false,
             "required": [
               "nome",
               "valor"
@@ -6600,6 +6669,7 @@
     },
     "mr3": {
       "title": "MR3 - Valores dos modelos internos de risco de mercado",
+      "additionalProperties": false,
       "required": [
         "mr3_1",
         "mr3_2",
@@ -6699,6 +6769,7 @@
     },
     "mr4": {
       "title": "MR4 - Comparação das estimativas do VaR com os resultados efetivo e hipotético",
+      "additionalProperties": false,
       "required": [
         "mr4_trimestreReferencia"
       ],
@@ -6719,6 +6790,7 @@
       "description": "Comparação entre o resultado efetivo e o hipotético com o VaR calculado pelo modelo interno de risco de mercado, de forma a assegurar avaliações consistentes da aderência do modelo utilizado, conforme disposto na Circular nº 3.646, de 2013."
     },
     "valor_opd": {
+      "additionalProperties": false,
       "required": [
         "a",
         "b",
@@ -6799,6 +6871,7 @@
     },
     "opd": {
       "title": "OPD - Total da exposição associada a instrumentos financeiros derivativos",
+      "additionalProperties": false,
       "required": [
         "opd_1",
         "opd_2",
@@ -6852,6 +6925,7 @@
     },
     "irrbba": {
       "title": "IRRBBA - Informações qualitativas sobre o gerenciamento do risco de mercado",
+      "additionalProperties": false,
       "required": [
         "irrbba_anoReferencia"
       ],
@@ -6904,6 +6978,7 @@
       "description": "Descrição dos objetivos e políticas de gerenciamento do risco de variação das taxas de juros em instrumentos classificados na carteira bancária (IRRBB)"
     },
     "delta": {
+      "additionalProperties": false,
       "required": [
         "T",
         "T1"
@@ -6925,6 +7000,7 @@
     },
     "irrbb1": {
       "title": "IRRBB1 - Informações quantitativas sobre o IRRBB",
+      "additionalProperties": false,
       "required": [
         "irrbb1_1",
         "irrbb1_2",
@@ -7023,6 +7099,7 @@
       "description": "As variações nos valores de ΔEVE e de ΔNII, de que trata a Circular nº 3.876, de 2018, para cada cenário padronizado de juros prescrito."
     },
     "valor_irrbb1": {
+      "additionalProperties": false,
       "required": [
         "delta_eve",
         "delta_nii"
@@ -7049,6 +7126,7 @@
     },
     "rema": {
       "title": "REMA - Política de remuneração",
+      "additionalProperties": false,
       "required": [
         "rema_anoReferencia"
       ],
@@ -7086,6 +7164,7 @@
     },
     "valor_rem1": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Diretoria",
@@ -7107,6 +7186,7 @@
     },
     "rem1": {
       "title": "REM1 - Remuneração atribuída durante o ano de referência",
+      "additionalProperties": false,
       "required": [
         "rem1_anoReferencia"
       ],
@@ -7154,6 +7234,7 @@
         "rem1_6": {
           "title": "Remuneração variável: Número de pessoas",
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "a": {
               "title": "Diretoria",
@@ -7226,6 +7307,7 @@
     },
     "rem2": {
       "title": "REM2 - Pagamentos extraordinários",
+      "additionalProperties": false,
       "required": [
         "rem2_anoReferencia"
       ],
@@ -7255,6 +7337,7 @@
     },
     "valor_rem2_tipo": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "num_pessoas": {
           "title": "Número de pessoas",
@@ -7272,6 +7355,7 @@
     },
     "valor_rem2": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Bônus garantidos em transferência interna",
@@ -7304,6 +7388,7 @@
     },
     "rem3": {
       "title": "REM3 - Remuneração diferida",
+      "additionalProperties": false,
       "required": [
         "rem3_anoReferencia"
       ],
@@ -7341,6 +7426,7 @@
     },
     "valor_rem3_grupo": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "especie": {
           "title": "Em espécie",
@@ -7378,6 +7464,7 @@
     },
     "valor_rem3": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "a": {
           "title": "Total da remuneração diferida pendente de pagamento",
