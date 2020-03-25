@@ -4916,7 +4916,7 @@
         },
         "d": {
           "title": "Multiplicador empregado no cômputo da exposição",
-          "type": "string",
+          "type": "integer",
           "enum": [
             14
           ]
