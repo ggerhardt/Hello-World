@@ -1275,12 +1275,14 @@
           "title": "Valor reconhecido no PR",
           "type": "string",
           "pattern": "^\\d+(?:\\.\\d{1,2})?$",
+          "example": "1123.11",
           "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição.  Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar."
         },
         "cca_9": {
           "title": "Valor de face do instrumento",
           "type": "string",
           "pattern": "^\\d+(?:\\.\\d{1,2})?$",
+          "example": "1123.11",
           "description": "Preencher o valor de face do instrumento, em R$ mil. Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar."
         },
         "cca_10": {
