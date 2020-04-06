@@ -6897,7 +6897,7 @@
         },
         "mr4_1": {
           "type": "string",
-          "maxLength": 4000,
+          "maxLength": 500,
           "description": "Link para o gráfico que apresenta a evolução do VaR diário e dos resultados efetivo e hipotético"
         },
         "mr4_comentarios": {
