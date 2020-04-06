@@ -1217,7 +1217,7 @@
           "title": "Emissor",
           "type": "string",
           "maxLength": 100,
-          "description": "Identificação a entidade legal emissora."
+          "description": "Identificação da entidade legal emissora."
         },
         "cca_2": {
           "title": "Identificador único",
@@ -1228,7 +1228,7 @@
         "cca_3": {
           "title": "Lei aplicável ao instrumento",
           "type": "string",
-          "maxLength": 500,
+          "maxLength": 100,
           "description": "Especificar a lei aplicável ao instrumento."
         },
         "cca_4": {
@@ -1273,17 +1273,21 @@
         },
         "cca_8": {
           "title": "Valor reconhecido no PR",
-          "type": "string",
-          "pattern": "^\\d+(?:\\.\\d{1,2})?$",
-          "example": "1123.11",
-          "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição.  Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar."
+          "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição.  Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor"
+            }
+          ]
         },
         "cca_9": {
           "title": "Valor de face do instrumento",
-          "type": "string",
-          "pattern": "^\\d+(?:\\.\\d{1,2})?$",
-          "example": "1123.11",
-          "description": "Preencher o valor de face do instrumento, em R$ mil. Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar."
+          "description": "Preencher o valor de face do instrumento, em R$ mil. Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor"
+            }
+          ]
         },
         "cca_10": {
           "title": "Classificação contábil",
@@ -1315,16 +1319,16 @@
           "title": "Data original de vencimento",
           "type": "string",
           "description": "Para instrumentos com vencimento, informar a data original de vencimento, no formato yyyy-mm-dd. Para instrumentos perpétuos, informar 'sem vencimento'.",
-            "oneOf": [
-              {
-                "enum": [
-                  "sem vencimento"
-                ]
-              },
-              {
-                "format": "date"
-              }
-            ]
+          "oneOf": [
+            {
+              "enum": [
+                "sem vencimento"
+              ]
+            },
+            {
+              "format": "date"
+            }
+          ]
         },
         "cca_14": {
           "title": "Opção de resgate ou recompra",
@@ -1424,7 +1428,7 @@
         "cca_26": {
           "title": "Se conversível, taxa de conversão",
           "type": "string",
-          "maxLength": 100,          
+          "maxLength": 100,
           "description": "Especificar a taxa de conversão."
         },
         "cca_27": {
@@ -6893,7 +6897,8 @@
         },
         "mr4_1": {
           "type": "string",
-          "maxLength": 4000
+          "maxLength": 4000,
+          "description": "Link para o gráfico que apresenta a evolução do VaR diário e dos resultados efetivo e hipotético"
         },
         "mr4_comentarios": {
           "title": "Comentários",
