@@ -1273,7 +1273,7 @@
         },
         "cca_8": {
           "title": "Valor reconhecido no PR",
-          "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição.  Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar.",
+          "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição. Valor numérico com duas casas decimais, separado por ponto.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -1282,7 +1282,7 @@
         },
         "cca_9": {
           "title": "Valor de face do instrumento",
-          "description": "Preencher o valor de face do instrumento, em R$ mil. Utiliza '.' como separador decimal, até 2 casas decimais e sem separador de milhar.",
+          "description": "Preencher o valor de face do instrumento, em R$ mil. Valor numérico com duas casas decimais, separado por ponto.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
