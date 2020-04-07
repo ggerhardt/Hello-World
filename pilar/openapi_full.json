@@ -1584,7 +1584,7 @@
         "pattern": "^\\d{4}-[1-2]$",
         "type": "string",
         "description": "Semeste a que se referem as informações no formato AAAA-S, onde AAAA representa o ano e S representa o semestre do ano e seu valor deve ser 1 ou 2.",
-        "example": "2019-2"
+        "example": "2019-1"
       },
       "trimestre": {
         "title": "Trimestre",
