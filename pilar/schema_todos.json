@@ -286,7 +286,7 @@
           "description": "Comentários adicionais para explicar mudanças significativas entre o período informado e os anteriores, bem como os principais indutores dessas mudanças (se devidos a alterações regulatórias, na composição do grupo ou no modelo de negócios da instituição, entre outros)."
         }
       },
-      "description": "Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez. Devem ser evidenciados os valores relativos ao período corrente (T) e aos quatro períodos anteriores (T-1 a T-4)."
+      "description": "Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez."
     },
     "ova": {
       "title": "OVA - Visão geral do gerenciamento de riscos da instituição",
