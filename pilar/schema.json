@@ -290,7 +290,7 @@
           "items": {
           "allOf": [
             {
-              "$ref": "#/definitions/valor"
+              "$ref": "#/definitions/outros"
             }
           ]            
           }
