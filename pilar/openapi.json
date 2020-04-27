@@ -1,0 +1,1605 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+      "title": "Esta especificação define a API de serviços que disponibilizam dados do Relatório de Pilar 3",
+      "description": "Valores comuns usados por outras especificações.",
+      "contact": {
+          "email": "dadosabertossfn@bcb.gov.br"
+      },
+      "license": {
+          "name": "Open Database License (ODbL)",
+          "url": "http://opendefinition.org/licenses/odc-odbl/"
+      },
+      "version": "1.1.0"
+  },
+  "tags": [
+      {
+          "name": "Indicadores prudenciais",
+          "description": "Indicadores prudenciais e gerenciamento de riscos"
+      },
+      {
+          "name": "Comparação entre Informações Contábeis e Prudenciais"
+      },
+      {
+          "name": "Composição do Capital"
+      },
+      {
+          "name": "Indicadores Macroprudenciais"
+      },
+      {
+          "name": "Razão de Alavancagem (RA)"
+      },
+      {
+          "name": "Indicadores de Liquidez"
+      },
+      {
+          "name": "Risco de Crédito"
+      },
+      {
+          "name": "Risco de Crédito de Contraparte"
+      },
+      {
+          "name": "Exposições de Securitização"
+      },
+      {
+          "name": "Risco de Mercado"
+      },
+      {
+          "name": "Do Risco de Variação das Taxas de Juros em Instrumentos Classificados na Carteira Bancária (IRRBB)"
+      },
+      {
+          "name": "Remuneração de Administradores"
+      }
+  ],
+  "paths": {
+      "/km1/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Indicadores prudenciais"
+              ],
+              "summary": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
+              "description": "Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/km1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "Apresentar as principais métricas estabelecidas pela regulamentação prudencial.",
+              "x-dasfn-objetivo": "Informações quantitativas referentes aos componentes do capital regulamentar, à Razão de Alavancagem e aos indicadores de liquidez.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo. Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+              "x-dasfn-comentarios": "Devem ser divulgados comentários adicionais para explicar mudanças significativas entre o período informado e os anteriores, bem como os principais indutores dessas mudanças (se devidos a alterações regulatórias, na composição do grupo ou no modelo de negócios da instituição, entre outros)."
+          }
+      },
+      "/ova/{ano}": {
+          "get": {
+              "tags": [
+                  "Indicadores prudenciais"
+              ],
+              "summary": "OVA - Visão geral do gerenciamento de riscos da instituição",
+              "description": "Descrição das estratégias de gerenciamento de riscos e da atuação do conselho de administração (CA) e da diretoria, de modo a permitir o claro entendimento da relação entre o apetite por riscos da instituição e as suas principais atividades e riscos relevantes.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ova"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "OVA",
+              "x-dasfn-objetivo": "Informações qualitativas.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/ov1/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Indicadores prudenciais"
+              ],
+              "summary": "OV1 - Visão geral dos ativos ponderados pelo risco (RWA)",
+              "description": "Apresentar visão geral do montante dos ativos ponderados pelo risco (RWA) utilizado na apuração do requerimento mínimo de Patrimônio de Referência (PR).",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ov1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "OV1",
+              "x-dasfn-objetivo": "Informações quantitativas sobre o RWA e o requerimento mínimo de PR conforme estabelecido no art. 4º da Resolução nº 4.193, de 2013.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo",
+              "x-dasfn-comentarios": "Devem ser explicadas as causas de diferenças significativas entre os valores reportados nos períodos T e T-1."
+          }
+      },
+      "/lia/{ano}": {
+          "get": {
+              "tags": [
+                  "Comparação entre Informações Contábeis e Prudenciais"
+              ],
+              "summary": "LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/lia"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LIA",
+              "x-dasfn-objetivo": "Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/li1/{ano}": {
+          "get": {
+              "tags": [
+                  "Comparação entre Informações Contábeis e Prudenciais"
+              ],
+              "summary": "LI1 - Diferenças entre o escopo de consolidação contábil e o escopo de tratamento prudencial, bem como o detalhamento dos valores associados às categorias de risco",
+              "description": "Valores contábeis reportados nas demonstrações financeiras publicadas e os considerados na regulamentação prudencial.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/li1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LI1",
+              "x-dasfn-objetivo": "Permitir a identificação de diferenças entre o escopo de consolidação utilizado nas demonstrações financeiras publicadas (coluna a) e aquele empregado para fins da regulamentação prudencial (coluna b). As colunas \"c\" a \"g\" detalham os valores por categorias de riscos.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Fixo para as colunas e flexível para as linhas, que devem ser apresentadas na mesma ordem das demonstrações financeiras publicadas.",
+              "x-dasfn-comentarios": "Deve ser explicada a associação de valores a mais de uma categoria de risco para fins da regulamentação prudencial."
+          }
+      },
+      "/li2/{ano}": {
+          "get": {
+              "tags": [
+                  "Comparação entre Informações Contábeis e Prudenciais"
+              ],
+              "summary": "LI2 - Principais causas das diferenças entre os valores considerados na regulamentação prudencial e os valores das exposições",
+              "description": "Valores considerados para fins de regulação prudencial (linhas 1 a 4 e 9) e montante da diferença entre os valores contábeis e os prudenciais (linhas 5 a 8).",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/li2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LI2",
+              "x-dasfn-objetivo": "Demonstrar as principais causas das diferenças entre os valores da coluna \"b\" da tabela LI1 e os valores das exposições.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Fixo para colunas. Linhas 5 a 8 podem ser alteradas de forma a indicar os principais indutores de diferenças entre valores contábeis e montantes considerados para fins regulatórios.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/pv1/{ano}": {
+          "get": {
+              "tags": [
+                  "Comparação entre Informações Contábeis e Prudenciais"
+              ],
+              "summary": "PV1 - Detalhar os elementos considerados no cálculo dos ajustes prudenciais a serem efetuados no processo de apreçamento de instrumentos financeiros avaliados pelo valor de mercado, conforme disposto na Resolução nº 4.277, de 2013.",
+              "description": "Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo).",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/pv1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "PV1",
+              "x-dasfn-objetivo": "Ajustes a serem observados para todos os instrumentos financeiros avaliados pelo valor de mercado (avaliação a mercado e avaliação por modelo).",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser divulgados comentários adicionais para explicar mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças. Devem ser informados os instrumentos financeiros sujeitos aos maiores ajustes prudenciais e explicadas as respectivas causas. Nos casos em que não for identificada necessidade de ajuste decorrente do processo de apreçamento, a linha correspondente à justificativa deve ser preenchida com valor zero e os motivos devem ser detalhados."
+          }
+      },
+      "/cca/{semestre}": {
+          "get": {
+              "tags": [
+                  "Composição do Capital"
+              ],
+              "summary": "CCA - Principais características dos instrumentos que compõem o Patrimônio de Referência (PR)",
+              "description": "Informações quantitativas e qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cca"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCA",
+              "x-dasfn-objetivo": "Descrever as principais características dos instrumentos que compõem o PR.",
+              "x-dasfn-frequencia": "Semestral ou sempre que emitido novo instrumento ou efetuada a liquidação, amortização, conversão, extinção ou outra alteração relevante em instrumento de capital. Devem ser informados os links para os relatórios das emissões, quando públicas, feitas no período anterior.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": "Devem ser disponibilizados os termos e condições de todos os instrumentos que compõem o PR."
+          }
+      },
+      "/cc1/{semestre}": {
+          "get": {
+              "tags": [
+                  "Composição do Capital"
+              ],
+              "summary": "CC1 - Composição do Patrimônio de Referência (PR)",
+              "description": "Informações quantitativas relativas aos elementos patrimoniais que compõem o PR.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cc1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CC1",
+              "x-dasfn-objetivo": "Detalhamento da composição do Patrimônio de Referência (PR), conforme a Resolução nº 4.192, de 2013.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Alterações significativas em relação ao período anterior devem ser explicadas.\n\nA aquisição direta ou indireta de: (a) instrumento autorizado a compor o montante de Capital Principal, de Capital Complementar ou de Nível II, no caso de instituição emitente sujeita ao disposto na Resolução nº 4.192, de 2013; (b) recursos disponíveis para a absorção de perdas e a recapitalização no decurso de regime de resolução (TLAC); ou (c) parcela do montante de capital social de outra entidade deve ser considerada:\nI - significativa, se superior a 10% (dez por cento) do respectivo montante emitido pela instituição ou entidade; e\nII - não significativa, se inferior a 10% (dez por cento) do respectivo montante emitido pela instituição ou entidade.\n"
+          }
+      },
+      "/cc2/{semestre}": {
+          "get": {
+              "tags": [
+                  "Composição do Capital"
+              ],
+              "summary": "CC2 - Conciliação do Patrimônio de Referência (PR) com o balanço patrimonial",
+              "description": "Valores das demonstrações financeiras publicadas e valores utilizados na composição do Patrimônio de Referência (PR).",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cc2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CC2",
+              "x-dasfn-objetivo": "Demonstrar a origem, no balanço patrimonial publicado, dos valores informados na Tabela CC1.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Flexível. As linhas devem seguir ordem apresentada nas demonstrações financeiras.",
+              "x-dasfn-comentarios": "Informações relevantes para fins da conciliação de que trata esta tabela devem ser evidenciadas a partir do acréscimo de linhas que possibilitem o detalhamento necessário.\n\nDevem ser explicadas quaisquer mudanças significativas entre o período reportado e o anterior.\n"
+          }
+      },
+      "/gsib1/{ano}": {
+          "get": {
+              "tags": [
+                  "Indicadores Macroprudenciais"
+              ],
+              "summary": "GSIB1 - Indicadores utilizados para caracterização de instituição financeira como sistemicamente importante em âmbito global (G-SIBs)",
+              "description": "Indicadores base da metodologia de apuração do ISG.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/gsib1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "GSIB1",
+              "x-dasfn-objetivo": "Divulgação de informações relativas ao índice de importância sistêmica global (ISG), mencionado na Circular nº 3.751, de 19 de março de 2015.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/ccyb1/{semestre}": {
+          "get": {
+              "tags": [
+                  "Indicadores Macroprudenciais"
+              ],
+              "summary": "CCYB1 - Distribuição geográfica das exposições ao risco de crédito consideradas no cálculo do ACP Contracíclico",
+              "description": "Informações necessárias para o cálculo do ACPContracíclico, conforme disposto na Circular nº 3.769, de 29 de outubro de 2015.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccyb1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCYB1",
+              "x-dasfn-objetivo": "Fornecer visão geral da distribuição geográfica das exposições ao risco de crédito ao setor privado não bancário para fins do cálculo do Adicional Contracíclico de Capital Principal (ACP Contracíclico).",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser divulgadas as datas de anúncio e de início de vigência do percentual do adicional contracíclico de capital em cada jurisdição (ACCPi)."
+          }
+      },
+      "/lr1/{semestre}": {
+          "get": {
+              "tags": [
+                  "Razão de Alavancagem (RA)"
+              ],
+              "summary": "LR1 - Comparação entre informações das demonstrações financeiras e as utilizadas para apuração da Razão de Alavancagem (RA)",
+              "description": "Informações quantitativas referentes à RA.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/lr1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LR1",
+              "x-dasfn-objetivo": "Discriminar os ajustes efetuados no valor do ativo total para a obtenção da Exposição Total utilizada na apuração da Razão de Alavancagem (RA), conforme disposto na Circular nº 3.748, de 2015.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicadas as diferenças significativas entre o valor do ativo total reportado nas demonstrações financeiras e o valor informado na linha 1 da tabela LR2."
+          }
+      },
+      "/lr2/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Razão de Alavancagem (RA)"
+              ],
+              "summary": "LR2 - Informações detalhadas sobre a Razão de Alavancagem",
+              "description": "Informações quantitativas referentes à RA.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/lr2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LR2",
+              "x-dasfn-objetivo": "Detalhar os componentes da Exposição Total utilizada na apuração da Razão de Alavancagem (RA), de que trata a Circular nº 3.748, de 2015.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/liqa/{ano}": {
+          "get": {
+              "tags": [
+                  "Indicadores de Liquidez"
+              ],
+              "summary": "LIQA - Informações qualitativas sobre o gerenciamento do risco de liquidez",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/liqa"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LIQA",
+              "x-dasfn-objetivo": "Descrever as principais características do gerenciamento do risco de liquidez.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/liq1/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Indicadores de Liquidez"
+              ],
+              "summary": "LIQ1 - Indicador de Liquidez de Curto Prazo (LCR)",
+              "description": "Médias dos valores diários relativos ao trimestre de referência.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/liq1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LIQ1",
+              "x-dasfn-objetivo": "Informar as entradas e saídas de caixa, bem como o estoque de Ativos de Alta Liquidez (HQLA) da instituição, conforme definições e metodologia de cálculo estabelecidas na Circular nº 3.749, de 2015.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Deve ser divulgada a quantidade de observações utilizadas no cálculo das médias do trimestre de referência.\n\nDevem ainda ser prestadas informações suficientes para facilitar o entendimento do cálculo do LCR, podendo abranger:\n- variações do LCR ao longo do tempo e dos seus principais determinantes;\n- a composição do estoque de HQLA;\n- informações sobre o grau de concentração das fontes de captação de recursos; e\n- outras entradas e saídas de caixa, quando relevantes.\n"
+          }
+      },
+      "/liq2/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Indicadores de Liquidez"
+              ],
+              "summary": "LIQ2 - Indicador Liquidez de Longo Prazo (NSFR)",
+              "description": "Valores relativos ao trimestre de referência.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/liq2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "LIQ2",
+              "x-dasfn-objetivo": "Divulgar informações relativas ao Indicador Liquidez de Longo Prazo (NSFR) e seus componentes, conforme estabelecido na Circular nº 3.869, de 19 de dezembro de 2017.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser prestadas informações suficientes para facilitar o entendimento do cálculo do NSFR, podendo abranger:\n\n- Os determinantes do NSFR e as razões das mudanças no valor do indicador ao longo do tempo; e\n- As operações em que a instituição atue exclusivamente como intermediadora, não assumindo quaisquer direitos ou obrigações, ainda que contingentes, para com as partes.\n"
+          }
+      },
+      "/cra/{ano}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CRA - Informações qualitativas sobre o gerenciamento do risco de crédito",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cra"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CRA",
+              "x-dasfn-objetivo": "Descrever as principais características de gerenciamento do risco de crédito.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/cr1/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CR1 - Qualidade creditícia das exposições",
+              "description": "Valores considerados para fins da regulamentação prudencial.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cr1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CR1",
+              "x-dasfn-objetivo": "Fornecer visão geral da qualidade das exposições sujeitas ao risco de crédito relativas apenas às operações de crédito, aos títulos de dívida e às operações não contabilizadas no Balanço Patrimonial.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/cr2/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CR2 - Mudanças no estoque de operações em curso anormal",
+              "description": "Valores considerados para fins da regulamentação prudencial.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cr2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CR2",
+              "x-dasfn-objetivo": "Identificar mudanças no estoque de operações em curso anormal entre dois períodos, considerando as operações reportadas na tabela CR1.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicados os principais determinantes de mudanças significativas no estoque de operações em curso anormal em relação à divulgação anterior.\n\nAs operações em curso anormal correspondem:\n\nI - até 31 de dezembro de 2021, às operações em atraso há mais de 90 dias;\n\nII - a partir de 1º de janeiro de 2022, às exposições caracterizadas como ativos problemáticos, conforme disposto na Resolução nº 4.557, de 2017.\n"
+          }
+      },
+      "/crb/{ano}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CRB - Informações adicionais sobre a qualidade creditícia das exposições",
+              "description": "Informações quantitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/crb"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CRB",
+              "x-dasfn-objetivo": "Prover informações adicionais sobre a qualidade creditícia das exposições reportadas na tabela CR1.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/crc/{ano}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CRC - Informações sobre instrumentos mitigadores do risco de crédito",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/crc"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CRC",
+              "x-dasfn-objetivo": "Fornecer informações qualitativas sobre os instrumentos mitigadores do risco de crédito.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/cr3/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CR3 - Visão geral das técnicas de mitigação do risco de crédito",
+              "description": "Valores considerados para fins da regulamentação prudencial antes e após a utilização de instrumentos mitigadores do risco de crédito, de acordo com a Circular n° 3.809, de 25 de agosto de 2016.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cr3"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CR3",
+              "x-dasfn-objetivo": "Divulgar a utilização de mitigação do risco de crédito.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser reportadas as exposições ao risco de crédito em sentido estrito, que corresponde à parcela RWACPAD, desconsiderando os valores reportados nas linhas 6, 10, 12, 13, 14, 16 e 25 da tabela OV1.\n\nDevem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças.\n\nO valor das exposições deve ser reportado deduzido dos respectivos adiantamentos recebidos, provisões e rendas a apropriar.\n\nCaso o valor do instrumento mitigador seja maior que o valor da exposição, o valor da parcela não mitigada é zero e o valor da parcela mitigada é o valor da exposição original.\n\nA exposição resultante de acordo bilateral de compensação e liquidação de obrigações deve ser reportada na coluna (a). Quando a exposição resultante for mitigada por colateral financeiro ou garantia fidejussória, a parcela mitigada deve ser reportada na coluna (b) e no respectivo detalhamento.\n\nO valor da exposição mitigada por mais de um instrumento deve ser alocado proporcionalmente à cobertura dos respectivos mitigadores.\n"
+          }
+      },
+      "/cr4/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CR4 - Abordagem padronizada – exposições e efeitos da mitigação do risco de crédito",
+              "description": "Valores das exposições prévia e posteriormente à aplicação do Fator de Conversão em Crédito (FCC) e ao reconhecimento do efeito de instrumento mitigador.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cr4"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CR4",
+              "x-dasfn-objetivo": "Demonstrar os efeitos da mitigação do risco de crédito no cálculo dos requerimentos de capital, conforme a Circular nº 3.809, de 25 de agosto de 2016.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser reportadas as exposições ao risco de crédito em sentido estrito, que corresponde à parcela RWACPAD, desconsiderando os valores reportados nas linhas 6, 10, 12, 13, 14, 16 e 25 da tabela OV1.\n\nCada exposição deve corresponder exclusivamente a uma das categorias das linhas 1 a 13.\n\nAs exposições devem ser reportadas conforme as categorias correspondentes à operação original, independentemente da eventual cobertura por instrumento mitigador.\n\nDevem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças.\n"
+          }
+      },
+      "/cr5/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito"
+              ],
+              "summary": "CR5 - Abordagem padronizada - exposições por contraparte e fator de ponderação de risco (FPR)",
+              "description": "Valores das exposições. O valor a ser informado corresponde às exposições contabilizadas e não contabilizadas no balanço patrimonial, líquidas de adiantamentos recebidos, provisões e rendas a apropriar, depois de aplicado o Fator de Conversão em Crédito (FCC) e após uso das técnicas de mitigação de risco.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/cr5"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CR5",
+              "x-dasfn-objetivo": "Informar as exposições reportadas na tabela CR4 por categoria e fator de ponderação de risco.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser reportadas as exposições presentes na tabela CR4.\n\nCada exposição deve corresponder exclusivamente a uma das categorias das linhas 1 a 13.\n\nDevem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças.\n"
+          }
+      },
+      "/ccra/{ano}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito de Contraparte"
+              ],
+              "summary": "CCRA - Informações qualitativas sobre o gerenciamento do risco de crédito de contraparte (CCR)",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccra"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCRA",
+              "x-dasfn-objetivo": "Descrever as principais características do gerenciamento do risco de crédito de contraparte (CCR).",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/ccr1/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito de Contraparte"
+              ],
+              "summary": "CCR1 - Análise das exposições ao risco de crédito de contraparte (CCR) por abordagem utilizada",
+              "description": "Exposições ao risco de crédito de contraparte, montante dos ativos ponderados pelo risco (RWA) e seus parâmetros de cálculo.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccr1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCR1",
+              "x-dasfn-objetivo": "Fornecer visão geral da abordagem utilizada para o cálculo do requerimento de capital para o risco de crédito de contraparte em operações de derivativos, operações compromissadas e operações de empréstimo de ativos, e fornecer os principais parâmetros empregados, conforme estabelecido na Circular nº 3.809, de 2016, e na Circular nº 3.904, de 2018. Não devem ser incluídas as exposições a contrapartes centrais (CCPs), que devem ser reportadas na tabela CCR8.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicados os principais determinantes de mudanças significativas em relação à divulgação anterior."
+          }
+      },
+      "/ccr3/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito de Contraparte"
+              ],
+              "summary": "CCR3 - Abordagem padronizada – segregação de exposições ao CCR por contraparte e por fator de ponderação de risco",
+              "description": "Valores das exposições após a utilização de instrumentos de mitigação.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccr3"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCR3",
+              "x-dasfn-objetivo": "Informar as exposições ao risco de crédito de contraparte em operações de derivativos, operações compromissadas e operações de empréstimo de ativos sujeitas à abordagem padronizada, conforme estabelecido na Circular nº 3.644, de 2013, por tipo de contraparte e fator de ponderação de risco (FPR). Não devem ser incluídas as exposições a contrapartes centrais (CCPs), que devem ser reportadas na tabela CCR8.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças."
+          }
+      },
+      "/ccr5/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito de Contraparte"
+              ],
+              "summary": "CCR5 - Colaterais financeiros associados a exposições ao risco de crédito de contraparte",
+              "description": "Valores justos dos colaterais financeiros.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccr5"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCR5",
+              "x-dasfn-objetivo": "Detalhar os tipos de colaterais financeiros recebidos ou entregues em operações de derivativos, operações compromissadas e de empréstimo de ativos, de acordo com a Circular nº 3.809, de 2016. Inclui as transações efetuadas por meio de contrapartes centrais.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo para colunas. As linhas podem ser alteradas para refletir os colaterais utilizados.",
+              "x-dasfn-comentarios": "Devem ser divulgados comentários adicionais para explicar mudanças significativas no período informado e os principais indutores dessas mudanças."
+          }
+      },
+      "/ccr6/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito de Contraparte"
+              ],
+              "summary": "CCR6 - Informações sobre o risco de crédito de contraparte associado a derivativos de crédito",
+              "description": "Valor de nocional e valor justo dos derivativos de crédito (risco transferido e risco recebido), antes da compensação entre as posições vendidas e compradas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccr6"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCR6",
+              "x-dasfn-objetivo": "Informar as exposições associadas a derivativos de crédito.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo para colunas. As linhas podem ser alteradas para refletir os valores das exposições associadas a derivativos de crédito.",
+              "x-dasfn-comentarios": "Devem ser divulgados comentários adicionais para explicar mudanças significativas entre o período informado e o período anterior, bem como os principais indutores dessas mudanças."
+          }
+      },
+      "/ccr8/{semestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Crédito de Contraparte"
+              ],
+              "summary": "CCR8 - Informações sobre o risco de crédito de contraparte associado a exposições a contrapartes centrais",
+              "description": "Exposições e montante dos ativos ponderados pelo risco (RWA).",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/ccr8"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "CCR8",
+              "x-dasfn-objetivo": "Fornecer visão abrangente das exposições a contrapartes centrais.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser divulgados comentários adicionais para explicar mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças."
+          }
+      },
+      "/seca/{ano}": {
+          "get": {
+              "tags": [
+                  "Exposições de Securitização"
+              ],
+              "summary": "SECA - Informações qualitativas sobre o gerenciamento de riscos das exposições de securitização",
+              "description": "Informações qualitativas e quantitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/seca"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "SECA",
+              "x-dasfn-objetivo": "Fornecer informações qualitativas sobre as exposições de securitização, conforme definidas na Circular nº 3.848, de 2017.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/sec1/{semestre}": {
+          "get": {
+              "tags": [
+                  "Exposições de Securitização"
+              ],
+              "summary": "SEC1 - Exposições de securitização classificadas na carteira bancária",
+              "description": "Valores considerados na regulamentação prudencial. Os processos assemelhados a securitização estruturados em apenas uma classe de priorização de pagamento não devem ser reportados.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/sec1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "SEC1",
+              "x-dasfn-objetivo": "Apresentar as exposições de securitização classificadas na carteira bancária.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Flexível. Pode ser alterado o desmembramento das categorias e sua ordem, se outra categorização for mais apropriada para refletir as atividades de securitização. As atividades de originação e de patrocínio devem ser agrupadas.",
+              "x-dasfn-comentarios": "Devem ser explicitadas mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças."
+          }
+      },
+      "/sec2/{semestre}": {
+          "get": {
+              "tags": [
+                  "Exposições de Securitização"
+              ],
+              "summary": "SEC2 - Exposições de securitização classificadas na carteira de negociação",
+              "description": "Valores considerados para fins da regulamentação prudencial.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/sec2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "SEC2",
+              "x-dasfn-objetivo": "Apresentar as exposições de securitização classificadas na carteira de negociação.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Flexível. Pode ser alterado o desmembramento das categorias e sua ordem, se outra categorização for mais apropriada para refletir as atividades de securitização. As atividades de originação e de patrocínio devem ser agrupadas.",
+              "x-dasfn-comentarios": "Devem ser explicitadas mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças."
+          }
+      },
+      "/sec3/{semestre}": {
+          "get": {
+              "tags": [
+                  "Exposições de Securitização"
+              ],
+              "summary": "SEC3 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como originadora ou patrocinadora",
+              "description": "Valores das exposições, do montante dos ativos ponderados pelo risco (RWA) e dos requerimentos de capital.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/sec3"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "SEC3",
+              "x-dasfn-objetivo": "Apresentar exposições de securitização classificadas na carteira bancária e os respectivos requerimentos de capital quando a instituição atua como originadora ou patrocinadora.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças."
+          }
+      },
+      "/sec4/{semestre}": {
+          "get": {
+              "tags": [
+                  "Exposições de Securitização"
+              ],
+              "summary": "SEC4 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como investidora",
+              "description": "Valores das exposições, do montante dos ativos ponderados pelo risco (RWA) e dos requerimentos de capital.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/semestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/sec4"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "SEC4",
+              "x-dasfn-objetivo": "Apresentar exposições de securitização classificadas na carteira bancária e os respectivos requerimentos de capital quando a instituição atua como investidora.",
+              "x-dasfn-frequencia": "Semestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças."
+          }
+      },
+      "/mra/{ano}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "MRA - Informações qualitativas sobre o gerenciamento do risco de mercado",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/mra"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "MRA",
+              "x-dasfn-objetivo": "Descrever as principais características do gerenciamento do risco de mercado.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/mr1/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "MR1 - Abordagem padronizada - fatores de risco associados ao risco de mercado",
+              "description": "RWA<sub>MPAD</sub>.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/mr1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "MR1",
+              "x-dasfn-objetivo": "Divulgar o montante dos ativos ponderados pelo risco para o risco de mercado apurado mediante abordagem padronizada (RWA MPAD).",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças."
+          }
+      },
+      "/mrb/{ano}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "MRB - Informações qualitativas sobre o risco de mercado na abordagem de modelos internos",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/mrb"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "MRB",
+              "x-dasfn-objetivo": "Apresentar o escopo de utilização, as características e as metodologias dos diferentes modelos (VaR, VaR estressado) empregados no cálculo do requerimento de capital para risco de mercado, conforme disposto na Circular nº 3.646, de 4 de março de 2013.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": "Devem ser descritas as principais características dos modelos utilizados e, quando a instituição for integrante de conglomerado prudencial, deve ser informado o grau de utilização desses modelos no conglomerado. Essa descrição deve incluir o percentual do requerimento de capital para risco de mercado referente a cada um dos modelos (VaR, VaR estressado)."
+          }
+      },
+      "/mr2/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "MR2 - Informações sobre as variações do RWA MINT mercado",
+              "description": "RWA<sub>MINT</sub>.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/mr2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "MR2",
+              "x-dasfn-objetivo": "Apresentar informações das variações dos ativos ponderados pelo risco referentes às exposições sujeitas ao risco de mercado na abordagem de modelos internos (RWA MINT), de que trata a Circular nº 3.646, de 2013, para apuração do requerimento de capital.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixa, porém podem ser adicionadas novas linhas entre as linhas 7 e 8 para divulgar elementos adicionais que expliquem variações do RWA MINT.",
+              "x-dasfn-comentarios": "Nos casos em que o requerimento de capital para as colunas (a) ou (b), linhas 1 ou 8, não for calculado diretamente pelo modelo, mas pela média de 60 dias, deve ser adicionada linha para ajuste regulatório de forma a garantir a conciliação dos dados requerida pela tabela.\n\nDevem ser divulgados comentários adicionais para explicar mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças.\n"
+          }
+      },
+      "/mr3/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "MR3 - Valores dos modelos internos de risco de mercado",
+              "description": "Resultados dos modelos internos de risco de mercado para cálculo do requerimento de capital.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/mr3"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "MR3",
+              "x-dasfn-objetivo": "Informar os valores (máximo, médio, mínimo e final do trimestre) apurados pelos modelos internos de risco de mercado.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Devem ser divulgados comentários adicionais para explicar mudanças significativas entre o período informado e o anterior, bem como os principais indutores dessas mudanças."
+          }
+      },
+      "/mr4/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "MR4 - Comparação das estimativas do VaR com os resultados efetivo e hipotético",
+              "description": "Estimativas do VaR, conforme disposto no art. 6º, inciso III, da Circular nº 3.646 de 2013.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/mr4"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "MR4",
+              "x-dasfn-objetivo": "Apresentar comparação entre o resultado efetivo e o hipotético com o VaR calculado pelo modelo interno de risco de mercado, de forma a assegurar avaliações consistentes da aderência do modelo utilizado, conforme disposto na Circular nº 3.646, de 2013.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": "Devem ser descritos os modelos internos de risco de mercado utilizados e informado o percentual de requerimento de capital associado a esses modelos.\n\nA descrição deve vir acompanhada de gráfico que apresente a evolução do VaR diário e dos resultados efetivo e hipotético.\n\nDeve ser apresentada análise dos principais determinantes para as exceções identificadas nos testes de aderência, especificando as datas de ocorrência e respectivas diferenças entre o VaR estimado e os resultados financeiros. Devem também ser divulgadas comparações entre o resultado financeiro efetivo e o hipotético. Para os resultados efetivos, deve ser informado se tarifas, corretagens e comissões estão incluídas nos resultados. Informar o eventual tratamento dado às reservas de resultado no cálculo do resultado efetivo e nos testes de aderência.\n"
+          }
+      },
+      "/opd/{trimestre}": {
+          "get": {
+              "tags": [
+                  "Risco de Mercado"
+              ],
+              "summary": "OPD - Total da exposição associada a instrumentos financeiros derivativos",
+              "description": "Informações quantitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/trimestre"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/opd"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "OPD",
+              "x-dasfn-objetivo": "Divulgar o total da exposição associada a instrumentos financeiros derivativos por categoria de fator de risco de mercado, conforme disposto no art. 15 da Circular nº 3.930, de 14 de fevereiro de 2019.",
+              "x-dasfn-frequencia": "Trimestral.",
+              "x-dasfn-formato": "Fixo."
+          }
+      },
+      "/irrbba/{ano}": {
+          "get": {
+              "tags": [
+                  "Do Risco de Variação das Taxas de Juros em Instrumentos Classificados na Carteira Bancária (IRRBB)"
+              ],
+              "summary": "IRRBBA - Informações qualitativas sobre o gerenciamento do IRRBB",
+              "description": "Informações qualitativas e quantitativas. Informações quantitativas devem se basear na média diária ou mensal no ano da data-base de divulgação.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/irrbba"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "IRRBBA",
+              "x-dasfn-objetivo": "Descrever objetivos e políticas de gerenciamento do risco de variação das taxas de juros em instrumentos classificados na carteira bancária (IRRBB)",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/irrbb1/{ano}": {
+          "get": {
+              "tags": [
+                  "Do Risco de Variação das Taxas de Juros em Instrumentos Classificados na Carteira Bancária (IRRBB)"
+              ],
+              "summary": "IRRBB1 - Informações quantitativas sobre o IRRBB",
+              "description": "Medidas de IRRBB.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/irrbb1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "IRRBB1",
+              "x-dasfn-objetivo": "Informar as variações nos valores de ΔEVE e de ΔNII, de que trata a Circular nº 3.876, de 2018, para cada cenário padronizado de juros prescrito.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Fixo.",
+              "x-dasfn-comentarios": "Os valores reportados devem ser acompanhados de comentário quanto à sua relevância, bem como de explicação sobre variações significativas em relação aos valores reportados no período anterior.\n\nQuando utilizadas metodologias desenvolvidas internamente para o cálculo de ΔEVE e de ΔNII, é facultada a publicação de informações comparativas entre os valores apurados segundo essas metodologias e os valores apurados segundo as abordagens padronizadas.\n"
+          }
+      },
+      "/rema/{ano}": {
+          "get": {
+              "tags": [
+                  "Remuneração de Administradores"
+              ],
+              "summary": "REMA - Política de remuneração",
+              "description": "Informações qualitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/rema"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "REMA",
+              "x-dasfn-objetivo": "Descrever a política de remuneração da instituição, de que trata Resolução nº 3.921, de 25 de novembro de 2010.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/rem1/{ano}": {
+          "get": {
+              "tags": [
+                  "Remuneração de Administradores"
+              ],
+              "summary": "REM1 - Remuneração atribuída durante o ano de referência",
+              "description": "Informações quantitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/rem1"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "REM1",
+              "x-dasfn-objetivo": "Informar a remuneração atribuída aos diretores e membros do conselho de administração durante o ano de referência.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/rem2/{ano}": {
+          "get": {
+              "tags": [
+                  "Remuneração de Administradores"
+              ],
+              "summary": "REM2 - Pagamentos extraordinários",
+              "description": "Informações quantitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/rem2"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "REM2",
+              "x-dasfn-objetivo": "Informar o total de pagamentos extraordinários (bônus garantidos, bônus de contratação e pagamentos por desligamento) realizados no ano de referência.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      },
+      "/rem3/{ano}": {
+          "get": {
+              "tags": [
+                  "Remuneração de Administradores"
+              ],
+              "summary": "REM3 - Remuneração diferida",
+              "description": "Informações quantitativas.",
+              "parameters": [
+                  {
+                      "$ref": "#/components/parameters/ano"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Sucesso",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "schema.json#/definitions/rem3"
+                              }
+                          }
+                      }
+                  }
+              },
+              "x-dasfn-cod-doc": "REM3",
+              "x-dasfn-objetivo": "Informar o total da remuneração diferida.",
+              "x-dasfn-frequencia": "Anual.",
+              "x-dasfn-formato": "Flexível.",
+              "x-dasfn-comentarios": null
+          }
+      }
+  },
+  "components": {
+      "parameters": {
+          "ano": {
+              "name": "ano",
+              "in": "path",
+              "description": "Ano de referência",
+              "required": true,
+              "schema": {
+                  "$ref": "schema.json#/definitions/ano"
+              }
+          },
+          "semestre": {
+              "name": "semestre",
+              "in": "path",
+              "description": "Semestre de referência",
+              "required": true,
+              "schema": {
+                  "$ref": "schema.json#/definitions/semestre"
+              }
+          },
+          "trimestre": {
+              "name": "trimestre",
+              "in": "path",
+              "description": "Trimestre de referência",
+              "required": true,
+              "schema": {
+                  "$ref": "schema.json#/definitions/trimestre"
+              }
+          }
+      }
+  }
+}
