@@ -27,28 +27,33 @@
       "example": 1123.11
     },
     "outros": {
-      "additionalProperties": false,
-      "required": [
-        "nome",
-        "descricao",
-        "valor"
-      ],
-      "type": "object",
-      "properties": {
-        "nome": {
-          "description": "Nome ou código do campo adicionado. Ex kml_55.",
-          "type": "string",
-          "maxLength": 50
-        },        
-        "descricao": {
-          "description": "Descrição do campo adicionado.",
-          "type": "string",
-          "maxLength": 1000
-        },
-        "valor": {
-          "description": "Valor do campo adicionado.",
-          "type": "string",
-          "maxLength": 4000
+      "title": "Outras informações complementares",
+      "type": "array",
+      "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+      "items": {
+        "additionalProperties": false,
+        "required": [
+          "nome",
+          "descricao",
+          "valor"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "description": "Nome ou código do campo adicionado. Ex kml_55.",
+            "type": "string",
+            "maxLength": 50
+          },
+          "descricao": {
+            "description": "Descrição do campo adicionado.",
+            "type": "string",
+            "maxLength": 1000
+          },
+          "valor": {
+            "description": "Valor do campo adicionado.",
+            "type": "string",
+            "maxLength": 4000
+          }
         }
       }
     },
@@ -284,16 +289,11 @@
           ]
         },
         "km1_outros": {
-          "title": "Outras informações complementares",
-          "type": "array",
-          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
-          "items": {
           "allOf": [
             {
               "$ref": "#/definitions/outros"
             }
-          ]            
-          }
+          ]
         },
         "km1_comentario": {
           "title": "Comentários adicionais",
