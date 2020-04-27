@@ -26,6 +26,32 @@
       "format": "double",
       "example": 1123.11
     },
+    "outros": {
+      "additionalProperties": false,
+      "required": [
+        "nome",
+        "descricao",
+        "valor"
+      ],
+      "type": "object",
+      "properties": {
+        "nome": {
+          "description": "Nome ou código do campo adicionado. Ex kml_55.",
+          "type": "string",
+          "maxLength": 50
+        },        
+        "descricao": {
+          "description": "Descrição do campo adicionado.",
+          "type": "string",
+          "maxLength": 1000
+        },
+        "valor": {
+          "description": "Valor do campo adicionado.",
+          "type": "string",
+          "maxLength": 4000
+        }
+      }
+    },
     "km1": {
       "title": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
       "additionalProperties": false,
@@ -262,21 +288,11 @@
           "type": "array",
           "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
           "items": {
-            "additionalProperties": false,
-            "required": [
-              "definicao",
-              "valor"
-            ],
-            "type": "object",
-            "properties": {
-              "definicao": {
-                "type": "string",
-                "maxLength": 4000
-              },
-              "valor": {
-                "$ref": "#/definitions/valor"
-              }
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor"
             }
+          ]            
           }
         },
         "km1_comentario": {
