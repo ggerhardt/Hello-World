@@ -40,7 +40,7 @@
         "type": "object",
         "properties": {
           "nome": {
-            "description": "Nome ou código do campo adicionado. Ex kml_55.",
+            "description": "Nome ou código referenciando o campo adicionado. Ex kml_55.",
             "type": "string",
             "maxLength": 50
           },
@@ -53,6 +53,39 @@
             "description": "Valor do campo adicionado.",
             "type": "string",
             "maxLength": 4000
+          }
+        }
+      }
+    },
+    "outros_val": {
+      "title": "Outras informações complementares",
+      "type": "array",
+      "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+      "items": {
+        "additionalProperties": false,
+        "required": [
+          "nome",
+          "descricao",
+          "valor"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "description": "Nome ou código referenciando o campo adicionado. Ex kml_55.",
+            "type": "string",
+            "maxLength": 50
+          },
+          "descricao": {
+            "description": "Descrição do campo adicionado.",
+            "type": "string",
+            "maxLength": 1000
+          },
+          "valor": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor"
+              }
+            ]
           }
         }
       }
@@ -291,7 +324,7 @@
         "km1_outros": {
           "allOf": [
             {
-              "$ref": "#/definitions/outros"
+              "$ref": "#/definitions/outros_val"
             }
           ]
         },
@@ -354,6 +387,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Breve descrição do gerenciamento de capital, incluindo a avaliação de suficiência e adequação do Patrimônio de Referência (PR) para cobertura dos riscos das atividades atuais e projetadas da instituição."
+        },
+        "ova_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Descrição das estratégias de gerenciamento de riscos e da atuação do conselho de administração (CA) e da diretoria, de modo a permitir o claro entendimento da relação entre o apetite por riscos da instituição e as suas principais atividades e riscos relevantes."
@@ -381,6 +421,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros_val"
             }
           ]
         }
@@ -566,6 +613,41 @@
             }
           ]
         },
+
+    "ov1_outros": {
+      "title": "Outras informações complementares",
+      "type": "array",
+      "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+      "items": {
+        "additionalProperties": false,
+        "required": [
+          "nome",
+          "descricao",
+          "valor"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "description": "Nome ou código referenciando o campo adicionado. Ex kml_55.",
+            "type": "string",
+            "maxLength": 50
+          },
+          "descricao": {
+            "description": "Descrição do campo adicionado.",
+            "type": "string",
+            "maxLength": 1000
+          },
+          "valor": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_ov1"
+              }
+            ]
+          }
+        }
+      }
+    },
+
         "ov1_comentarios": {
           "title": "Comentários",
           "type": "string",
