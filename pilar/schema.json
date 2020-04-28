@@ -57,39 +57,6 @@
         }
       }
     },
-    "outros_val": {
-      "title": "Outras informações complementares",
-      "type": "array",
-      "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
-      "items": {
-        "additionalProperties": false,
-        "required": [
-          "nome",
-          "descricao",
-          "valor"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "description": "Nome ou código referenciando o campo adicionado. Ex kml_55.",
-            "type": "string",
-            "maxLength": 50
-          },
-          "descricao": {
-            "description": "Descrição do campo adicionado.",
-            "type": "string",
-            "maxLength": 1000
-          },
-          "valor": {
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor"
-              }
-            ]
-          }
-        }
-      }
-    },
     "km1": {
       "title": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
       "additionalProperties": false,
@@ -324,7 +291,7 @@
         "km1_outros": {
           "allOf": [
             {
-              "$ref": "#/definitions/outros_val"
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -421,13 +388,6 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
-            }
-          ]
-        },
-        "outros": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/outros_val"
             }
           ]
         }
@@ -614,38 +574,11 @@
           ]
         },
         "ov1_outros": {
-          "title": "Outras informações complementares",
-          "type": "array",
-          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
-          "items": {
-            "additionalProperties": false,
-            "required": [
-              "nome",
-              "descricao",
-              "valor"
-            ],
-            "type": "object",
-            "properties": {
-              "nome": {
-                "description": "Nome ou código referenciando a linha adicionada. Ex kml_55.",
-                "type": "string",
-                "maxLength": 50
-              },
-              "descricao": {
-                "description": "Descrição do conteúdo da linha.",
-                "type": "string",
-                "maxLength": 1000
-              },
-              "valor": {
-                "description": "Valores da linha adicionada.",
-                "allOf": [
-                  {
-                    "$ref": "#/definitions/valor_ov1"
-                  }
-                ]
-              }
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
-          }
+          ]
         },
         "ov1_comentarios": {
           "title": "Comentários",
@@ -954,6 +887,13 @@
             }
           ]
         },
+        "li1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "li1_comentario": {
           "title": "Comentários adicionais ",
           "type": "string",
@@ -1091,6 +1031,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_li2"
+            }
+          ]
+        },
+        "li2_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -1297,6 +1244,13 @@
             }
           ]
         },
+        "pv1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "pv1_comentarios": {
           "title": "Comentários adicionais",
           "type": "string",
@@ -1317,322 +1271,333 @@
         "cca_semestreReferencia": {
           "$ref": "#/definitions/semestre"
         },
-        "cca_1": {
-          "title": "Emissor",
-          "type": "string",
-          "maxLength": 100,
-          "description": "Identificação da entidade legal emissora."
-        },
-        "cca_2": {
-          "title": "Identificador único",
-          "type": "string",
-          "maxLength": 100,
-          "description": "Identificador único"
-        },
-        "cca_3": {
-          "title": "Lei aplicável ao instrumento",
-          "type": "string",
-          "maxLength": 100,
-          "description": "Especificar a lei aplicável ao instrumento."
-        },
-        "cca_4": {
-          "title": "Classificação do instrumento como componente do PR durante o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013",
-          "type": "string",
-          "description": "Especificar o componente do capital em que o instrumento é considerado durante o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013.",
-          "enum": [
-            "Capital Principal",
-            "Capital Complementar",
-            "Nível II"
-          ]
-        },
-        "cca_5": {
-          "title": "Classificação do instrumento como componente do PR após o tratamento temporário de que trata a linha anterior",
-          "type": "string",
-          "description": "Especificar o componente do capital em que o instrumento é considerado após o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013.",
-          "enum": [
-            "Capital Principal",
-            "Capital Complementar",
-            "Nível II",
-            "Não elegível"
-          ]
-        },
-        "cca_6": {
-          "title": "Escopo da elegibilidade do instrumento",
-          "type": "string",
-          "description": "Especificar o tipo de consolidação utilizado.",
-          "enum": [
-            "Instituição individual",
-            "Conglomerado"
-          ]
-        },
-        "cca_7": {
-          "title": "Tipo de instrumento",
-          "type": "string",
-          "description": "Especificar o tipo de instrumento.",
-          "enum": [
-            "Ação",
-            "Letra financeira",
-            "Outro"
-          ]
-        },
-        "cca_8": {
-          "title": "Valor reconhecido no PR",
-          "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição. Valor numérico com duas casas decimais, separado por ponto.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor"
+        "cca_instrumento": {
+          "title": "Instrumentos",
+          "type": "array",
+          "description": "Lista de instrumentos",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "cca_1": {
+                "title": "Emissor",
+                "type": "string",
+                "maxLength": 100,
+                "description": "Identificação da entidade legal emissora."
+              },
+              "cca_2": {
+                "title": "Identificador único",
+                "type": "string",
+                "maxLength": 100,
+                "description": "Identificador único"
+              },
+              "cca_3": {
+                "title": "Lei aplicável ao instrumento",
+                "type": "string",
+                "maxLength": 100,
+                "description": "Especificar a lei aplicável ao instrumento."
+              },
+              "cca_4": {
+                "title": "Classificação do instrumento como componente do PR durante o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013",
+                "type": "string",
+                "description": "Especificar o componente do capital em que o instrumento é considerado durante o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013.",
+                "enum": [
+                  "Capital Principal",
+                  "Capital Complementar",
+                  "Nível II"
+                ]
+              },
+              "cca_5": {
+                "title": "Classificação do instrumento como componente do PR após o tratamento temporário de que trata a linha anterior",
+                "type": "string",
+                "description": "Especificar o componente do capital em que o instrumento é considerado após o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013.",
+                "enum": [
+                  "Capital Principal",
+                  "Capital Complementar",
+                  "Nível II",
+                  "Não elegível"
+                ]
+              },
+              "cca_6": {
+                "title": "Escopo da elegibilidade do instrumento",
+                "type": "string",
+                "description": "Especificar o tipo de consolidação utilizado.",
+                "enum": [
+                  "Instituição individual",
+                  "Conglomerado"
+                ]
+              },
+              "cca_7": {
+                "title": "Tipo de instrumento",
+                "type": "string",
+                "description": "Especificar o tipo de instrumento.",
+                "enum": [
+                  "Ação",
+                  "Letra financeira",
+                  "Outro"
+                ]
+              },
+              "cca_8": {
+                "title": "Valor reconhecido no PR",
+                "description": "Preencher o valor do instrumento, em R$ mil, reconhecido no PR, na última data base reportada pela instituição. Valor numérico com duas casas decimais, separado por ponto.",
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/valor"
+                  }
+                ]
+              },
+              "cca_9": {
+                "title": "Valor de face do instrumento",
+                "description": "Preencher o valor de face do instrumento, em R$ mil. Valor numérico com duas casas decimais, separado por ponto.",
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/valor"
+                  }
+                ]
+              },
+              "cca_10": {
+                "title": "Classificação contábil",
+                "type": "string",
+                "description": "Especificar a classificação contábil.",
+                "enum": [
+                  "Ação",
+                  "Passivo – custo amortizado",
+                  "Passivo – valor justo",
+                  "Participação de não controladores em subsidiária"
+                ]
+              },
+              "cca_11": {
+                "title": "Data original de emissão",
+                "type": "string",
+                "format": "date",
+                "description": "Informar a data original de emissão, no formato yyyy-mm-dd."
+              },
+              "cca_12": {
+                "title": "Perpétuo ou com vencimento",
+                "type": "string",
+                "description": "Especificar se o instrumento é perpétuo ou se tem data de vencimento.",
+                "enum": [
+                  "Perpétuo",
+                  "Com vencimento"
+                ]
+              },
+              "cca_13": {
+                "title": "Data original de vencimento",
+                "type": "string",
+                "description": "Para instrumentos com vencimento, informar a data original de vencimento, no formato yyyy-mm-dd. Para instrumentos perpétuos, informar 'sem vencimento'.",
+                "oneOf": [
+                  {
+                    "enum": [
+                      "sem vencimento"
+                    ]
+                  },
+                  {
+                    "format": "date"
+                  }
+                ]
+              },
+              "cca_14": {
+                "title": "Opção de resgate ou recompra",
+                "type": "string",
+                "description": "Especificar se há opção de resgate ou de recompra do instrumento por parte do emissor.",
+                "enum": [
+                  "Sim",
+                  "Não"
+                ]
+              },
+              "cca_15": {
+                "title": "(1) Data de resgate ou de recompra; (2) Datas de resgate ou de recompra condicionadas; (3) Valor de resgate ou de recompra",
+                "type": "string",
+                "maxLength": 500,
+                "description": "Para instrumentos com opção de resgate ou de recompra pelo emissor, informar:\n\n(1) a primeira data em que a opção pode ser exercida (dia, mês e ano);\n\n(2) especificar se o instrumento tem uma opção contingente de resgate ou de recompra vinculada a evento fiscal ou regulatório;\n\n(3) valor de resgate ou de recompra, em R$ mil."
+              },
+              "cca_16": {
+                "title": "Datas de resgate ou de recompra subsequentes, se aplicável",
+                "type": "string",
+                "maxLength": 500,
+                "description": "Especificar a existência e a frequência de datas subsequentes de opção de resgate ou de recompra, se aplicável."
+              },
+              "cca_17": {
+                "title": "Remuneração ou dividendos fixos ou variáveis",
+                "type": "string",
+                "description": "Especificar o modo da remuneração ou dos dividendos pagos pelo instrumento.",
+                "enum": [
+                  "Fixo",
+                  "Variável",
+                  "Fixo e depois variável",
+                  "Variável e depois fixo"
+                ]
+              },
+              "cca_18": {
+                "title": "Taxa de remuneração e índice referenciado",
+                "type": "string",
+                "description": "Informar a taxa de remuneração do instrumento e qualquer outro índice que referencie a remuneração ou os dividendos."
+              },
+              "cca_19": {
+                "title": "Possibilidade de suspensão de pagamento de dividendos",
+                "type": "string",
+                "description": "Especificar se o não pagamento da remuneração ou dos dividendos do instrumento leva à proibição de pagamento de dividendos das ações.",
+                "enum": [
+                  "Sim",
+                  "Não"
+                ]
+              },
+              "cca_20": {
+                "title": "Completa discricionariedade, discricionariedade parcial ou mandatória",
+                "type": "string",
+                "description": "Especificar o nível de discricionariedade em relação ao pagamento da remuneração ou dos dividendos do instrumento.\n\nSe a instituição tem completa discricionariedade para cancelar o pagamento da remuneração ou dos dividendos em quaisquer circunstâncias, deve selecionar “completa discricionariedade”.\n\nCaso devam ser atendidas condições para o cancelamento do pagamento da remuneração ou dos dividendos, deve ser selecionada a opção “discricionariedade parcial”.\n\nSe o pagamento da remuneração ou dos dividendos não puder ser cancelado, exceto em caso de insolvência, deve ser selecionada a opção “mandatório”.",
+                "enum": [
+                  "Completa discricionariedade",
+                  "Discricionariedade parcial",
+                  "Mandatório"
+                ]
+              },
+              "cca_21": {
+                "title": "Existência de cláusulas que alterem prazos ou condições de remuneração pactuados ou outro incentivo para resgate",
+                "type": "string",
+                "description": "Indicar a existência de cláusulas que alterem prazos ou condições de remuneração pactuados ou de outro incentivo para resgate do instrumento.",
+                "enum": [
+                  "Sim",
+                  "Não"
+                ]
+              },
+              "cca_22": {
+                "title": "Cumulativo ou não cumulativo",
+                "type": "string",
+                "description": "Indicar se a remuneração ou os dividendos são cumulativos ou não cumulativos.",
+                "enum": [
+                  "Cumulativo",
+                  "Não cumulativo"
+                ]
+              },
+              "cca_23": {
+                "title": "Conversível ou não conversível",
+                "type": "string",
+                "description": "Indicar se o instrumento é conversível ou não. Se não conversível, preencher “NA” nas linhas 24 a 29.",
+                "enum": [
+                  "Conversível",
+                  "Não conversível"
+                ]
+              },
+              "cca_24": {
+                "title": "Se conversível, em quais situações",
+                "type": "string",
+                "maxLength": 4000,
+                "description": "Se conversível, especificar as condições de conversão, incluindo situações de não viabilidade da instituição. Se uma ou mais autoridades podem obrigar a conversão, elas devem ser citadas.\n\nPara cada uma das autoridades, deve ser especificado se os termos do contrato do instrumento constituem a base legal para a conversão obrigatória (abordagem contratual) ou se a base legal advém de termos estatutários (abordagem estatutária)."
+              },
+              "cca_25": {
+                "title": "Se conversível, totalmente ou parcialmente",
+                "type": "string",
+                "maxLength": 4000,
+                "description": "Para cada situação de conversão, separadamente, especificar se o instrumento:\n\n(1) sempre será convertido na sua totalidade;\n\n(2) pode ser convertido em sua totalidade ou parcialmente; ou\n\n(3) sempre será convertido parcialmente."
+              },
+              "cca_26": {
+                "title": "Se conversível, taxa de conversão",
+                "type": "string",
+                "maxLength": 100,
+                "description": "Especificar a taxa de conversão."
+              },
+              "cca_27": {
+                "title": "Se conversível, conversão obrigatória ou opcional",
+                "type": "string",
+                "description": "Indicar se a conversão é obrigatória ou opcional.",
+                "enum": [
+                  "Obrigatória",
+                  "Opcional",
+                  "NA"
+                ]
+              },
+              "cca_28": {
+                "title": "Se conversível, especificar para qual tipo de instrumento",
+                "type": "string",
+                "description": "Se conversível, preencher como “Capital Principal”.",
+                "enum": [
+                  "Capital Principal",
+                  "NA"
+                ]
+              },
+              "cca_29": {
+                "title": "Se conversível, especificar o emissor do instrumento para o qual pode ser convertido",
+                "type": "string",
+                "maxLength": 500,
+                "description": "Se conversível, especificar o emissor do instrumento."
+              },
+              "cca_30": {
+                "title": "Características para a extinção do instrumento",
+                "type": "string",
+                "description": "Indicar se o instrumento é extinguível. Se não extinguível, preencher “NA” nas linhas 31 a 33.",
+                "enum": [
+                  "Sim",
+                  "Não"
+                ]
+              },
+              "cca_31": {
+                "title": "Se extinguível, em quais situações",
+                "type": "string",
+                "maxLength": 4000,
+                "description": "Especificar as condições em que instrumento pode ser extinto, incluindo situações de não viabilidade da instituição. Se uma ou mais autoridades podem obrigar a extinção, elas devem ser citadas.\n\nPara cada uma das autoridades, deve ser especificado se os termos do contrato do instrumento constituem a base legal para a extinção obrigatória (abordagem contratual) ou se a base legal advém de termos estatutários (abordagem estatutária)."
+              },
+              "cca_32": {
+                "title": "Se extinguível, totalmente ou parcialmente",
+                "type": "string",
+                "maxLength": 4000,
+                "description": "Para cada condição de extinção, especificar, separadamente, se o instrumento:\n\n(1) sempre será extinto na sua totalidade;\n\n\n(2) pode ser extinto em sua totalidade ou parcialmente; ou\n\n(3) sempre será extinto parcialmente."
+              },
+              "cca_33": {
+                "title": "Se extinguível, permanentemente ou temporariamente",
+                "type": "string",
+                "description": "Indicar se a extinção é permanente ou temporária.",
+                "enum": [
+                  "Permanente",
+                  "Temporária",
+                  "NA"
+                ]
+              },
+              "cca_34a": {
+                "title": "Tipo de subordinação",
+                "type": "string",
+                "description": "Preencher como “contratual”.",
+                "enum": [
+                  "Contratual",
+                  "NA"
+                ]
+              },
+              "cca_35": {
+                "title": "Posição na hierarquia de subordinação em caso de liquidação",
+                "type": "string",
+                "maxLength": 500,
+                "description": "Especificar o tipo de instrumento com prioridade de pagamento imediatamente superior."
+              },
+              "cca_36": {
+                "title": "Possui características que não serão aceitas após o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013",
+                "type": "string",
+                "description": "Indicar se o instrumento possui características que não serão aceitas após o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013.",
+                "enum": [
+                  "Sim",
+                  "Não"
+                ]
+              },
+              "cca_37": {
+                "title": "Se sim, especificar as características de que trata a linha anterior",
+                "type": "string",
+                "maxLength": 4000,
+                "description": "Se a linha anterior indicar “sim” como resposta, especificar as características do instrumento."
+              },
+              "cca_outros": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/outros"
+                  }
+                ]
+              },
+              "cca_comentarios": {
+                "title": "Comentários",
+                "type": "string",
+                "maxLength": 4000,
+                "description": "Devem ser disponibilizados os termos e condições de todos os instrumentos que compõem o PR. As informações desta Tabela podem ser evidenciadas mediante referência a documento divulgado no sitio da instituição na internet, desde que devidamente explicitado no Relatório de Pilar 3 e acompanhado do correspondente link."
+              }
             }
-          ]
-        },
-        "cca_9": {
-          "title": "Valor de face do instrumento",
-          "description": "Preencher o valor de face do instrumento, em R$ mil. Valor numérico com duas casas decimais, separado por ponto.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor"
-            }
-          ]
-        },
-        "cca_10": {
-          "title": "Classificação contábil",
-          "type": "string",
-          "description": "Especificar a classificação contábil.",
-          "enum": [
-            "Ação",
-            "Passivo – custo amortizado",
-            "Passivo – valor justo",
-            "Participação de não controladores em subsidiária"
-          ]
-        },
-        "cca_11": {
-          "title": "Data original de emissão",
-          "type": "string",
-          "format": "date",
-          "description": "Informar a data original de emissão, no formato yyyy-mm-dd."
-        },
-        "cca_12": {
-          "title": "Perpétuo ou com vencimento",
-          "type": "string",
-          "description": "Especificar se o instrumento é perpétuo ou se tem data de vencimento.",
-          "enum": [
-            "Perpétuo",
-            "Com vencimento"
-          ]
-        },
-        "cca_13": {
-          "title": "Data original de vencimento",
-          "type": "string",
-          "description": "Para instrumentos com vencimento, informar a data original de vencimento, no formato yyyy-mm-dd. Para instrumentos perpétuos, informar 'sem vencimento'.",
-          "oneOf": [
-            {
-              "enum": [
-                "sem vencimento"
-              ]
-            },
-            {
-              "format": "date"
-            }
-          ]
-        },
-        "cca_14": {
-          "title": "Opção de resgate ou recompra",
-          "type": "string",
-          "description": "Especificar se há opção de resgate ou de recompra do instrumento por parte do emissor.",
-          "enum": [
-            "Sim",
-            "Não"
-          ]
-        },
-        "cca_15": {
-          "title": "(1) Data de resgate ou de recompra; (2) Datas de resgate ou de recompra condicionadas; (3) Valor de resgate ou de recompra",
-          "type": "string",
-          "maxLength": 500,
-          "description": "Para instrumentos com opção de resgate ou de recompra pelo emissor, informar:\n\n(1) a primeira data em que a opção pode ser exercida (dia, mês e ano);\n\n(2) especificar se o instrumento tem uma opção contingente de resgate ou de recompra vinculada a evento fiscal ou regulatório;\n\n(3) valor de resgate ou de recompra, em R$ mil."
-        },
-        "cca_16": {
-          "title": "Datas de resgate ou de recompra subsequentes, se aplicável",
-          "type": "string",
-          "maxLength": 500,
-          "description": "Especificar a existência e a frequência de datas subsequentes de opção de resgate ou de recompra, se aplicável."
-        },
-        "cca_17": {
-          "title": "Remuneração ou dividendos fixos ou variáveis",
-          "type": "string",
-          "description": "Especificar o modo da remuneração ou dos dividendos pagos pelo instrumento.",
-          "enum": [
-            "Fixo",
-            "Variável",
-            "Fixo e depois variável",
-            "Variável e depois fixo"
-          ]
-        },
-        "cca_18": {
-          "title": "Taxa de remuneração e índice referenciado",
-          "type": "string",
-          "description": "Informar a taxa de remuneração do instrumento e qualquer outro índice que referencie a remuneração ou os dividendos."
-        },
-        "cca_19": {
-          "title": "Possibilidade de suspensão de pagamento de dividendos",
-          "type": "string",
-          "description": "Especificar se o não pagamento da remuneração ou dos dividendos do instrumento leva à proibição de pagamento de dividendos das ações.",
-          "enum": [
-            "Sim",
-            "Não"
-          ]
-        },
-        "cca_20": {
-          "title": "Completa discricionariedade, discricionariedade parcial ou mandatória",
-          "type": "string",
-          "description": "Especificar o nível de discricionariedade em relação ao pagamento da remuneração ou dos dividendos do instrumento.\n\nSe a instituição tem completa discricionariedade para cancelar o pagamento da remuneração ou dos dividendos em quaisquer circunstâncias, deve selecionar “completa discricionariedade”.\n\nCaso devam ser atendidas condições para o cancelamento do pagamento da remuneração ou dos dividendos, deve ser selecionada a opção “discricionariedade parcial”.\n\nSe o pagamento da remuneração ou dos dividendos não puder ser cancelado, exceto em caso de insolvência, deve ser selecionada a opção “mandatório”.",
-          "enum": [
-            "Completa discricionariedade",
-            "Discricionariedade parcial",
-            "Mandatório"
-          ]
-        },
-        "cca_21": {
-          "title": "Existência de cláusulas que alterem prazos ou condições de remuneração pactuados ou outro incentivo para resgate",
-          "type": "string",
-          "description": "Indicar a existência de cláusulas que alterem prazos ou condições de remuneração pactuados ou de outro incentivo para resgate do instrumento.",
-          "enum": [
-            "Sim",
-            "Não"
-          ]
-        },
-        "cca_22": {
-          "title": "Cumulativo ou não cumulativo",
-          "type": "string",
-          "description": "Indicar se a remuneração ou os dividendos são cumulativos ou não cumulativos.",
-          "enum": [
-            "Cumulativo",
-            "Não cumulativo"
-          ]
-        },
-        "cca_23": {
-          "title": "Conversível ou não conversível",
-          "type": "string",
-          "description": "Indicar se o instrumento é conversível ou não. Se não conversível, preencher “NA” nas linhas 24 a 29.",
-          "enum": [
-            "Conversível",
-            "Não conversível"
-          ]
-        },
-        "cca_24": {
-          "title": "Se conversível, em quais situações",
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Se conversível, especificar as condições de conversão, incluindo situações de não viabilidade da instituição. Se uma ou mais autoridades podem obrigar a conversão, elas devem ser citadas.\n\nPara cada uma das autoridades, deve ser especificado se os termos do contrato do instrumento constituem a base legal para a conversão obrigatória (abordagem contratual) ou se a base legal advém de termos estatutários (abordagem estatutária)."
-        },
-        "cca_25": {
-          "title": "Se conversível, totalmente ou parcialmente",
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Para cada situação de conversão, separadamente, especificar se o instrumento:\n\n(1) sempre será convertido na sua totalidade;\n\n(2) pode ser convertido em sua totalidade ou parcialmente; ou\n\n(3) sempre será convertido parcialmente."
-        },
-        "cca_26": {
-          "title": "Se conversível, taxa de conversão",
-          "type": "string",
-          "maxLength": 100,
-          "description": "Especificar a taxa de conversão."
-        },
-        "cca_27": {
-          "title": "Se conversível, conversão obrigatória ou opcional",
-          "type": "string",
-          "description": "Indicar se a conversão é obrigatória ou opcional.",
-          "enum": [
-            "Obrigatória",
-            "Opcional",
-            "NA"
-          ]
-        },
-        "cca_28": {
-          "title": "Se conversível, especificar para qual tipo de instrumento",
-          "type": "string",
-          "description": "Se conversível, preencher como “Capital Principal”.",
-          "enum": [
-            "Capital Principal",
-            "NA"
-          ]
-        },
-        "cca_29": {
-          "title": "Se conversível, especificar o emissor do instrumento para o qual pode ser convertido",
-          "type": "string",
-          "maxLength": 500,
-          "description": "Se conversível, especificar o emissor do instrumento."
-        },
-        "cca_30": {
-          "title": "Características para a extinção do instrumento",
-          "type": "string",
-          "description": "Indicar se o instrumento é extinguível. Se não extinguível, preencher “NA” nas linhas 31 a 33.",
-          "enum": [
-            "Sim",
-            "Não"
-          ]
-        },
-        "cca_31": {
-          "title": "Se extinguível, em quais situações",
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Especificar as condições em que instrumento pode ser extinto, incluindo situações de não viabilidade da instituição. Se uma ou mais autoridades podem obrigar a extinção, elas devem ser citadas.\n\nPara cada uma das autoridades, deve ser especificado se os termos do contrato do instrumento constituem a base legal para a extinção obrigatória (abordagem contratual) ou se a base legal advém de termos estatutários (abordagem estatutária)."
-        },
-        "cca_32": {
-          "title": "Se extinguível, totalmente ou parcialmente",
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Para cada condição de extinção, especificar, separadamente, se o instrumento:\n\n(1) sempre será extinto na sua totalidade;\n\n\n(2) pode ser extinto em sua totalidade ou parcialmente; ou\n\n(3) sempre será extinto parcialmente."
-        },
-        "cca_33": {
-          "title": "Se extinguível, permanentemente ou temporariamente",
-          "type": "string",
-          "description": "Indicar se a extinção é permanente ou temporária.",
-          "enum": [
-            "Permanente",
-            "Temporária",
-            "NA"
-          ]
-        },
-        "cca_34a": {
-          "title": "Tipo de subordinação",
-          "type": "string",
-          "description": "Preencher como “contratual”.",
-          "enum": [
-            "Contratual",
-            "NA"
-          ]
-        },
-        "cca_35": {
-          "title": "Posição na hierarquia de subordinação em caso de liquidação",
-          "type": "string",
-          "maxLength": 500,
-          "description": "Especificar o tipo de instrumento com prioridade de pagamento imediatamente superior."
-        },
-        "cca_36": {
-          "title": "Possui características que não serão aceitas após o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013",
-          "type": "string",
-          "description": "Indicar se o instrumento possui características que não serão aceitas após o tratamento temporário de que trata o art. 28 da Resolução nº 4.192, de 2013.",
-          "enum": [
-            "Sim",
-            "Não"
-          ]
-        },
-        "cca_37": {
-          "title": "Se sim, especificar as características de que trata a linha anterior",
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Se a linha anterior indicar “sim” como resposta, especificar as características do instrumento."
-        },
-        "cca_outros": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/outros"
-            }
-          ]
-        },
-        "cca_comentarios": {
-          "title": "Comentários",
-          "type": "string",
-          "maxLength": 4000,
-          "description": "Devem ser disponibilizados os termos e condições de todos os instrumentos que compõem o PR. As informações desta Tabela podem ser evidenciadas mediante referência a documento divulgado no sitio da instituição na internet, desde que devidamente explicitado no Relatório de Pilar 3 e acompanhado do correspondente link."
+          }
         }
       }
     },
@@ -3492,7 +3457,7 @@
               "$ref": "#/definitions/outros"
             }
           ]
-        }    
+        }
       },
       "description": "Principais características do gerenciamento do risco de liquidez."
     },
@@ -5670,12 +5635,12 @@
           "type": "array",
           "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais. As informações complementares não substituem as requeridas nesta tabela.",
           "items": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_ccr5"
-            }
-          ]
-        }
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_ccr5"
+              }
+            ]
+          }
         },
         "ccr5_comentarios": {
           "title": "Comentários",
