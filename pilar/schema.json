@@ -613,41 +613,40 @@
             }
           ]
         },
-
-    "ov1_outros": {
-      "title": "Outras informações complementares",
-      "type": "array",
-      "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
-      "items": {
-        "additionalProperties": false,
-        "required": [
-          "nome",
-          "descricao",
-          "valor"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "description": "Nome ou código referenciando o campo adicionado. Ex kml_55.",
-            "type": "string",
-            "maxLength": 50
-          },
-          "descricao": {
-            "description": "Descrição do campo adicionado.",
-            "type": "string",
-            "maxLength": 1000
-          },
-          "valor": {
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_ov1"
+        "ov1_outros": {
+          "title": "Outras informações complementares",
+          "type": "array",
+          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+          "items": {
+            "additionalProperties": false,
+            "required": [
+              "nome",
+              "descricao",
+              "valor"
+            ],
+            "type": "object",
+            "properties": {
+              "nome": {
+                "description": "Nome ou código referenciando a linha adicionada. Ex kml_55.",
+                "type": "string",
+                "maxLength": 50
+              },
+              "descricao": {
+                "description": "Descrição do conteúdo da linha.",
+                "type": "string",
+                "maxLength": 1000
+              },
+              "valor": {
+                "description": "Valores da linha adicionada.",
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/valor_ov1"
+                  }
+                ]
               }
-            ]
+            }
           }
-        }
-      }
-    },
-
+        },
         "ov1_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -682,6 +681,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Descrição dos sistemas e controles utilizados para assegurar a confiabilidade do apreçamento conforme disposto na Resolução nº 4.277, de 31 de outubro de 2013, quando este resultar em valor diferente do registrado contabilmente (linha 5 da tabela LI2), abrangendo:\n- descrição das metodologias de apreçamento, incluindo o grau de utilização de avaliação a mercado e de avaliação por modelo;\n- descrição dos procedimentos de verificação independente;\n- procedimentos para a avaliação da necessidade de ajustes prudenciais decorrentes do apreçamento de instrumentos financeiros."
+        },
+        "lia_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Informações qualitativas."
@@ -1614,6 +1620,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Se a linha anterior indicar “sim” como resposta, especificar as características do instrumento."
+        },
+        "cca_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         },
         "cca_comentarios": {
           "title": "Comentários",
@@ -2787,6 +2800,40 @@
               "$ref": "#/definitions/valor_cc2"
             }
           ]
+        },
+        "cc2_outros": {
+          "title": "Outras informações complementares",
+          "type": "array",
+          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+          "items": {
+            "additionalProperties": false,
+            "required": [
+              "nome",
+              "descricao",
+              "valor"
+            ],
+            "type": "object",
+            "properties": {
+              "nome": {
+                "description": "Nome ou código referenciando a linha adicionada. Ex cc2_251.",
+                "type": "string",
+                "maxLength": 50
+              },
+              "descricao": {
+                "description": "Descrição do conteúdo da linha.",
+                "type": "string",
+                "maxLength": 1000
+              },
+              "valor": {
+                "description": "Valores da linha adicionada.",
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/valor_cc2"
+                  }
+                ]
+              }
+            }
+          }
         },
         "cc2_comentarios": {
           "title": "Comentários",
