@@ -5668,7 +5668,7 @@
         "ccr5_outros": {
           "title": "Outras informações complementares",
           "type": "array",
-          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais. As informações complementares não substituem as requeridas nesta tabela.",
           "items": {
           "allOf": [
             {
@@ -6058,6 +6058,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Total das exposições cedidas com retenção substancial de risco, nos últimos 12 meses, que tenham sido honradas, recompradas, ou baixadas para prejuízo, segregadas por trimestre."
+        },
+        "seca_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Informações qualitativas sobre as exposições de securitização, conforme definidas na Circular nº 3.848, de 2017."
@@ -6646,6 +6653,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Principais características dos sistemas de informação e de mensuração dos riscos."
+        },
+        "mra_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "As principais características do gerenciamento do risco de mercado."
@@ -6811,6 +6825,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Descrição da abordagem utilizada nos testes de aderência (backtests) e de validação para assegurar a consistência e acurácia dos dados e parâmetros utilizados nos modelos internos."
+        },
+        "mrb_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Apresentação do escopo de utilização, as características e as metodologias dos diferentes modelos (VaR, VaR estressado) empregados no cálculo do requerimento de capital para risco de mercado, conforme disposto na Circular nº 3.646, de 4 de março de 2013."
@@ -7296,6 +7317,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Premissa de prazo máximo de reapreçamento atribuída aos depósitos sem vencimento contratual definido."
+        },
+        "irrbba_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Descrição dos objetivos e políticas de gerenciamento do risco de variação das taxas de juros em instrumentos classificados na carteira bancária (IRRBB)"
@@ -7462,12 +7490,12 @@
         "rema_a": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Informações sobre o comitê de remuneração, incluindo:\n- Nome dos membros e seus respectivos períodos de mandato;\n- Consultorias externas eventualmente contratadas para implementação e acompanhamento da política de remuneração.\"\n"
+          "description": "Informações sobre o comitê de remuneração, incluindo:\n- Nome dos membros e seus respectivos períodos de mandato;\n- Consultorias externas eventualmente contratadas para implementação e acompanhamento da política de remuneração.\"\n"
         },
         "rema_b": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Informações sobre a estrutura de remuneração adotada, incluindo:\n- Principais características da política de remuneração e de seus objetivos.\n- Abrangência da política de remuneração aos níveis hierárquicos da instituição e às suas subsidiárias e filiais.\n- Alterações realizadas na política ao longo do ano de referência com a descrição das modificações e suas motivações, bem como seus impactos na remuneração.\n- Descrição dos mecanismos adotados para garantir que os funcionários das áreas de gerenciamento de risco, de controles internos e de conformidade (compliance) são remunerados independentemente do desempenho da área de negócios.\"\n"
+          "description": "Informações sobre a estrutura de remuneração adotada, incluindo:\n- Principais características da política de remuneração e de seus objetivos.\n- Abrangência da política de remuneração aos níveis hierárquicos da instituição e às suas subsidiárias e filiais.\n- Alterações realizadas na política ao longo do ano de referência com a descrição das modificações e suas motivações, bem como seus impactos na remuneração.\n- Descrição dos mecanismos adotados para garantir que os funcionários das áreas de gerenciamento de risco, de controles internos e de conformidade (compliance) são remunerados independentemente do desempenho da área de negócios.\"\n"
         },
         "rema_c": {
           "type": "string",
@@ -7477,17 +7505,24 @@
         "rema_d": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"- Descrição da correlação entre a avaliação de desempenho e os níveis e formas de remuneração, incluindo:\n- Visão geral das principais métricas utilizadas para avaliar o desempenho geral da instituição, de suas principais linhas de negócio e respectivos funcionários.\n- Descrição da interação entre os níveis de remuneração e os desempenhos da instituição, de cada unidade de negócios e individuais.\n- Descrição de ações previstas para ajuste da remuneração em caso de baixo desempenho e dos critérios para definir o nível mínimo aceitável de desempenho.\"\n"
+          "description": "Descrição da correlação entre a avaliação de desempenho e os níveis e formas de remuneração, incluindo:\n- Visão geral das principais métricas utilizadas para avaliar o desempenho geral da instituição, de suas principais linhas de negócio e respectivos funcionários.\n- Descrição da interação entre os níveis de remuneração e os desempenhos da instituição, de cada unidade de negócios e individuais.\n- Descrição de ações previstas para ajuste da remuneração em caso de baixo desempenho e dos critérios para definir o nível mínimo aceitável de desempenho.\"\n"
         },
         "rema_e": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Descrição do processo para adequar a remuneração ao desempenho de longo prazo, incluindo:\n- Descrição da política de diferimento da remuneração variável e do período de diferimento, bem como dos fatores que determinam a adoção de percentuais diferentes de diferimento entre funcionários ou grupos de funcionários.\n- Descrição dos critérios estabelecidos para ajuste na remuneração diferida antes do seu pagamento.\"\n"
+          "description": "Descrição do processo para adequar a remuneração ao desempenho de longo prazo, incluindo:\n- Descrição da política de diferimento da remuneração variável e do período de diferimento, bem como dos fatores que determinam a adoção de percentuais diferentes de diferimento entre funcionários ou grupos de funcionários.\n- Descrição dos critérios estabelecidos para ajuste na remuneração diferida antes do seu pagamento.\"\n"
         },
         "rema_f": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Descrição das diferentes formas de remuneração variável adotadas e as razões para sua utilização, incluindo:\n- Visão geral das formas de remuneração variável oferecidas (espécie, ações, instrumentos baseados em ações ou outros ativos) e de sua utilização para diferentes funcionários ou grupos de funcionários.\n- Descrição dos fatores que determinam a composição da remuneração variável.\"\n"
+          "description": "Descrição das diferentes formas de remuneração variável adotadas e as razões para sua utilização, incluindo:\n- Visão geral das formas de remuneração variável oferecidas (espécie, ações, instrumentos baseados em ações ou outros ativos) e de sua utilização para diferentes funcionários ou grupos de funcionários.\n- Descrição dos fatores que determinam a composição da remuneração variável.\"\n"
+        },
+        "rema_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Descreve a política de remuneração da instituição, de que trata Resolução nº 3.921, de 25 de novembro de 2010."
