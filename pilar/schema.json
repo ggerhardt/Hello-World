@@ -3485,7 +3485,14 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Descrição das ferramentas, métricas e limites utilizados para o gerenciamento do risco de liquidez."
-        }
+        },
+        "liqa_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        }    
       },
       "description": "Principais características do gerenciamento do risco de liquidez."
     },
@@ -4318,6 +4325,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Escopo e principais tópicos de gerenciamento do risco de crédito incluídos nos relatórios gerenciais para o conselho de administração, o comitê de riscos e a diretoria da instituição."
+        },
+        "cra_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Principais características de gerenciamento do risco de crédito."
@@ -4555,6 +4569,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Percentual das dez e das cem maiores exposições em relação ao total do escopo definido na tabela CR1."
+        },
+        "crb_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Informações adicionais sobre a qualidade creditícia das exposições reportadas na tabela CR1."
@@ -4584,6 +4605,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "Informações sobre a eventual concentração associada à mitigação do risco de crédito, considerando diferentes instrumentos mitigadores (por tipo e por provedor). Caso sejam utilizados derivativos de crédito como instrumento mitigador, deve ser divulgado desdobramento por tipo de contraparte e respectivo nível de risco."
+        },
+        "crc_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Informações qualitativas sobre os instrumentos mitigadores do risco de crédito."
@@ -5170,6 +5198,13 @@
           "type": "string",
           "maxLength": 4000,
           "description": "O impacto no montante de colaterais que a instituição seria obrigada a empenhar no caso de rebaixamento da sua classificação de crédito."
+        },
+        "ccra_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Principais características do gerenciamento do risco de crédito de contraparte (CCR)."
@@ -5629,6 +5664,18 @@
               "$ref": "#/definitions/valor_ccr5"
             }
           ]
+        },
+        "ccr5_outros": {
+          "title": "Outras informações complementares",
+          "type": "array",
+          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
+          "items": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor_ccr5"
+            }
+          ]
+        }
         },
         "ccr5_comentarios": {
           "title": "Comentários",
