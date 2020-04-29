@@ -40,7 +40,7 @@
         "type": "object",
         "properties": {
           "nome": {
-            "description": "Nome ou código referenciando o campo adicionado. Ex kml_55.",
+            "description": "Nome ou código referenciando o campo adicionado.",
             "type": "string",
             "maxLength": 50
           },
