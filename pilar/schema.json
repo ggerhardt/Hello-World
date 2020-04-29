@@ -6313,7 +6313,7 @@
             "$ref": "#/definitions/valor_sec12_categoria"
           }
         },
-        "cc1_outros": {
+        "sec2_outros": {
           "allOf": [
             {
               "$ref": "#/definitions/outros"
@@ -7915,7 +7915,7 @@
             }
           ]
         },
-        "cc1_outros": {
+        "rem3_outros": {
           "allOf": [
             {
               "$ref": "#/definitions/outros"
