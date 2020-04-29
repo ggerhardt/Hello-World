@@ -8190,13 +8190,6 @@
               "$ref": "#/definitions/valor"
             }
           ]
-        },
-        "outros": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/outros"
-            }
-          ]
         }
       }
     }
