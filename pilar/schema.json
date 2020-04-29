@@ -1271,7 +1271,7 @@
         "cca_semestreReferencia": {
           "$ref": "#/definitions/semestre"
         },
-        "cca_instrumento": {
+        "cca_instrumentos": {
           "title": "Instrumentos",
           "type": "array",
           "description": "Lista de instrumentos",
@@ -1583,13 +1583,6 @@
                 "maxLength": 4000,
                 "description": "Se a linha anterior indicar “sim” como resposta, especificar as características do instrumento."
               },
-              "cca_outros": {
-                "allOf": [
-                  {
-                    "$ref": "#/definitions/outros"
-                  }
-                ]
-              },
               "cca_comentarios": {
                 "title": "Comentários",
                 "type": "string",
@@ -1598,6 +1591,13 @@
               }
             }
           }
+        },
+        "cca_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -2462,6 +2462,13 @@
             }
           ]
         },
+        "cc1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "cc1_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -2767,38 +2774,11 @@
           ]
         },
         "cc2_outros": {
-          "title": "Outras informações complementares",
-          "type": "array",
-          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais, desde que acompanhadas pelas respectivas definições e explicações sobre seu cálculo. As informações complementares não substituem as requeridas nesta tabela.",
-          "items": {
-            "additionalProperties": false,
-            "required": [
-              "nome",
-              "descricao",
-              "valor"
-            ],
-            "type": "object",
-            "properties": {
-              "nome": {
-                "description": "Nome ou código referenciando a linha adicionada. Ex cc2_251.",
-                "type": "string",
-                "maxLength": 50
-              },
-              "descricao": {
-                "description": "Descrição do conteúdo da linha.",
-                "type": "string",
-                "maxLength": 1000
-              },
-              "valor": {
-                "description": "Valores da linha adicionada.",
-                "allOf": [
-                  {
-                    "$ref": "#/definitions/valor_cc2"
-                  }
-                ]
-              }
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
-          }
+          ]
         },
         "cc2_comentarios": {
           "title": "Comentários",
@@ -2927,7 +2907,14 @@
             }
           ]
         },
-        " gsib1_comentarios": {
+        "gsib1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
+        "gsib1_comentarios": {
           "title": "Comentários",
           "type": "string",
           "maxLength": 4000,
@@ -3072,6 +3059,13 @@
             }
           }
         },
+        "ccyb1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "ccyb1_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -3168,6 +3162,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "lr1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -3398,6 +3399,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "lr2_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -3727,6 +3735,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_liq1"
+            }
+          ]
+        },
+        "liq1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -4246,6 +4261,13 @@
             }
           ]
         },
+        "liq2_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "liq2_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -4414,6 +4436,13 @@
               "$ref": "#/definitions/valor_cr1"
             }
           ]
+        },
+        "cr1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "Visão geral da qualidade das exposições sujeitas ao risco de crédito relativas apenas às operações de crédito, aos títulos de dívida e às operações não contabilizadas no Balanço Patrimonial."
@@ -4487,6 +4516,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "cr2_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -4712,6 +4748,13 @@
             }
           ]
         },
+        "cr3_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "cr3_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -4901,6 +4944,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_cr4"
+            }
+          ]
+        },
+        "cr4_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -5129,6 +5179,13 @@
             }
           ]
         },
+        "cr5_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "cr5_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -5277,6 +5334,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_ccr1"
+            }
+          ]
+        },
+        "ccr1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -5470,6 +5534,13 @@
             }
           ]
         },
+        "ccr3_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "ccr3_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -5631,16 +5702,11 @@
           ]
         },
         "ccr5_outros": {
-          "title": "Outras informações complementares",
-          "type": "array",
-          "description": "Eventuais informações complementares podem ser evidenciadas em linhas adicionais. As informações complementares não substituem as requeridas nesta tabela.",
-          "items": {
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_ccr5"
-              }
-            ]
-          }
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         },
         "ccr5_comentarios": {
           "title": "Comentários",
@@ -5746,6 +5812,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_ccr6"
+            }
+          ]
+        },
+        "ccr6_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -5979,6 +6052,13 @@
             }
           ]
         },
+        "ccr8_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "ccr8_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -6176,6 +6256,13 @@
             "$ref": "#/definitions/valor_sec12_categoria"
           }
         },
+        "sec1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "sec1_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -6225,6 +6312,13 @@
           "items": {
             "$ref": "#/definitions/valor_sec12_categoria"
           }
+        },
+        "cc1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         },
         "sec2_comentarios": {
           "title": "Comentários",
@@ -6464,6 +6558,13 @@
             }
           ]
         },
+        "sec3_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "sec3_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -6581,6 +6682,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_sec34"
+            }
+          ]
+        },
+        "sec4_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -6728,6 +6836,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "mr1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -6952,6 +7067,13 @@
             }
           ]
         },
+        "mr2_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "mr2_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -7053,6 +7175,13 @@
             }
           ]
         },
+        "mr3_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "mr3_comentarios": {
           "title": "Comentários",
           "type": "string",
@@ -7078,10 +7207,17 @@
           "maxLength": 500,
           "description": "Link para o gráfico que apresenta a evolução do VaR diário e dos resultados efetivo e hipotético"
         },
+        "mr4_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
+        },
         "mr4_comentarios": {
           "title": "Comentários",
           "type": "string",
-          "maxLength": 4000,
+          "maxLength": 8000,
           "description": "Devem ser descritos os modelos internos de risco de mercado utilizados e informado o percentual de requerimento de capital associado a esses modelos.\n\nA descrição deve vir acompanhada de gráfico que apresente a evolução do VaR diário e dos resultados efetivo e hipotético.\n\nDeve ser apresentada análise dos principais determinantes para as exceções identificadas nos testes de aderência, especificando as datas de ocorrência e respectivas diferenças entre o VaR estimado e os resultados financeiros. Devem também ser divulgadas comparações entre o resultado financeiro efetivo e o hipotético. Para os resultados efetivos, deve ser informado se tarifas, corretagens e comissões estão incluídas nos resultados. Informar o eventual tratamento dado às reservas de resultado no cálculo do resultado efetivo e nos testes de aderência.\n"
         }
       },
@@ -7211,6 +7347,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_opd"
+            }
+          ]
+        },
+        "opd_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -7403,6 +7546,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_irrbb1"
+            }
+          ]
+        },
+        "irrbb1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         },
@@ -7631,6 +7781,13 @@
               "$ref": "#/definitions/valor_rem1"
             }
           ]
+        },
+        "rem1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "A remuneração atribuída aos diretores e membros do conselho de administração durante o ano de referência."
@@ -7659,6 +7816,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_rem2"
+            }
+          ]
+        },
+        "rem2_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -7748,6 +7912,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor_rem3"
+            }
+          ]
+        },
+        "cc1_outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
