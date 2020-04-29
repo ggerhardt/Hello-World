@@ -390,7 +390,15 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
+
       }
     },
     "ov1": {
@@ -693,6 +701,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -953,6 +968,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -1119,6 +1141,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -2506,6 +2535,13 @@
           "title": "Referência no balanço do conglomerado",
           "type": "string",
           "maxLength": 500
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -3494,6 +3530,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -3797,6 +3840,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -3811,6 +3861,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -3823,6 +3880,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -3847,6 +3911,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -3867,6 +3938,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -3905,6 +3983,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -4366,6 +4451,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -4672,6 +4764,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       },
       "description": "\"O valor das exposições deve ser reportado deduzido dos respectivos adiantamentos recebidos, provisões e rendas a apropriar.\n\nCaso o valor do instrumento mitigador seja maior que o valor da exposição, o valor da parcela não mitigada é zero e o valor da parcela mitigada é o valor da exposição original.\n\nA exposição resultante de acordo bilateral de compensação e liquidação de obrigações deve ser reportada na coluna (a). Quando a exposição resultante for mitigada por colateral financeiro ou garantia fidejussória, a parcela mitigada deve ser reportada na coluna (b) e no respectivo detalhamento.\n\nO valor da exposição mitigada por mais de um instrumento deve ser alocado proporcionalmente à cobertura dos respectivos mitigadores.\"\n"
@@ -4826,6 +4925,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -5058,6 +5164,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -5273,6 +5386,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -5448,6 +5568,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -5620,6 +5747,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -5740,6 +5874,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -5852,6 +5993,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -6198,6 +6346,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -6442,6 +6597,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -6961,6 +7123,13 @@
               "$ref": "#/definitions/valor"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -7298,6 +7467,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
@@ -7877,6 +8053,13 @@
               "$ref": "#/definitions/valor_rem2_tipo"
             }
           ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
+            }
+          ]
         }
       }
     },
@@ -8006,6 +8189,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/valor"
+            }
+          ]
+        },
+        "outros": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/outros"
             }
           ]
         }
