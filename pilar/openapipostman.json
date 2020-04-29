@@ -6,8 +6,7 @@
       "contact": {
           "email": "dadosabertossfn@bcb.gov.br"
       },
-      "license": {
-          "name": "Open Database License (ODbL)",
+      "license": {        "name": "Open Database License (ODbL)",
           "url": "http://opendefinition.org/licenses/odc-odbl/"
       },
       "version": "1.1.0"
