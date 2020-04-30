@@ -4922,7 +4922,7 @@
         "title": "Multiplicador empregado no cômputo da exposição",
         "type": "string",
         "enum": [
-          14
+          "14"
         ]
       },
       "e": {
