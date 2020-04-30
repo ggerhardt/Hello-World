@@ -331,7 +331,6 @@
   "valor_ov1": {
     "required": [
       "a",
-      "b",
       "c"
     ],
     "type": "object",
@@ -5826,7 +5825,7 @@
   "sec1": {
     "title": "SEC1 - Exposições de securitização classificadas na carteira bancária",
     "required": [
-      "sec_semestreReferencia"
+      "sec1_semestreReferencia"
     ],
     "type": "object",
     "properties": {
