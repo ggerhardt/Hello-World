@@ -6150,19 +6150,19 @@
   "sec4": {
     "title": "SEC4 - Exposições de securitização na carteira bancária e requerimentos de capital - instituição como investidora",
     "required": [
-      "sec_1",
-      "sec_10",
-      "sec_11",
-      "sec_12",
-      "sec_13",
-      "sec_2",
-      "sec_3",
-      "sec_4",
-      "sec_6",
-      "sec_8",
-      "sec_9",
-      "sec_comentarios",
-      "sec_semestreReferencia"
+      "sec4_1",
+      "sec4_10",
+      "sec4_11",
+      "sec4_12",
+      "sec4_13",
+      "sec4_2",
+      "sec4_3",
+      "sec4_4",
+      "sec4_6",
+      "sec4_8",
+      "sec4_9",
+      "sec4_comentarios",
+      "sec4_semestreReferencia"
     ],
     "type": "object",
     "properties": {
