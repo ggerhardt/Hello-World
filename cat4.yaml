@@ -23,7 +23,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'cat_schema.json'
+                $ref: 'cat_schema6.json'
               examples:
                 Exemplo com parâmetros atualizados no catálogo:
                   $ref: '#/components/examples/example1'
