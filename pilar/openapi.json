@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
       "title": "Esta especificação define a API de serviços que disponibilizam dados do Relatório de Pilar 3",
-      "description": "Valores comuns usados por outras especificações.",
+      "description": " **teste:** Valores comuns usados por outras especificações.",
       "contact": {
           "email": "dadosabertossfn@bcb.gov.br"
       },
