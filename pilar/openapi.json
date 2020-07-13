@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.2",
   "info": {
-      "title": "Esta especificação define a API de serviços que disponibilizam dados do Relatório de Pilar 3",
-      "description": " **teste:** Valores comuns usados por outras especificações.",
+      "title": "Tabelas do Relatório de Pilar 3",
+      "description": "Esta especificação define a API de serviços que disponibilizam dados do Relatório de Pilar 3.\r\n\r\nObservação geral: todos os valores monetários devem ser divulgados em milhares de unidades.",
       "contact": {
           "email": "dadosabertossfn@bcb.gov.br"
       },
@@ -10,7 +10,7 @@
           "name": "Open Database License (ODbL)",
           "url": "http://opendefinition.org/licenses/odc-odbl/"
       },
-      "version": "1.1.0"
+      "version": "1.2.0"
   },
   "tags": [
       {
@@ -678,7 +678,7 @@
                   "Risco de Crédito"
               ],
               "summary": "CRB - Informações adicionais sobre a qualidade creditícia das exposições",
-              "description": "Informações quantitativas.",
+              "description": "Informações quantitativas adicionais de que trata o art. 15 da Circular n° 3.930, de 14/2/2019.",
               "parameters": [
                   {
                       "$ref": "#/components/parameters/ano"
@@ -1360,7 +1360,7 @@
                   "Risco de Mercado"
               ],
               "summary": "OPD - Total da exposição associada a instrumentos financeiros derivativos",
-              "description": "Informações quantitativas.",
+              "description": "Informações quantitativas adicionais de que trata o art. 15 da Circular n° 3.930, de 14/2/2019.",
               "parameters": [
                   {
                       "$ref": "#/components/parameters/trimestre"
@@ -1483,7 +1483,7 @@
                   "Remuneração de Administradores"
               ],
               "summary": "REM1 - Remuneração atribuída durante o ano de referência",
-              "description": "Informações quantitativas.",
+              "description": "Informações quantitativas adicionais de que trata o art. 15 da Circular n° 3.930, de 14/2/2019.",
               "parameters": [
                   {
                       "$ref": "#/components/parameters/ano"
@@ -1514,7 +1514,7 @@
                   "Remuneração de Administradores"
               ],
               "summary": "REM2 - Pagamentos extraordinários",
-              "description": "Informações quantitativas.",
+              "description": "Informações quantitativas adicionais de que trata o art. 15 da Circular n° 3.930, de 14/2/2019.",
               "parameters": [
                   {
                       "$ref": "#/components/parameters/ano"
@@ -1545,7 +1545,7 @@
                   "Remuneração de Administradores"
               ],
               "summary": "REM3 - Remuneração diferida",
-              "description": "Informações quantitativas.",
+              "description": "Informações quantitativas adicionais de que trata o art. 15 da Circular n° 3.930, de 14/2/2019.",
               "parameters": [
                   {
                       "$ref": "#/components/parameters/ano"
