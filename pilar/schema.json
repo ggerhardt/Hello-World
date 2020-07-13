@@ -439,7 +439,7 @@
         },
         "ov1_2": {
           "title": "Risco de crédito em sentido estrito",
-          "description": "\"Risco de crédito em sentido estrito: valor da parcela RWA<sub>CPAD</sub> e do respectivo requerimento mínimo de PR, excetuando os valores relativos a:\n\n(a) risco de crédito de contraparte (CCR), reportados na linha 6;\n\n(b) acréscimo relativo ao ajuste associado à variação do valor dos derivativos em decorrência de variação da qualidade creditícia da contraparte (CVA), reportado na linha 10;\n\n(c) cotas de fundos adquiridas, reportadas nas linhas 12 a 14;\n\n(d) exposições de securitização, reportadas na linha 16; e\n\n(e) valores referentes às exposições não deduzidas no cálculo do PR, reportado na linha 25.\"\n",
+          "description": "Risco de crédito em sentido estrito: valor da parcela RWA<sub>CPAD</sub> e do respectivo requerimento mínimo de PR, excetuando os valores relativos a:\n\n(a) risco de crédito de contraparte (CCR), reportados na linha 6;\n\n(b) acréscimo relativo ao ajuste associado à variação do valor dos derivativos em decorrência de variação da qualidade creditícia da contraparte (CVA), reportado na linha 10;\n\n(c) cotas de fundos adquiridas, reportadas nas linhas 12 a 14;\n\n(d) exposições de securitização, reportadas na linha 16; e\n\n(e) valores referentes às exposições não deduzidas no cálculo do PR, reportado na linha 25.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_ov1"
@@ -1678,6 +1678,7 @@
         "cc1_11",
         "cc1_15",
         "cc1_16",
+        "cc1_17",
         "cc1_18",
         "cc1_19",
         "cc1_2",
@@ -1688,7 +1689,6 @@
         "cc1_26",
         "cc1_26a",
         "cc1_26b",
-        "cc1_26c",
         "cc1_26d",
         "cc1_26e",
         "cc1_26f",
@@ -1708,9 +1708,9 @@
         "cc1_35",
         "cc1_36",
         "cc1_37",
+        "cc1_38",
         "cc1_39",
         "cc1_40",
-        "cc1_41",
         "cc1_41a",
         "cc1_41b",
         "cc1_41c",
@@ -1725,10 +1725,10 @@
         "cc1_5",
         "cc1_51",
         "cc1_52",
+        "cc1_53",
         "cc1_54",
         "cc1_55",
         "cc1_56",
-        "cc1_56a",
         "cc1_56b",
         "cc1_56c",
         "cc1_57",
@@ -1869,9 +1869,18 @@
             }
           ]
         },
+        "cc1_17": {
+          "title": "Valor total das deduções relativas às aquisições recíprocas de Capital Principal",
+          "description": "Conforme art. 8º-B da Resolução nº 4.192, de 2013, deve ser reportado o valor do investimento em Capital Principal de instituição autorizada a funcionar pelo Banco Central do Brasil ou de instituição situada no exterior que exerça atividade equivalente à de instituição financeira no Brasil, quando configurada aquisição recíproca que aumente, de forma artificial, o capital das instituições envolvidas.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor_cc1_ab"
+            }
+          ]
+        },
         "cc1_18": {
-          "title": "Valor total das participações não significativas em instituições autorizadas a funcionar pelo Banco Central do Brasil, instituições financeiras no exterior não consolidadas, empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas",
-          "description": "\"Soma das participações:\n\n(i) não significativas, diretas ou indiretas, no capital social de entidades assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, sociedades de capitalização e entidades abertas de previdência complementar; e\n\n(ii) não significativas no Capital Principal de instituição autorizada a funcionar pelo Banco Central do Brasil ou de instituição situada no exterior que exerça atividade equivalente à de instituição financeira no Brasil. Deve ser reportado somente o valor da soma que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando as deduções específicas mencionadas no art. 5º, § 2º, inciso I, da Resolução nº 4.192, de 2013. Também deve ser considerado o disposto no art. 5º, §§ 11 e 12, da mesma Resolução.\"\n",
+          "title": "Valor total das deduções relativas às participações líquidas não significativas em Capital Principal de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidadas e em capital social de empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar",
+          "description": "Soma das participações:\n\n(i) não significativas, diretas ou indiretas, no capital social de entidades assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, sociedades de capitalização e entidades abertas de previdência complementar; e\n\n(ii) não significativas no Capital Principal de instituição autorizada a funcionar pelo Banco Central do Brasil ou de instituição situada no exterior que exerça atividade equivalente à de instituição financeira no Brasil. Deve ser reportado somente o valor da soma que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando as deduções específicas mencionadas no art. 5º, § 2º, inciso I, da Resolução nº 4.192, de 2013. Também deve ser considerado o disposto no art. 5º, §§ 11 e 12, da mesma Resolução.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -1879,7 +1888,7 @@
           ]
         },
         "cc1_19": {
-          "title": "Valor total das participações significativas em instituições autorizadas a funcionar pelo Banco Central do Brasil, instituições financeiras no exterior não consolidadas, empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar, que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas",
+          "title": "Valor total das deduções relativas às participações líquidas significativas em Capital Principal de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidadas e em capital social de empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar, que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas",
           "description": "Soma dos valores correspondentes aos mencionados no art. 5º, incisos V e X, da Resolução nº 4.192, de 2013. Deve ser reportado somente o valor da soma que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas mencionadas no art. 5º, § 2º, inciso I, da Resolução nº 4.192, de 2013. Também deve ser considerado o disposto no art. 5º, §§ 11 e 12, da mesma Resolução.",
           "allOf": [
             {
@@ -1888,7 +1897,7 @@
           ]
         },
         "cc1_21": {
-          "title": "Créditos tributários decorrentes de diferenças temporárias que dependam de geração de lucros ou receitas tributáveis futuras para sua realização, acima do limite de 10% do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas.",
+          "title": "Valor total das deduções relativas aos créditos tributários decorrentes de diferenças temporárias que dependam de geração de lucros ou receitas tributáveis futuras para sua realização, que exceda 10% do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas",
           "description": "Conforme o art. 5º, inciso VII, da Resolução nº 4.192, de 2013, considerando o disposto no § 2º, inciso I, e nos §§ 3º a 5º do mencionado artigo.",
           "allOf": [
             {
@@ -1906,7 +1915,7 @@
           ]
         },
         "cc1_23": {
-          "title": "do qual: oriundo de participações significativas no capital social de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidadas, no capital de empresas assemelhadas a instituições financeiras que não sejam consolidadas, de sociedades seguradoras, resseguradoras, de capitalização e de entidades abertas de previdência complementar",
+          "title": "do qual: oriundo de participações líquidas significativas em Capital Principal de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidadas e em capital social de empresas assemelhadas a instituições financeiras não consolidadas, de sociedades seguradoras, resseguradoras, de capitalização e de entidades abertas de previdência complementar",
           "description": "Parcela do valor reportado na linha 22 relativa às participações mencionadas no art. 5º, incisos V e X, da Resolução nº 4.192, de 2013.",
           "allOf": [
             {
@@ -1944,15 +1953,6 @@
         "cc1_26b": {
           "title": "Investimentos em dependências, instituições financeiras controladas no exterior ou entidades não financeiras que componham o conglomerado, em relação às quais o Banco Central do Brasil não tenha acesso a informações, dados e documentos",
           "description": "Conforme o art. 5º, inciso XI, da Resolução nº 4.192, de 2013.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc1_ab"
-            }
-          ]
-        },
-        "cc1_26c": {
-          "title": "Instrumentos de captação elegíveis ao Capital Principal emitidos por instituições autorizadas a funcionar pelo Banco Central do Brasil ou por instituições financeiras no exterior, que não componham o conglomerado",
-          "description": "\"Soma dos valores reportados nas linhas 18 e 19 diminuídos da soma:\n\n(i) do valor do inciso V do art. 5º da Resolução nº 4.192, de 2013, que exceda 10% do Capital Principal da própria instituição ou conglomerado;\n\n(ii) do valor do inciso X do art. 5º da mesma Resolução que exceda 10% do Capital Principal da própria instituição ou conglomerado; e\n\n(iii) do valor do inciso IV do art. 5º da mesma Resolução.\"\n",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -2015,7 +2015,7 @@
         },
         "cc1_26j": {
           "title": "Outras diferenças residuais relativas à metodologia de apuração do Capital Principal para fins regulatórios",
-          "description": "\"Diferença residual entre:\n\n(i) o valor da linha 6 deduzido das linhas 7 a 22, 26.a, 26.b, 26.d, 26.e, 26.h, 26.i e 27 e acrescido das linhas 26.c, 26.f e 26.g; e\n\n(ii) o valor do Capital Principal apurado para fins da elaboração do Demonstrativo de Limites Operacionais (DLO). Esta linha pode assumir valores negativos.\"\n",
+          "description": "Diferença residual entre:\n\n(i) o valor da linha 6 deduzido das linhas 7 a 22, 26.a, 26.b, 26.d, 26.e, 26.h, 26.i e 27 e acrescido das linhas 26.c, 26.f e 26.g; e\n\n(ii) o valor do Capital Principal apurado para fins da elaboração do Demonstrativo de Limites Operacionais (DLO). Esta linha pode assumir valores negativos.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -2121,8 +2121,17 @@
             }
           ]
         },
+        "cc1_38": {
+          "title": "Valor total das deduções relativas às aquisições recíprocas de Capital Complementar",
+          "description": "Conforme art. 8º-B da Resolução nº 4.192, de 2013, deve ser reportado o valor do investimento em Capital Complementar de instituição autorizada a funcionar pelo Banco Central do Brasil ou de instituição situada no exterior que exerça atividade equivalente à de instituição financeira no Brasil, quando configurada aquisição recíproca que aumente, de forma artificial, o capital das instituições envolvidas.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor_cc1_ab"
+            }
+          ]
+        },
         "cc1_39": {
-          "title": "Valor total dos investimentos não significativos no Capital Complementar de instituições autorizadas a funcionar pelo Banco Central do Brasil ou de instituições financeiras no exterior não consolidadas que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas",
+          "title": "Valor total das deduções relativas aos investimentos líquidos não significativos em Capital Complementar de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidadas",
           "description": "Total dos investimentos não significativos previstos no art. 6º, inciso II, alínea “a”, da Resolução nº 4.192, de 2013. Considerar apenas o valor que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas mencionadas no art. 5º, § 2º, inciso I, da mesma Resolução. Considerar o disposto no art. 6º, §§ 1º e 2º, da referida Resolução.",
           "allOf": [
             {
@@ -2131,17 +2140,8 @@
           ]
         },
         "cc1_40": {
-          "title": "Valor total dos investimentos significativos no Capital Complementar de instituições autorizadas a funcionar pelo Banco Central do Brasil ou de instituições financeiras no exterior não consolidadas",
+          "title": "Valor total das deduções relativas aos investimentos líquidos significativos em Capital Complementar de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidadas",
           "description": "Total dos investimentos significativos previstos no art. 6º, inciso II, alínea “a”, da Resolução nº 4.192, de 2013. Considerar o disposto no art. 6º, §§ 1º e 2º, da mesma Resolução.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc1_ab"
-            }
-          ]
-        },
-        "cc1_41": {
-          "title": "Ajustes regulatórios nacionais",
-          "description": "Ajustes regulatórios nacionais, correspondente ao valor da linha 41.a menos as linhas 41.b e 41.c.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -2168,7 +2168,7 @@
         },
         "cc1_41c": {
           "title": "Outras diferenças residuais relativas à metodologia de apuração do Capital Complementar para fins regulatórios",
-          "description": "\"Diferença residual entre:\n\n(i) o valor da linha 36 deduzido das linhas 37 a 40, 41.a e 42 e acrescido da linha 41.b; e\n\n(ii) o valor do Capital Complementar apurado para fins da elaboração do DLO. Esta linha pode assumir valores negativos.\"\n",
+          "description": "Diferença residual entre:\n\n(i) o valor da linha 36 deduzido das linhas 37 a 40, 41.a e 42 e acrescido da linha 41.b; e\n\n(ii) o valor do Capital Complementar apurado para fins da elaboração do DLO. Esta linha pode assumir valores negativos.\n",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -2265,8 +2265,17 @@
             }
           ]
         },
+        "cc1_53": {
+          "title": "Valor total das deduções relativas às aquisições recíprocas de Nível II",
+          "description": "Conforme art. 8º-B da Resolução nº 4.192, de 2013, deve ser reportado o valor do investimento em instrumento de Nível II emitido por instituição autorizada a funcionar pelo Banco Central do Brasil ou por instituição situada no exterior que exerça atividade equivalente à de instituição financeira no Brasil, quando configurada aquisição recíproca que aumente, de forma artificial, o capital das instituições envolvidas.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/valor_cc1_ab"
+            }
+          ]
+        },
         "cc1_54": {
-          "title": "Valor total dos investimentos líquidos não significativos em instrumentos de Nível II e em outros passivos reconhecidos como TLAC emitidos por instituições autorizadas a funcionar pelo Banco Central do Brasil ou de instituições financeiras no exterior não consolidadas, que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas",
+          "title": "Valor total das deduções relativas aos investimentos líquidos não significativos em instrumentos de Nível II e em instrumentos reconhecidos como TLAC emitidos por instituições autorizadas a funcionar pelo Banco Central do Brasil ou por instituições financeiras no exterior não consolidadas",
           "description": "Total dos investimentos não significativos previstos no art. 7º, inciso II, alínea “a”, da Resolução nº 4.192, de 2013. Deve-se considerar o valor que exceda 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas mencionadas no art. 5º, § 2º, inciso I, observado o disposto no art. 7º, §§ 1º e 2º, da mesma Resolução.",
           "allOf": [
             {
@@ -2275,7 +2284,7 @@
           ]
         },
         "cc1_55": {
-          "title": "Valor total dos investimentos significativos em instrumentos de Nível II e em outros passivos reconhecidos como TLAC emitidos por instituições autorizadas a funcionar pelo Banco Central do Brasil ou de instituições financeiras no exterior, que não componham o conglomerado",
+          "title": "Valor total das deduções relativas aos investimentos líquidos significativos em instrumentos de Nível II e em instrumentos reconhecidos como TLAC emitidos por instituições autorizadas a funcionar pelo Banco Central do Brasil ou por instituições financeiras no exterior não consolidadas",
           "description": "Total dos investimentos significativos previstos no art. 7º, inciso II, alínea “a”, da Resolução nº 4.192, de 2013. Deve ser considerado o disposto no art. 7º, §§ 1º e 2º, dessa Resolução.",
           "allOf": [
             {
@@ -2286,15 +2295,6 @@
         "cc1_56": {
           "title": "Ajustes regulatórios nacionais",
           "description": "Ajustes regulatórios nacionais, correspondente ao valor da linha 56.a deduzido dos valores das linhas 56.b e 56.c.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc1_ab"
-            }
-          ]
-        },
-        "cc1_56a": {
-          "title": "Valor total dos investimentos não significativos em instrumentos de Nível II e em outros passivos reconhecidos como TLAC emitidos por instituições autorizadas a funcionar pelo Banco Central do Brasil ou de instituições financeiras no exterior que não componham o conglomerado e que seja inferior a 10% do valor do seu Capital Principal, desconsiderando deduções específicas",
-          "description": "Conforme o art. 7º, inciso II, alínea “a”, da Resolução nº 4.192, de 2013, considerando apenas os valores não reportados na linha 54.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -2312,7 +2312,7 @@
         },
         "cc1_56c": {
           "title": "Outras diferenças residuais relativas à metodologia de apuração do Nível II para fins regulatórios",
-          "description": "\"Diferença residual entre:\n\n(i) o valor da linha 51 deduzido das linhas 52 a 55 e 56.a e acrescido da linha 56.b; e\n\n(ii) o valor do Nível II apurado para fins da elaboração do DLO. Esta linha pode assumir valores negativos.\"\n",
+          "description": "Diferença residual entre:\n\n(i) o valor da linha 51 deduzido das linhas 52 a 55 e 56.a e acrescido da linha 56.b; e\n\n(ii) o valor do Nível II apurado para fins da elaboração do DLO. Esta linha pode assumir valores negativos.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cc1_ab"
@@ -2428,7 +2428,7 @@
           ]
         },
         "cc1_72": {
-          "title": "Valor total das participações não significativas em instituições autorizadas a funcionar pelo Banco Central do Brasil, instituições financeiras no exterior não consolidadas, empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar",
+          "title": "Valor total, sujeito à ponderação de risco, das participações não significativas em Capital Principal de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidas e em capital social de empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar, bem como dos investimentos não significativos em Capital Complementar, em instrumentos de Nível II e em instrumentos reconhecidos como TLAC emitidos por instituições financeiras autorizadas a funcionar pelo Banco Central do Brasil ou por instituições financeiras no exterior não consolidadas",
           "description": "Deve ser reportado somente o valor total inferior a 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas, conforme estabelecido no art. 5º, inciso IV, alíneas “a” e “b”, da Resolução nº 4.192, de 2013. Valores não reportados nas linhas 18, 39 e 54.",
           "allOf": [
             {
@@ -2437,7 +2437,7 @@
           ]
         },
         "cc1_73": {
-          "title": "Valor total das participações significativas em instituições autorizadas a funcionar pelo Banco Central do Brasil, instituições financeiras no exterior não consolidadas, empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar",
+          "title": "Valor total, sujeito à ponderação de risco, das participações significativas em Capital Principal de instituições autorizadas a funcionar pelo Banco Central do Brasil e de instituições financeiras no exterior não consolidas e em capital social de empresas assemelhadas a instituições financeiras não consolidadas, sociedades seguradoras, resseguradoras, de capitalização e entidades abertas de previdência complementar",
           "description": "Deve ser reportado somente o valor total inferior a 10% do valor do Capital Principal da própria instituição ou conglomerado, desconsiderando deduções específicas, conforme estabelecido no art. 5º, inciso V, da Resolução nº 4.192, de 2013. Valores não reportados nas linhas 19, 23, 40 e 55.",
           "allOf": [
             {
@@ -3157,7 +3157,7 @@
         },
         "lr1_4": {
           "title": "Ajuste relativo ao método de apuração do valor dos instrumentos financeiros derivativos",
-          "description": "\"Valor apurado mediante:\n\nI - a soma dos valores correspondentes:\n\n(a) aos valores de reposição referentes às contrapartes envolvidas, no caso de operações com instrumentos financeiros derivativos realizadas em nome de clientes, de que trata o art. 8º, inciso II, da Circular nº 3.748, de 2015, observado o tratamento dispensado no § 3º, inciso II, do mesmo artigo;\n\n(b) aos ganhos potenciais futuros decorrentes de operações com instrumentos financeiros derivativos mencionados no caput do art. 9º e no art. 11, inciso I, da Circular nº 3.748, de 2015;\n\n(c) aos ganhos potenciais futuros líquidos mencionados no art. 13, inciso II, da Circular nº 3.748, de 2015;\n\n(d) aos valores de referência ajustados dos contratos de derivativos de crédito em que a instituição atue como contraparte receptora do risco, conforme o art. 17 da Circular nº 3.748, de 2015;\n\nII - a dedução dos valores correspondentes:\n\na) aos ajustes previstos nos arts. 15 e 16 da Circular nº 3.748, de 2015; e\n\nb) aos ajustes necessários à apuração:\n\n1. do valor de reposição, se diferir do procedimento de apreçamento contábil; e\n\n2. do valor de reposição líquido, mencionado no art. 13, inciso I.\"\n",
+          "description": "Valor apurado mediante:\n\nI - a soma dos valores correspondentes:\n\n(a) aos valores de reposição referentes às contrapartes envolvidas, no caso de operações com instrumentos financeiros derivativos realizadas em nome de clientes, de que trata o art. 8º, inciso II, da Circular nº 3.748, de 2015, observado o tratamento dispensado no § 3º, inciso II, do mesmo artigo;\n\n(b) aos ganhos potenciais futuros decorrentes de operações com instrumentos financeiros derivativos mencionados no caput do art. 9º e no art. 11, inciso I, da Circular nº 3.748, de 2015;\n\n(c) aos ganhos potenciais futuros líquidos mencionados no art. 13, inciso II, da Circular nº 3.748, de 2015;\n\n(d) aos valores de referência ajustados dos contratos de derivativos de crédito em que a instituição atue como contraparte receptora do risco, conforme o art. 17 da Circular nº 3.748, de 2015;\n\nII - a dedução dos valores correspondentes:\n\na) aos ajustes previstos nos arts. 15 e 16 da Circular nº 3.748, de 2015; e\n\nb) aos ajustes necessários à apuração:\n\n1. do valor de reposição, se diferir do procedimento de apreçamento contábil; e\n\n2. do valor de reposição líquido, mencionado no art. 13, inciso I.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -3166,7 +3166,7 @@
         },
         "lr1_5": {
           "title": "Ajuste relativo ao método de apuração do valor das operações compromissadas e de empréstimo de ativos",
-          "description": "\"Valor apurado mediante:\n\nI - a soma dos valores correspondentes ao art. 18, inciso I, da Circular nº 3.748, de 2015; e\n\nII - a dedução dos valores correspondentes aos ajustes previstos no art. 18, § 3º, da Circular nº 3.748, de 2015.\"\n",
+          "description": "Valor apurado mediante:\n\nI - a soma dos valores correspondentes ao art. 18, inciso I, da Circular nº 3.748, de 2015; e\n\nII - a dedução dos valores correspondentes aos ajustes previstos no art. 18, § 3º, da Circular nº 3.748, de 2015.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -3184,7 +3184,7 @@
         },
         "lr1_7": {
           "title": "Outros ajustes",
-          "description": "\"Valor apurado mediante:\n\nI - à soma dos valores correspondentes à concessão de adiantamentos não registrados no ativo total do balanço patrimonial da instituição, no caso de apuração da RA em bases individuais, ou do conglomerado prudencial base de apuração, no caso de apuração da RA em bases consolidadas, nos termos do Cosif, conforme art. 7º da Circular nº 3.748, de 2015;\n\nII - à dedução dos valores correspondentes:\n\na) aos ajustes prudenciais, conforme art. 2º, inciso II, alínea “b”, da Circular nº 3.748, de 2015;\n\nb) às exposições mencionadas no art. 5º, §§ 4º e 5º, da Circular nº 3.748, de 2015;\n\nc) às exposições mencionadas no art. 8º, § 3º, inciso I, da Circular nº 3.748, de 2015 registradas no ativo; e\n\nIII - à soma ou à dedução, conforme o caso, dos ajustes relativos à marcação a mercado não reconhecida para fins contábeis, conforme art. 4º-A da Circular nº 3.748, de 2015.\"\n",
+          "description": "Valor apurado mediante:\n\nI - à soma dos valores correspondentes à concessão de adiantamentos não registrados no ativo total do balanço patrimonial da instituição, no caso de apuração da RA em bases individuais, ou do conglomerado prudencial base de apuração, no caso de apuração da RA em bases consolidadas, nos termos do Cosif, conforme art. 7º da Circular nº 3.748, de 2015;\n\nII - à dedução dos valores correspondentes:\n\na) aos ajustes prudenciais, conforme art. 2º, inciso II, alínea “b”, da Circular nº 3.748, de 2015;\n\nb) às exposições mencionadas no art. 5º, §§ 4º e 5º, da Circular nº 3.748, de 2015;\n\nc) às exposições mencionadas no art. 8º, § 3º, inciso I, da Circular nº 3.748, de 2015 registradas no ativo; e\n\nIII - à soma ou à dedução, conforme o caso, dos ajustes relativos à marcação a mercado não reconhecida para fins contábeis, conforme art. 4º-A da Circular nº 3.748, de 2015.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -4419,7 +4419,7 @@
       "properties": {
         "a": {
           "title": "Exposições caracterizadas como operações em curso anormal",
-          "description": "\"As operações em curso anormal correspondem:\n\nI - até 31 de dezembro de 2021, às operações em atraso há mais de 90 dias;\n\nII - a partir de 1º de janeiro de 2022, às exposições caracterizadas como ativos problemáticos, conforme disposto na Resolução nº 4.557, de 2017.\"\n",
+          "description": "As operações em curso anormal correspondem:\n\nI - até 31 de dezembro de 2021, às operações em atraso há mais de 90 dias;\n\nII - a partir de 1º de janeiro de 2022, às exposições caracterizadas como ativos problemáticos, conforme disposto na Resolução nº 4.557, de 2017.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -4558,7 +4558,7 @@
         },
         "cr2_1": {
           "title": "Valor das operações em curso anormal no final do período anterior",
-          "description": "\"Estoque de operações em curso anormal, considerando:\n\n- Concessão de crédito: as operações de empréstimos, financiamentos, operações de arrendamento mercantil, operações interfinanceiras de liquidez e outras operações similares;\n\n- Títulos de dívida: títulos de crédito, notas promissórias, debêntures e outros instrumentos com características semelhantes, exceto títulos de securitização.\n\n- Operações não contabilizadas no balanço patrimonial: garantias prestadas, limites de crédito, exceto aqueles canceláveis incondicional e unilateralmente, e créditos a liberar em até 360 dias, sem a aplicação de fator de conversão em crédito (FCC).\"\n",
+          "description": "Estoque de operações em curso anormal, considerando:\n\n- Concessão de crédito: as operações de empréstimos, financiamentos, operações de arrendamento mercantil, operações interfinanceiras de liquidez e outras operações similares;\n\n- Títulos de dívida: títulos de crédito, notas promissórias, debêntures e outros instrumentos com características semelhantes, exceto títulos de securitização.\n\n- Operações não contabilizadas no balanço patrimonial: garantias prestadas, limites de crédito, exceto aqueles canceláveis incondicional e unilateralmente, e créditos a liberar em até 360 dias, sem a aplicação de fator de conversão em crédito (FCC).",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -4739,7 +4739,7 @@
         },
         "c": {
           "title": "Das quais: Parcela coberta por colaterais financeiros",
-          "description": "\"\n- na Abordagem Simples, deve ser reportado o valor da parcela das exposições mitigada por colaterais financeiros.\n\n- na Abordagem Abrangente, deve ser reportado o valor abatido da exposição original.\"\n",
+          "description": "- na Abordagem Simples, deve ser reportado o valor da parcela das exposições mitigada por colaterais financeiros.\n\n- na Abordagem Abrangente, deve ser reportado o valor abatido da exposição original.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -4772,7 +4772,7 @@
           ]
         }
       },
-      "description": "\"O valor das exposições deve ser reportado deduzido dos respectivos adiantamentos recebidos, provisões e rendas a apropriar.\n\nCaso o valor do instrumento mitigador seja maior que o valor da exposição, o valor da parcela não mitigada é zero e o valor da parcela mitigada é o valor da exposição original.\n\nA exposição resultante de acordo bilateral de compensação e liquidação de obrigações deve ser reportada na coluna (a). Quando a exposição resultante for mitigada por colateral financeiro ou garantia fidejussória, a parcela mitigada deve ser reportada na coluna (b) e no respectivo detalhamento.\n\nO valor da exposição mitigada por mais de um instrumento deve ser alocado proporcionalmente à cobertura dos respectivos mitigadores.\"\n"
+      "description": "O valor das exposições deve ser reportado deduzido dos respectivos adiantamentos recebidos, provisões e rendas a apropriar.\n\nCaso o valor do instrumento mitigador seja maior que o valor da exposição, o valor da parcela não mitigada é zero e o valor da parcela mitigada é o valor da exposição original.\n\nA exposição resultante de acordo bilateral de compensação e liquidação de obrigações deve ser reportada na coluna (a). Quando a exposição resultante for mitigada por colateral financeiro ou garantia fidejussória, a parcela mitigada deve ser reportada na coluna (b) e no respectivo detalhamento.\n\nO valor da exposição mitigada por mais de um instrumento deve ser alocado proporcionalmente à cobertura dos respectivos mitigadores."
     },
     "cr3": {
       "title": "CR3 - Visão geral das técnicas de mitigação do risco de crédito",
@@ -4839,7 +4839,7 @@
         },
         "cr3_4": {
           "title": "dos quais: em curso anormal",
-          "description": "\"Deve ser reportado o total das exposições em curso anormal considerando as operações de crédito, os títulos de dívida e as operações não contabilizadas no balanço patrimonial. As operações em curso anormal correspondem:\n\nI - até 31 de dezembro de 2021, às operações em atraso há mais de 90 dias;\n\nII - a partir de 1º de janeiro de 2022, às exposições caracterizadas como ativos problemáticos, conforme disposto na Resolução nº 4.557, de 2017.\"\n",
+          "description": "Deve ser reportado o total das exposições em curso anormal considerando as operações de crédito, os títulos de dívida e as operações não contabilizadas no balanço patrimonial. As operações em curso anormal correspondem:\n\nI - até 31 de dezembro de 2021, às operações em atraso há mais de 90 dias;\n\nII - a partir de 1º de janeiro de 2022, às exposições caracterizadas como ativos problemáticos, conforme disposto na Resolução nº 4.557, de 2017.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_cr3"
@@ -5063,7 +5063,7 @@
           "title": "Comentários",
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Devem ser reportadas as exposições ao risco de crédito em sentido estrito, que corresponde à parcela RWA<sub>CPAD</sub>, desconsiderando os valores reportados nas linhas 6, 10, 12, 13, 14, 16 e 25 da tabela OV1.\n\nCada exposição deve corresponder exclusivamente a uma das categorias das linhas 1 a 13.\n\nAs exposições devem ser reportadas conforme as categorias correspondentes à operação original, independentemente da eventual cobertura por instrumento mitigador.\n\nDevem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças.\"\n"
+          "description": "Devem ser reportadas as exposições ao risco de crédito em sentido estrito, que corresponde à parcela RWA<sub>CPAD</sub>, desconsiderando os valores reportados nas linhas 6, 10, 12, 13, 14, 16 e 25 da tabela OV1.\n\nCada exposição deve corresponder exclusivamente a uma das categorias das linhas 1 a 13.\n\nAs exposições devem ser reportadas conforme as categorias correspondentes à operação original, independentemente da eventual cobertura por instrumento mitigador.\n\nDevem ser explicitadas mudanças significativas em relação ao relatório anterior e os principais indutores dessas mudanças."
         }
       },
       "description": "Os efeitos da mitigação do risco de crédito no cálculo dos requerimentos de capital, conforme a Circular nº 3.809, de 25 de agosto de 2016."
@@ -6009,7 +6009,6 @@
       "additionalProperties": false,
       "required": [
         "ccr8_1",
-        "ccr8_10",
         "ccr8_11",
         "ccr8_12",
         "ccr8_13",
@@ -6019,7 +6018,6 @@
         "ccr8_18",
         "ccr8_19",
         "ccr8_2",
-        "ccr8_20",
         "ccr8_3",
         "ccr8_4",
         "ccr8_5",
@@ -6103,15 +6101,8 @@
           ]
         },
         "ccr8_9": {
-          "title": "Participação integralizada em fundos de garantia mutualizados",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_ccr8"
-            }
-          ]
-        },
-        "ccr8_10": {
-          "title": "Participação em fundos de garantia mutualizados - não integralizada",
+          "title": "Participação em fundos de garantia mutualizados",
+          "description": "Participação em fundos de garantia mutualizados: conforme art. 20-A da Circular nº 3.644, de 2013.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_ccr8"
@@ -6184,15 +6175,8 @@
           ]
         },
         "ccr8_19": {
-          "title": "Participação integralizada em fundos de garantia mutualizados",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_ccr8"
-            }
-          ]
-        },
-        "ccr8_20": {
-          "title": "Participação em fundos de garantia mutualizados - não integralizada",
+          "title": "Participação em fundos de garantia mutualizados",
+          "description": "Participação em fundos de garantia mutualizados: conforme art. 29, inciso III da Circular nº 3.644, de 2013.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_ccr8"
@@ -6234,7 +6218,7 @@
         "seca_b": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Listar as:\n- sociedades de propósito específico (SPE) que têm a instituição como contraparte patrocinadora (exceto quando também desempenhe a atividade de originação, direta ou indireta, de ativo subjacente), indicando se integram o conglomerado prudencial;\n\n- entidades administradas ou assessoradas pela instituição que adquirem títulos de securitização emitidos pela própria instituição ou por SPE que tem a instituição como contraparte patrocinadora; e\n\n- entidades para as quais a instituição presta apoio implícito e os respectivos efeitos na apuração do montante dos ativos ponderados pelo risco (RWA).\"\n"
+          "description": "Listar as:\n- sociedades de propósito específico (SPE) que têm a instituição como contraparte patrocinadora (exceto quando também desempenhe a atividade de originação, direta ou indireta, de ativo subjacente), indicando se integram o conglomerado prudencial;\n\n- entidades administradas ou assessoradas pela instituição que adquirem títulos de securitização emitidos pela própria instituição ou por SPE que tem a instituição como contraparte patrocinadora; e\n\n- entidades para as quais a instituição presta apoio implícito e os respectivos efeitos na apuração do montante dos ativos ponderados pelo risco (RWA)."
         },
         "seca_c": {
           "type": "string",
@@ -6876,7 +6860,7 @@
         "mra_a": {
           "type": "string",
           "maxLength": 4000,
-          "description": "\"Estratégias e processos utilizados no gerenciamento do risco de mercado. Devem ser divulgados:\n- os objetivos estratégicos relacionados às operações sujeitas ao risco de mercado;\n- os processos para identificar, medir, monitorar e controlar esse risco, incluindo as políticas associadas às estratégias de proteção (hedge), bem como o monitoramento da efetividade destas.\"\n"
+          "description": "Estratégias e processos utilizados no gerenciamento do risco de mercado. Devem ser divulgados:\n- os objetivos estratégicos relacionados às operações sujeitas ao risco de mercado;\n- os processos para identificar, medir, monitorar e controlar esse risco, incluindo as políticas associadas às estratégias de proteção (hedge), bem como o monitoramento da efetividade destas."
         },
         "mra_b": {
           "type": "string",
@@ -7089,7 +7073,7 @@
       "properties": {
         "a": {
           "title": "VaR",
-          "description": "Valor do VaR apurado conforme o art. 8º da Circular nº 3.646, de 2013.",
+          "description": "Resultado da fórmula 1/F * max ((M/60 * Somatório (i=0 até 59) de VaRt=<sub>i</sub> ), VaR<sub>t</sub>), contemplando o maior valor entre o VaR do dia e a multiplicação entre o fator M e o VaR médio dos últimos 60 dias, dividido pelo fator F. O fator F é estabelecido no art. 4º da Resolução nº 4.193, de 2013. O valor do VaR deve ser apurado conforme o art. 8º da Circular nº 3.646, de 2013.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -7098,7 +7082,7 @@
         },
         "b": {
           "title": "VaR estressado",
-          "description": "Valor do VaR estressado apurado conforme o art. 10 da Circular nº 3.646, de 2013.",
+          "description": "Resultado da fórmula 1/F * max ((M/60 * Somatório (i=0 até 59) de VaRt=<sub>i</sub> ), sVaR<sub>t</sub>), contemplando o maior valor entre o sVaR do dia e a multiplicação entre o fator M e o sVaR médio dos últimos 60 dias, dividido pelo fator F. O fator F é estabelecido no art. 4º da Resolução nº 4.193, de 2013. O valor do VaR estressado deve ser apurado conforme o art. 10º da Circular nº 3.646, de 2013.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -7107,7 +7091,7 @@
         },
         "e": {
           "title": "Outros",
-          "description": "Parcelas do RWA<sub>MINT</sub> não reportadas nas colunas “a” e “b”.",
+          "description": "Parcelas do RWA<sub>MINT</sub> não reportadas nas colunas “a” e “b”, inclui a diferença entre a soma das colunas “a” e “b” e S<sub>M</sub>*RWA<sub>MPAD</sub>.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
@@ -7654,7 +7638,7 @@
         },
         "irrbb1_1": {
           "title": "Cenário paralelo de alta",
-          "description": "\"Cálculo do ΔEVE<sub>i</sub> preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=1 mencionado no art. 11, § 1º, inciso I, da Circular nº 3.876, de 2018.\n\nCálculo do ΔNIIi preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=1 mencionado no art. 11, § 1º, inciso I, da Circular nº 3.876, de 2018.\"\n",
+          "description": "Cálculo do ΔEVE<sub>i</sub> preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=1 mencionado no art. 11, § 1º, inciso I, da Circular nº 3.876, de 2018.\n\nCálculo do ΔNIIi preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=1 mencionado no art. 11, § 1º, inciso I, da Circular nº 3.876, de 2018.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_irrbb1"
@@ -7663,7 +7647,7 @@
         },
         "irrbb1_2": {
           "title": "Cenário paralelo de baixa",
-          "description": "\"Cálculo do ΔEVE<sub>i</sub> preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=2 mencionado no art. 11, § 1º, inciso II, da Circular nº 3.876, de 2018.\n\nCálculo do ΔNIIi preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=2 mencionado no art. 11, § 1º, inciso II, da Circular nº 3.876, de 2018.\"\n",
+          "description": "Cálculo do ΔEVE<sub>i</sub> preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=2 mencionado no art. 11, § 1º, inciso II, da Circular nº 3.876, de 2018.\n\nCálculo do ΔNIIi preenchido para a data-base (T) e para a data-base do ano anterior (T-1) levando em consideração o cenário i=2 mencionado no art. 11, § 1º, inciso II, da Circular nº 3.876, de 2018.",
           "allOf": [
             {
               "$ref": "#/definitions/valor_irrbb1"
@@ -7718,11 +7702,45 @@
         "irrbb1_8": {
           "title": "Nível I do Patrimônio de Referência (PR)",
           "description": "Soma do Capital Principal e Capital Complementar, apurados conforme o art. 4º e 6º, respectivamente, da Resolução nº 4.192 de 1º de março de 2013.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_irrbb1"
+          "additionalProperties": false,
+          "required": [
+            "delta_eve",
+            "delta_nii"
+          ],
+          "type": "object",
+          "properties": {
+            "delta_eve": {
+              "title": "ΔEVE",
+              "additionalProperties": false,
+              "required": [
+                "T"
+              ],
+              "type": "object",
+              "properties": {
+                "T": {
+                  "$ref": "#/definitions/valor"
+                }
+              }
+            },
+            "delta_nii": {
+              "title": "ΔNII",
+              "additionalProperties": false,
+              "required": [
+                "T1"
+              ],
+              "type": "object",
+              "properties": {
+                "T1": {
+                  "title": "T-1",
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/valor"
+                    }
+                  ]
+                }
+              } 
             }
-          ]
+          }
         },
         "irrbb1_outros": {
           "allOf": [
@@ -7780,12 +7798,12 @@
         "rema_a": {
           "type": "string",
           "maxLength": 4000,
-          "description": "Informações sobre o comitê de remuneração, incluindo:\n- Nome dos membros e seus respectivos períodos de mandato;\n- Consultorias externas eventualmente contratadas para implementação e acompanhamento da política de remuneração.\"\n"
+          "description": "Informações sobre o comitê de remuneração, incluindo:\n- Nome dos membros e seus respectivos períodos de mandato;\n- Consultorias externas eventualmente contratadas para implementação e acompanhamento da política de remuneração."
         },
         "rema_b": {
           "type": "string",
           "maxLength": 4000,
-          "description": "Informações sobre a estrutura de remuneração adotada, incluindo:\n- Principais características da política de remuneração e de seus objetivos.\n- Abrangência da política de remuneração aos níveis hierárquicos da instituição e às suas subsidiárias e filiais.\n- Alterações realizadas na política ao longo do ano de referência com a descrição das modificações e suas motivações, bem como seus impactos na remuneração.\n- Descrição dos mecanismos adotados para garantir que os funcionários das áreas de gerenciamento de risco, de controles internos e de conformidade (compliance) são remunerados independentemente do desempenho da área de negócios.\"\n"
+          "description": "Informações sobre a estrutura de remuneração adotada, incluindo:\n- Principais características da política de remuneração e de seus objetivos.\n- Abrangência da política de remuneração aos níveis hierárquicos da instituição e às suas subsidiárias e filiais.\n- Alterações realizadas na política ao longo do ano de referência com a descrição das modificações e suas motivações, bem como seus impactos na remuneração.\n- Descrição dos mecanismos adotados para garantir que os funcionários das áreas de gerenciamento de risco, de controles internos e de conformidade (compliance) são remunerados independentemente do desempenho da área de negócios."
         },
         "rema_c": {
           "type": "string",
@@ -7795,17 +7813,17 @@
         "rema_d": {
           "type": "string",
           "maxLength": 4000,
-          "description": "Descrição da correlação entre a avaliação de desempenho e os níveis e formas de remuneração, incluindo:\n- Visão geral das principais métricas utilizadas para avaliar o desempenho geral da instituição, de suas principais linhas de negócio e respectivos funcionários.\n- Descrição da interação entre os níveis de remuneração e os desempenhos da instituição, de cada unidade de negócios e individuais.\n- Descrição de ações previstas para ajuste da remuneração em caso de baixo desempenho e dos critérios para definir o nível mínimo aceitável de desempenho.\"\n"
+          "description": "Descrição da correlação entre a avaliação de desempenho e os níveis e formas de remuneração, incluindo:\n- Visão geral das principais métricas utilizadas para avaliar o desempenho geral da instituição, de suas principais linhas de negócio e respectivos funcionários.\n- Descrição da interação entre os níveis de remuneração e os desempenhos da instituição, de cada unidade de negócios e individuais.\n- Descrição de ações previstas para ajuste da remuneração em caso de baixo desempenho e dos critérios para definir o nível mínimo aceitável de desempenho."
         },
         "rema_e": {
           "type": "string",
           "maxLength": 4000,
-          "description": "Descrição do processo para adequar a remuneração ao desempenho de longo prazo, incluindo:\n- Descrição da política de diferimento da remuneração variável e do período de diferimento, bem como dos fatores que determinam a adoção de percentuais diferentes de diferimento entre funcionários ou grupos de funcionários.\n- Descrição dos critérios estabelecidos para ajuste na remuneração diferida antes do seu pagamento.\"\n"
+          "description": "Descrição do processo para adequar a remuneração ao desempenho de longo prazo, incluindo:\n- Descrição da política de diferimento da remuneração variável e do período de diferimento, bem como dos fatores que determinam a adoção de percentuais diferentes de diferimento entre funcionários ou grupos de funcionários.\n- Descrição dos critérios estabelecidos para ajuste na remuneração diferida antes do seu pagamento."
         },
         "rema_f": {
           "type": "string",
           "maxLength": 4000,
-          "description": "Descrição das diferentes formas de remuneração variável adotadas e as razões para sua utilização, incluindo:\n- Visão geral das formas de remuneração variável oferecidas (espécie, ações, instrumentos baseados em ações ou outros ativos) e de sua utilização para diferentes funcionários ou grupos de funcionários.\n- Descrição dos fatores que determinam a composição da remuneração variável.\"\n"
+          "description": "Descrição das diferentes formas de remuneração variável adotadas e as razões para sua utilização, incluindo:\n- Visão geral das formas de remuneração variável oferecidas (espécie, ações, instrumentos baseados em ações ou outros ativos) e de sua utilização para diferentes funcionários ou grupos de funcionários.\n- Descrição dos fatores que determinam a composição da remuneração variável."
         },
         "rema_outros": {
           "allOf": [
