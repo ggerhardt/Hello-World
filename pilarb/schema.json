@@ -2504,6 +2504,12 @@
         "cc2_semestreReferencia": {
           "$ref": "#/definitions/semestre"
         },
+        "cc2_ativos": {
+          "title": "Ativos",
+          "type": "object",
+          "additionalProperties": false,
+          "properties":{
+
         "cc2_1": {
           "title": "Caixa e equivalentes a caixa",
           "allOf": [
@@ -2583,8 +2589,8 @@
               "$ref": "#/definitions/valor_cc2"
             }
           ]
-        },
-        "cc2_11": {
+        }}},
+        "cc2_totalativos": {
           "title": "Total de ativos",
           "allOf": [
             {
@@ -2592,6 +2598,12 @@
             }
           ]
         },
+        "cc2_passivos": {
+          "title": "Passivos",
+          "type": "object",
+          "additionalProperties": false,
+          "properties":{
+
         "cc2_12": {
           "title": "Depósitos e demais instrumentos financeiros",
           "allOf": [
@@ -2615,8 +2627,8 @@
               "$ref": "#/definitions/valor_cc2"
             }
           ]
-        },
-        "cc2_15": {
+        }}},
+        "cc2_totalpassivos": {
           "title": "Total de passivos",
           "allOf": [
             {
@@ -2624,6 +2636,12 @@
             }
           ]
         },
+        "cc2_patrimonioliquido": {
+          "title": "Patrimônio líquido",
+          "type": "object",
+          "additionalProperties": false,
+          "properties":{
+
         "cc2_16": {
           "title": "Capital Social",
           "allOf": [
@@ -2679,8 +2697,8 @@
               "$ref": "#/definitions/valor_cc2"
             }
           ]
-        },
-        "cc2_23": {
+        }}},
+        "cc2_patrimonioliquidototal": {
           "title": "Patrimônio líquido total",
           "allOf": [
             {
