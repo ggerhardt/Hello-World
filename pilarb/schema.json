@@ -807,7 +807,7 @@
             ]
           }
         }},
-        "li1_totalativos": {
+        "li1_ativos_total": {
           "title": "Total de ativos",
           "allOf": [
             {
@@ -816,7 +816,7 @@
           ]
         },
         "li1_passivos": {
-          "title": "Ativos",
+          "title": "Passivos",
           "type": "object",
           "additionalProperties": false,
           "properties":{
@@ -845,7 +845,7 @@
             ]
           }
         }},
-        "li1_totalpassivos": {
+        "li1_passivos_total": {
           "title": "Total de passivos",
           "allOf": [
             {
@@ -2590,7 +2590,7 @@
             }
           ]
         }}},
-        "cc2_totalativos": {
+        "cc2_ativos_total": {
           "title": "Total de ativos",
           "allOf": [
             {
@@ -2628,7 +2628,7 @@
             }
           ]
         }}},
-        "cc2_totalpassivos": {
+        "cc2_passivos_total": {
           "title": "Total de passivos",
           "allOf": [
             {
@@ -2698,7 +2698,7 @@
             }
           ]
         }}},
-        "cc2_patrimonioliquidototal": {
+        "cc2_patrimonioliquido_total": {
           "title": "Patrimônio líquido total",
           "allOf": [
             {
