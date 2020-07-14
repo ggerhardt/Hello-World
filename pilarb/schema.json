@@ -721,85 +721,90 @@
         "li1_anoReferencia": {
           "$ref": "#/definitions/ano"
         },
-        "li1_1": {
-          "title": "Caixa e equivalentes a caixa",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_2": {
-          "title": "Instrumentos financeiros",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_3": {
-          "title": "Operações de arrendamento mercantil",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_4": {
-          "title": "Provisões para perdas esperadas associadas ao risco de crédito",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_5": {
-          "title": "Crédito tributário",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_6": {
-          "title": "Investimentos em participações em coligadas e controladas",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_7": {
-          "title": "Imobilizado de uso",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_8": {
-          "title": "Intangível",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_9": {
-          "title": "Depreciações e amortizações",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_10": {
-          "title": "Provisões para redução ao valor recuperável de ativos",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
+        "li1_ativos": {
+          "title": "Ativos",
+          "type": "object",
+          "additionalProperties": false,
+          "li1_1": {
+            "title": "Caixa e equivalentes a caixa",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_2": {
+            "title": "Instrumentos financeiros",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_3": {
+            "title": "Operações de arrendamento mercantil",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_4": {
+            "title": "Provisões para perdas esperadas associadas ao risco de crédito",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_5": {
+            "title": "Crédito tributário",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_6": {
+            "title": "Investimentos em participações em coligadas e controladas",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_7": {
+            "title": "Imobilizado de uso",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_8": {
+            "title": "Intangível",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_9": {
+            "title": "Depreciações e amortizações",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_10": {
+            "title": "Provisões para redução ao valor recuperável de ativos",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          }
         },
         "li1_11": {
           "title": "Total de ativos",
@@ -809,29 +814,34 @@
             }
           ]
         },
-        "li1_12": {
-          "title": "Depósitos e demais instrumentos financeiros",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_13": {
-          "title": "Provisões",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
-        },
-        "li1_14": {
-          "title": "Obrigações fiscais diferidas",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
-            }
-          ]
+        "li1_passivos": {
+          "title": "Ativos",
+          "type": "object",
+          "additionalProperties": false,
+          "li1_12": {
+            "title": "Depósitos e demais instrumentos financeiros",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_13": {
+            "title": "Provisões",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          },
+          "li1_14": {
+            "title": "Obrigações fiscais diferidas",
+            "allOf": [
+              {
+                "$ref": "#/definitions/valor_li1"
+              }
+            ]
+          }
         },
         "li1_15": {
           "title": "Total de passivos",
