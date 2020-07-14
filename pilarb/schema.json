@@ -725,6 +725,7 @@
           "title": "Ativos",
           "type": "object",
           "additionalProperties": false,
+          "properties": {
           "li1_1": {
             "title": "Caixa e equivalentes a caixa",
             "allOf": [
@@ -805,8 +806,8 @@
               }
             ]
           }
-        },
-        "li1_11": {
+        }},
+        "li1_totalativos": {
           "title": "Total de ativos",
           "allOf": [
             {
@@ -818,6 +819,7 @@
           "title": "Ativos",
           "type": "object",
           "additionalProperties": false,
+          "properties":{
           "li1_12": {
             "title": "Depósitos e demais instrumentos financeiros",
             "allOf": [
@@ -842,8 +844,8 @@
               }
             ]
           }
-        },
-        "li1_15": {
+        }},
+        "li1_totalpassivos": {
           "title": "Total de passivos",
           "allOf": [
             {
