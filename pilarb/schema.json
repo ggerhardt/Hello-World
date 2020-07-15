@@ -726,132 +726,134 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-          "li1_1": {
-            "title": "Caixa e equivalentes a caixa",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_2": {
-            "title": "Instrumentos financeiros",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_3": {
-            "title": "Operações de arrendamento mercantil",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_4": {
-            "title": "Provisões para perdas esperadas associadas ao risco de crédito",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_5": {
-            "title": "Crédito tributário",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_6": {
-            "title": "Investimentos em participações em coligadas e controladas",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_7": {
-            "title": "Imobilizado de uso",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_8": {
-            "title": "Intangível",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_9": {
-            "title": "Depreciações e amortizações",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_10": {
-            "title": "Provisões para redução ao valor recuperável de ativos",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          }
-        }},
-        "li1_ativos_total": {
-          "title": "Total de ativos",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
+            "li1_1": {
+              "title": "Caixa e equivalentes a caixa",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_2": {
+              "title": "Instrumentos financeiros",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_3": {
+              "title": "Operações de arrendamento mercantil",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_4": {
+              "title": "Provisões para perdas esperadas associadas ao risco de crédito",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_5": {
+              "title": "Crédito tributário",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_6": {
+              "title": "Investimentos em participações em coligadas e controladas",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_7": {
+              "title": "Imobilizado de uso",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_8": {
+              "title": "Intangível",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_9": {
+              "title": "Depreciações e amortizações",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_10": {
+              "title": "Provisões para redução ao valor recuperável de ativos",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_ativos_total": {
+              "title": "Total de ativos",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
             }
-          ]
+          }
         },
         "li1_passivos": {
           "title": "Passivos",
           "type": "object",
           "additionalProperties": false,
-          "properties":{
-          "li1_12": {
-            "title": "Depósitos e demais instrumentos financeiros",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_13": {
-            "title": "Provisões",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          },
-          "li1_14": {
-            "title": "Obrigações fiscais diferidas",
-            "allOf": [
-              {
-                "$ref": "#/definitions/valor_li1"
-              }
-            ]
-          }
-        }},
-        "li1_passivos_total": {
-          "title": "Total de passivos",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_li1"
+          "properties": {
+            "li1_12": {
+              "title": "Depósitos e demais instrumentos financeiros",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_13": {
+              "title": "Provisões",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_14": {
+              "title": "Obrigações fiscais diferidas",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
+            },
+            "li1_passivos_total": {
+              "title": "Total de passivos",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_li1"
+                }
+              ]
             }
-          ]
+          }
         },
         "li1_outros": {
           "allOf": [
@@ -2508,203 +2510,206 @@
           "title": "Ativos",
           "type": "object",
           "additionalProperties": false,
-          "properties":{
-
-        "cc2_1": {
-          "title": "Caixa e equivalentes a caixa",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
+          "properties": {
+            "cc2_1": {
+              "title": "Caixa e equivalentes a caixa",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_2": {
+              "title": "Instrumentos financeiros",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_3": {
+              "title": "Operações de arrendamento mercantil",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_4": {
+              "title": "Provisões para perdas esperadas associadas ao risco de crédito",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_5": {
+              "title": "Créditos tributários",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_6": {
+              "title": "Investimentos em participações em coligadas e controladas",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_7": {
+              "title": "Imobilizado de uso",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_8": {
+              "title": "Intangível",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_9": {
+              "title": "Depreciações e amortizações",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_10": {
+              "title": "Provisões para redução ao valor recuperável de ativos",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_ativos_total": {
+              "title": "Total de ativos",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
             }
-          ]
-        },
-        "cc2_2": {
-          "title": "Instrumentos financeiros",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_3": {
-          "title": "Operações de arrendamento mercantil",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_4": {
-          "title": "Provisões para perdas esperadas associadas ao risco de crédito",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_5": {
-          "title": "Créditos tributários",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_6": {
-          "title": "Investimentos em participações em coligadas e controladas",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_7": {
-          "title": "Imobilizado de uso",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_8": {
-          "title": "Intangível",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_9": {
-          "title": "Depreciações e amortizações",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_10": {
-          "title": "Provisões para redução ao valor recuperável de ativos",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        }}},
-        "cc2_ativos_total": {
-          "title": "Total de ativos",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
+          }
         },
         "cc2_passivos": {
           "title": "Passivos",
           "type": "object",
           "additionalProperties": false,
-          "properties":{
-
-        "cc2_12": {
-          "title": "Depósitos e demais instrumentos financeiros",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
+          "properties": {
+            "cc2_12": {
+              "title": "Depósitos e demais instrumentos financeiros",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_13": {
+              "title": "Provisões",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_14": {
+              "title": "Obrigações fiscais diferidas",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_passivos_total": {
+              "title": "Total de passivos",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
             }
-          ]
-        },
-        "cc2_13": {
-          "title": "Provisões",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_14": {
-          "title": "Obrigações fiscais diferidas",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        }}},
-        "cc2_passivos_total": {
-          "title": "Total de passivos",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
+          }
         },
         "cc2_patrimonioliquido": {
           "title": "Patrimônio líquido",
           "type": "object",
           "additionalProperties": false,
-          "properties":{
-
-        "cc2_16": {
-          "title": "Capital Social",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
+          "properties": {
+            "cc2_16": {
+              "title": "Capital Social",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_17": {
+              "title": "Capital Social: montante elegível para Capital Principal",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_18": {
+              "title": "Capital Social: montante elegível para Capital Complementar",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_19": {
+              "title": "Reservas de lucros",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_20": {
+              "title": "Outros resultados abrangentes",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_21": {
+              "title": "Lucros ou prejuízos acumulados",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_22": {
+              "title": "Ações em tesouraria",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
+            },
+            "cc2_patrimonioliquido_total": {
+              "title": "Patrimônio líquido total",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/valor_cc2"
+                }
+              ]
             }
-          ]
-        },
-        "cc2_17": {
-          "title": "Capital Social: montante elegível para Capital Principal",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_18": {
-          "title": "Capital Social: montante elegível para Capital Complementar",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_19": {
-          "title": "Reservas de lucros",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_20": {
-          "title": "Outros resultados abrangentes",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_21": {
-          "title": "Lucros ou prejuízos acumulados",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        },
-        "cc2_22": {
-          "title": "Ações em tesouraria",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
-        }}},
-        "cc2_patrimonioliquido_total": {
-          "title": "Patrimônio líquido total",
-          "allOf": [
-            {
-              "$ref": "#/definitions/valor_cc2"
-            }
-          ]
+          }
         },
         "cc2_outros": {
           "allOf": [
@@ -6980,7 +6985,7 @@
         },
         "b": {
           "title": "VaR estressado",
-          "description": "Resultado da fórmula 1/F * max ((M/60 * Somatório (i=0 até 59) de VaRt=<sub>i</sub> ), sVaR<sub>t</sub>), contemplando o maior valor entre o sVaR do dia e a multiplicação entre o fator M e o sVaR médio dos últimos 60 dias, dividido pelo fator F. O fator F é estabelecido no art. 4º da Resolução nº 4.193, de 2013. O valor do VaR estressado deve ser apurado conforme o art. 10º da Circular nº 3.646, de 2013.",
+          "description": "Resultado da fórmula 1/F * max ((M/60 * Somatório (i=0 até 59) de sVaRt=<sub>i</sub> ), sVaR<sub>t</sub>), contemplando o maior valor entre o sVaR do dia e a multiplicação entre o fator M e o sVaR médio dos últimos 60 dias, dividido pelo fator F. O fator F é estabelecido no art. 4º da Resolução nº 4.193, de 2013. O valor do VaR estressado deve ser apurado conforme o art. 10º da Circular nº 3.646, de 2013.",
           "allOf": [
             {
               "$ref": "#/definitions/valor"
