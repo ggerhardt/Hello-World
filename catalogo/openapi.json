@@ -28,13 +28,13 @@
                 },
                 "examples": {
                   "Exemplo com mais de um conjunto": {
-                    "$ref": "#/components/examples/example3"
-                  },
-                  "Exemplo com parâmetros atualizados no catálogo": {
                     "$ref": "#/components/examples/example1"
                   },
-                  "Exemplo com parâmetros vindos de um recurso externo": {
+                  "Exemplo com parâmetros atualizados no catálogo": {
                     "$ref": "#/components/examples/example2"
+                  },
+                  "Exemplo com parâmetros vindos de um recurso externo": {
+                    "$ref": "#/components/examples/example3"
                   }
                 }
               }
@@ -70,71 +70,6 @@
     "examples": {
       "example1": {
         "value": {
-          "cnpj": "90.909.090",
-          "nome": "Banco ZZZ",
-          "dataUltimaAtualizacao": "2019-08-11",
-          "contatoArea": "informacoes clientes",
-          "contatoEmail": "clientInfo@bancozzz.com.br",
-          "conjuntos": [
-            {
-              "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json",
-              "nome": "Relatório de Pilar 3",
-              "urlBase": "http://www.bancozzz.com.br/dadosabertos/1.0/",
-              "urlVisualizacao": "https://bancozzz.com.br/DadosAbertos/Pilar3",
-              "situacao": "Produção",
-              "recursos": [
-                {
-                  "nome": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
-                  "caminhoRecurso": "/km1/{semestre}",
-                  "parametros": {
-                    "nome": "semestre",
-                    "valores": [
-                      "2019-4",
-                      "2020-1"
-                    ]
-                  },
-                  "periodicidade": "semestral"
-                }
-              ],
-              "contatoArea": "Financeiro",
-              "contatoEmail": "pilar3@bancoxyz.com"
-            }
-          ]
-        }
-      },
-      "example2": {
-        "value": {
-          "cnpj": "01.010.101",
-          "nome": "Banco Xyz",
-          "dataUltimaAtualizacao": "2019-06-11",
-          "contatoArea": "Ouvidoria",
-          "contatoEmail": "ouvid@bancoxyz.com.br",
-          "conjuntos": [
-            {
-              "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json",
-              "nome": "Relatório de Pilar 3",
-              "urlBase": "http://dadosabertos.bancoxyz.com.br/pilar3/",
-              "urlVisualizacao": "https://bancoxyz.com.br/ConsultaPilar3",
-              "situacao": "Produção",
-              "recursos": [
-                {
-                  "nome": "LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).",
-                  "caminhoRecurso": "/lia/{ano}",
-                  "parametros": {
-                    "nome": "ano",
-                    "urlValores": "http://dadosabertos.bancoxyz.com.br/pilar3/periodos/lia.json"
-                  },
-                  "periodicidade": "anual"
-                }
-              ],
-              "contatoArea": "Financeiro",
-              "contatoEmail": "pilar3@bancoxyz.com"
-            }
-          ]
-        }
-      },
-      "example3": {
-        "value": {
           "cnpj": "01.010.101",
           "nome": "Banco Xyz",
           "dataUltimaAtualizacao": "2019-06-11",
@@ -162,6 +97,71 @@
               "contatoArea": "Financeiro",
               "contatoEmail": "cartoes@bancoxyz.com"
             },
+            {
+              "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json",
+              "nome": "Relatório de Pilar 3",
+              "urlBase": "http://dadosabertos.bancoxyz.com.br/pilar3/",
+              "urlVisualizacao": "https://bancoxyz.com.br/ConsultaPilar3",
+              "situacao": "Produção",
+              "recursos": [
+                {
+                  "nome": "LIA - Explicar as diferenças entre os valores contábeis tais como reportados nas demonstrações financeiras (tabela LI1) e as exposições consideradas para fins da regulamentação prudencial (tabela LI2).",
+                  "caminhoRecurso": "/lia/{ano}",
+                  "parametros": {
+                    "nome": "ano",
+                    "urlValores": "http://dadosabertos.bancoxyz.com.br/pilar3/periodos/lia.json"
+                  },
+                  "periodicidade": "anual"
+                }
+              ],
+              "contatoArea": "Financeiro",
+              "contatoEmail": "pilar3@bancoxyz.com"
+            }
+          ]
+        }
+      },
+      "example2": {
+        "value": {
+          "cnpj": "90.909.090",
+          "nome": "Banco ZZZ",
+          "dataUltimaAtualizacao": "2019-08-11",
+          "contatoArea": "informacoes clientes",
+          "contatoEmail": "clientInfo@bancozzz.com.br",
+          "conjuntos": [
+            {
+              "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json",
+              "nome": "Relatório de Pilar 3",
+              "urlBase": "http://www.bancozzz.com.br/dadosabertos/1.0/",
+              "urlVisualizacao": "https://bancozzz.com.br/DadosAbertos/Pilar3",
+              "situacao": "Produção",
+              "recursos": [
+                {
+                  "nome": "KM1 - Informações quantitativas sobre os requerimentos prudenciais",
+                  "caminhoRecurso": "/km1/{trimestre}",
+                  "parametros": {
+                    "nome": "trimestre",
+                    "valores": [
+                      "2019-4",
+                      "2020-1"
+                    ]
+                  },
+                  "periodicidade": "trimestral"
+                }
+              ],
+              "contatoArea": "Financeiro",
+              "contatoEmail": "pilar3@bancoxyz.com"
+            }
+          ]
+        }
+      },
+      "example3": {
+        "value": {
+          "cnpj": "01.010.101",
+          "nome": "Banco Xyz",
+          "dataUltimaAtualizacao": "2019-06-11",
+          "contatoArea": "Ouvidoria",
+          "contatoEmail": "ouvid@bancoxyz.com.br",
+          "conjuntos": [
             {
               "ref": "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json",
               "nome": "Relatório de Pilar 3",
