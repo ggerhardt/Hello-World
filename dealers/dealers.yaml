@@ -1,0 +1,119 @@
+openapi: 3.0.1
+info:
+  title: Relatórios de Dealers
+  description: Lista de relatórios publicads pelo Demap sobre Dealers
+  license:
+    name: open-licence
+    url: 'https://www.openbanking.org.uk/open-licence'
+  version: v3.1.6
+paths:
+  /dealers:
+    get:
+      summary: Get Account Access Consents
+      operationId: GetAccountAccessConsentsConsentId
+      responses:
+        '200':
+          description: Account Access Consents Read
+          headers:
+            x-fapi-interaction-id:
+              description: An RFC4122 UID used as a correlation id.
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/dealers'
+components:
+  schemas:
+    dealers:
+      type: array
+      items:
+        $ref: '#/components/schemas/relat'
+    relat:
+      type: object
+      properties:
+        inicio:
+          type: string
+        fim:
+          type: string
+        referencias:
+          type: array
+          items:
+            type: string
+        pdfs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PDF'
+        top5:
+          type: array
+          items:
+            $ref: '#/components/schemas/Top5'
+        parciais:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parciai'
+      title: relat
+    Parciai:
+      type: object
+      properties:
+        titulo:
+          type: string
+        referencias:
+          type: array
+          items:
+            type: string
+        informacao:
+          type: array
+          items:
+            $ref: '#/components/schemas/Informacao'
+      title: Parciai
+    Informacao:
+      type: object
+      properties:
+        inicio:
+          type: string
+        fim:
+          type: string
+        pdf:
+          type: string
+      title: Informacao
+    PDF:
+      type: object
+      properties:
+        titulo:
+          type: string
+        url:
+          type: string
+          format: uri
+      title: PDF
+    Top5:
+      type: object
+      properties:
+        titulo:
+          type: string
+        referencias:
+          type: array
+          items:
+            type: string
+        lista:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lista'
+      title: Top5
+    Lista:
+      type: object
+      properties:
+        titulo:
+          $ref: '#/components/schemas/Titulo'
+        pdfs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PDF'
+      title: Lista
+    Titulo:
+      type: string
+      enum:
+        - Dealers Top 5 - Ranking de Ofertas Públicas
+        - Dealers Top 5 - Ranking de Operações Definitivas com o Mercado
+      title: Titulo
+  
