@@ -6,8 +6,8 @@
               "https://www.bcb.gov.br/htms/dasfn/taxas_cartoes/1.2.0/openapi.json",
               "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json"
             ]},
-    "epiResources": { "enum": [
-				            "/branches",
+    "apiResources": { "enum": [
+		    "/branches",
                     "/itens",
                     "/itens/ultimo",
                     "/km1/{trimestre}",
