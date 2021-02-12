@@ -1,11 +1,11 @@
 {
   "definitions": {
-    "apiEnum": [
+    "apiEnum": {"enum" :[
               "https://www.bcb.gov.br/htms/dasfn/canais_atendimento/1.0.0/openapi.json",
               "https://www.bcb.gov.br/htms/dasfn/canais_atendimento/1.0.1/openapi.json",
               "https://www.bcb.gov.br/htms/dasfn/taxas_cartoes/1.2.0/openapi.json",
               "https://www.bcb.gov.br/htms/dasfn/pilar3/1.2.0/openapi.json"
-            ],
-    "epiResources": ["VAL3", "VAL4"] 
+            ]},
+    "epiResources": { "enum": ["VAL3", "VAL4"] }
    }
 }
