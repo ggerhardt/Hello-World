@@ -1,0 +1,6 @@
+{
+  "definitions": {
+    "apiEnum": { "enum": ["VAL1", "VAL2"] },
+    "epiResources": { "enum": ["VAL3", "VAL4"] }
+   }
+}
