@@ -34,7 +34,7 @@
     },
     "otherName":{
       "title": "Outro nome",
-      "type":["string","null]
+      "type":["string","null"]
     },
     "contatoArea": {
       "title": "Área de contato",
