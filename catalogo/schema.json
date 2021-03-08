@@ -32,6 +32,10 @@
       "description": "Data da última atualização destas informações, no formato yyyy-mm-dd.",
       "format": "date"
     },
+    "otherName":{
+      "title": "Outro nome",
+      "type":["string","null]
+    },
     "contatoArea": {
       "title": "Área de contato",
       "maxLength": 100,
